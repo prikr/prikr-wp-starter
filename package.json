@@ -1,0 +1,59 @@
+{
+  "name": "prikr-wp-starter",
+  "description": "official prikr wordpress theme",
+  "author": {
+    "name": "Jasper van Doorn",
+    "email": "jasper@prikr.io",
+    "url": "https://prikr.io"
+  },
+  "keywords": [
+    "prikr-wp-starter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prikr/prikr-wp-starter"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "dev": "gulp watch",
+    "push:develop": "git push origin develop && git ftp push -s develop",
+    "push:master": "git push origin master && git ftp push -s productie"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap": "^5.0.0-beta1",
+    "browser-sync": "^2.26.13",
+    "fs": "0.0.1-security",
+    "gulp-babel": "8",
+    "gulp-babel-minify": "^0.5.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-terser": "^1.4.1",
+    "jquery": "^3.5.1",
+    "jquery-ui-dist": "^1.12.1",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.6.0",
+    "aos": "^2.3.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-combine": "^0.1.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-purgecss": "^3.1.3",
+    "gulp-uglify": "^3.0.2"
+  }
+}
