@@ -12,6 +12,7 @@ const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const minify = require('gulp-babel-minify');
 const clean = require('gulp-clean-css');
+const cache = require('gulp-cache');
 
 // BrowserSync
 function browserSync(done) {
@@ -25,6 +26,7 @@ function browserSync(done) {
   
   // BrowserSync Reload
   function browserSyncReload(done) {
+    cache.clearAll();
     browsersync.reload();
     done();
   }
@@ -114,7 +116,7 @@ function js(done) {
 
 // Watch files
 function watchFiles() {
-  gulp.watch("./src/scss/**/*", compileSass).on('change', browsersync.reload);
+  gulp.watch("./src/scss/**/*", compileSass).on('change');
   gulp.watch("./src/css/*", css).on('change', browsersync.reload);
   gulp.watch("./src/js/*", js).on('change', browsersync.reload);
   gulp.watch(      
@@ -132,6 +134,7 @@ function watchFiles() {
     ],
     browserSyncReload
   );
+  // Or, just call this for everything
   gulp.watch("./src/img/*", images);
 }
 
