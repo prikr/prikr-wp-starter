@@ -24,3 +24,6 @@ require get_template_directory() . '/functions/functions.php';
 
 // Import all includes
 require get_template_directory() . '/includes/includes.php';
+
+// Import all includes
+require get_template_directory() . '/modules/modules.php';
