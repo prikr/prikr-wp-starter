@@ -3,6 +3,9 @@
  *  Author: Jasper van Doorn
  *  Header.php
  */
+ 
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 ?>
 <!DOCTYPE html>
 <!-- Designed & Developed with ♥ and ☕ by prikr. -->

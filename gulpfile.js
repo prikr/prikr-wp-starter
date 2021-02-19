@@ -1,16 +1,15 @@
 import gulp from 'gulp'
-import path    from 'path'
 import webpack from 'webpack'
 import Browser from 'browser-sync'
-import webpackDevMiddleware from 'webpack-dev-middleware'
 
-// Operators
-import { compile, config as webpackConfig} from './operators/webpack'
 import { compileSass, css, devCss } from './operators/styles'
 import { images } from './operators/images'
 
-const browser = Browser.create()
+import { compile, config as webpackConfig} from './operators/webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+
 const bundler = webpack(webpackConfig)
+const browser = Browser.create()
 
 export function serve(done) {
     let config = {
@@ -29,19 +28,18 @@ export function serve(done) {
              })
         ],
     }
+    
     browser.init(config);
+    done();
 }
 
 export function reload(done) {
     browser.reload();
 }
 
-
-
-
 export function watcher() {
   gulp.watch("./src/scss/**/*", compileSass);
-  gulp.watch("./src/css/*", devCss).on('change', reload);
+  gulp.watch("./src/css/*", devCss).on('ready', reload);
   gulp.watch("./src/js/**/*", compile).on('change', reload);
   gulp.watch("./src/img/*", images).on('change', reload);
   gulp.watch([
@@ -65,7 +63,7 @@ export function watcher() {
 }
 
 // Define complex tasks
-export const dev   = gulp.parallel(serve, watcher);
+export const dev   = gulp.series(serve, watcher);
 export const build = gulp.series(compile, compileSass, css, images);
 export const style = gulp.series(compileSass, devCss);
 

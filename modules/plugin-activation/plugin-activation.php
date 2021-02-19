@@ -78,13 +78,13 @@ function prikr_register_required_plugins() {
     ),
 
     // Custom WordPress plugins:
-    array(
-      'name'      => 'WP Rocket',
-      'slug'      => 'wp-rocket',
-      'source'    => get_template_directory() . '/modules/plugin-activation/plugins/wp-rocket.zip', // The plugin source.
-      'required'  => true,
-      'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-    )
+    // array(
+    //   'name'      => 'WP Rocket',
+    //   'slug'      => 'wp-rocket',
+    //   'source'    => get_template_directory() . '/modules/plugin-activation/plugins/wp-rocket.zip', // The plugin source.
+    //   'required'  => true,
+    //   'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+    // )
 	);
 
 

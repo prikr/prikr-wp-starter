@@ -1,4 +1,4 @@
-import gulp from gulp
+import gulp from 'gulp'
 import imagemin from 'gulp-imagemin'
 import newer from 'gulp-newer'
 
@@ -46,4 +46,4 @@ function images() {
     .pipe(gulp.dest("./../dist/img"));
 }
 
-exports.images = images;
+module.exports = { images };

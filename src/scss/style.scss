@@ -3,9 +3,6 @@
 
 @import 'abstracts/mixins';
 
-//  JQuery UI
-@import "node_modules/jquery-ui-dist/jquery-ui.min";
-
 // FONTAWESOME
 @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
@@ -21,5 +18,6 @@
 @import "base/typography";
 
 // Components
+@import "components/lazyload";
 
 // Pages

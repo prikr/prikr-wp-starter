@@ -1,14 +1,17 @@
 import gulp from 'gulp'
 const googleWebFonts = require('gulp-google-webfonts');
 
-gulp.task('fonts', function () {
-  return gulp.src('./../.googlefonts.list')
+function fonts() {
+  return gulp
+    .src('./../.googlefonts.list')
     .pipe(googleWebFonts({
       fontsDir: './../dist/fonts',
       cssDir: './../src/scss/abstracts/',
       cssFilename: '_fonts.scss'
     }))
     .pipe(gulp.dest('./'));
-});
+}
 
-exports.fonts = fonts;
+module.exports = {
+  fonts
+}

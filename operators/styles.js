@@ -1,23 +1,24 @@
-import gulp from gulp
+import gulp from 'gulp'
+import path    from 'path'
 import debug from 'gulp-debug'
+import Browser from 'browser-sync'
 
-const csso = require('gulp-csso');
-const postcss = require('gulp-postcss');
+const browser = Browser.create();
+
+const csso = require('gulp-csso')
+const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
-const purgecss = require('gulp-purgecss');
-const purgeRules = require('./.purgecss.safelist');
-const headerComment = require('gulp-header-comment');
+const purgecss = require('gulp-purgecss')
+const purgeRules = require('./../.purgecss.safelist')
+const headerComment = require('gulp-header-comment')
 
 // Compile SASS files
 function compileSass() {
-  return gulp.src('./../src/scss/style.scss')
+  return gulp.src('./src/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./src/css/'))
-    .pipe(browser.stream({
-      match: '**/*.css'
-    }))
 }
 
 function css() {
@@ -47,7 +48,7 @@ function css() {
       title: 'CSSO done!'
     }))
     .pipe(headerComment({
-      file: path.join(__dirname, 'createdby.prikr.scss')
+      file: path.join(__dirname, '../createdby.prikr.scss')
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(debug({
@@ -64,15 +65,17 @@ function devCss() {
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer()]))
     .pipe(headerComment({
-      file: path.join(__dirname, 'createdby.prikr.scss')
+      file: path.join(__dirname, '../createdby.prikr.scss')
     }))
     .pipe(debug({
       title: 'WordPress header comment added!'
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./'))
-    .pipe(browser.stream({
+    .pipe(
+      browser.stream({
       match: '**/*.css'
     }))
 }
-exports.devCss = devCss;
+
+module.exports = { compileSass, css, devCss }
