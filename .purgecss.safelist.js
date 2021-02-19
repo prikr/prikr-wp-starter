@@ -41,6 +41,7 @@ module.exports = {
     'invalid-feedback',
     'valid-feedback',
     'was-validated',
+    'cookieconsent__close',
   ],
   greedy: [
 
