@@ -1,0 +1,41 @@
+name: development | 🚀 Deploy website on push
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    types: [closed]
+    branches: [develop]
+jobs:
+  web-deploy:
+    name: 🎉 Deploy to production
+    runs-on: ubuntu-latest
+    steps:
+    - name: "step-log"
+      run: |
+        echo "github: ${{ github }}"
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2.3.2
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.DEV_FTP_SERVER }}
+        username: ${{ secrets.DEV_FTP_USERNAME }}
+        password: ${{ secrets.DEV_FTP_PASSWORD }}
+        server-dir: public_html/wp-content/themes/teachdigital/
+        exclude: .git*
+          - .git*/**
+          -  **/.git*/**
+          - node_modules/**
+          - node_modules/**/*
+          - .eslintrc.js
+          - .gitignore
+          - .eslintignore
+          - .stylelintrc.json
+          - gulpfile.js
+          - package.json
+          - package-lock.json
+          - src/scss/*
+          - src/scss/**/*
+          - src/js/*
+          - src/js/**/*
