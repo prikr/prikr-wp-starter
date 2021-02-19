@@ -2,7 +2,7 @@ import gulp from 'gulp'
 import webpack from 'webpack'
 import Browser from 'browser-sync'
 
-import { compileSass, css, devCss } from './operators/styles'
+import { processSass } from './operators/styles'
 import { images } from './operators/images'
 
 import { compile, config as webpackConfig} from './operators/webpack'
@@ -17,6 +17,7 @@ export function serve(done) {
         proxy: 'localhost',
         open: 'local',
         notify: false,
+        injectChanges: false,
         ghostMode: {
             clicks: true,
             forms: true,
@@ -35,13 +36,20 @@ export function serve(done) {
 
 export function reload(done) {
     browser.reload();
+    done()
 }
 
 export function watcher() {
-  gulp.watch("./src/scss/**/*", compileSass);
-  gulp.watch("./src/css/*", devCss).on('ready', reload);
-  gulp.watch("./src/js/**/*", compile).on('change', reload);
-  gulp.watch("./src/img/*", images).on('change', reload);
+  gulp.watch(
+    [
+      './src/scss/*.scss',
+      './src/scss/*/*.scss'
+    ],
+    { ignoreInitial: false },
+    gulp.series(processSass, reload)
+  );
+  gulp.watch("./src/js/**/*", gulp.series(compile, reload));
+  gulp.watch("./src/img/*", gulp.series(images, reload));
   gulp.watch([
     "*.php",
     "./**/*.php",
@@ -64,7 +72,7 @@ export function watcher() {
 
 // Define complex tasks
 export const dev   = gulp.series(serve, watcher);
-export const build = gulp.series(compile, compileSass, css, images);
-export const style = gulp.series(compileSass, devCss);
+// export const build = gulp.series(compile, compileSass, css, images);
+// export const style = gulp.series(compileSass, devCss);
 
 export default dev

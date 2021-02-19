@@ -3,7 +3,7 @@ import LazyLoad from "vanilla-lazyload";
 const images = document.querySelectorAll("img");
 
 const createLazyLoadInstance = () => {
-  console.log('entering now!');
+  console.log('entering yes!');
 	return new LazyLoad({
     unobserve_entered: true,
     webp: true,
