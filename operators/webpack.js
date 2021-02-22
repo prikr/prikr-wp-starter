@@ -45,13 +45,13 @@ let config = {
       minimizer: [new TerserPlugin()],
     },
 
-    externals: {
+    plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             jquery: 'jquery'
         }),
-    }
+    ],
 }
 
 

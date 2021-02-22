@@ -16,11 +16,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "predev": "set cross-env NODE_ENV=development",
-    "dev": "gulp --require @babel/register",
+    "dev": "cross-env NODE_ENV=development gulp --require @babel/register",
     "style": "cross-env NODE_ENV=development gulp style --require @babel/register",
     "fonts": "cross-env NODE_ENV=development gulp fonts --require @babel/register",
-    "prebuild": "set cross-env NODE_ENV=production",
     "build": "cross-env NODE_ENV=production gulp build --require @babel/register",
     "push:develop": "git push origin develop && git ftp push -s develop",
     "push:master": "git push origin master && git ftp push -s productie"
