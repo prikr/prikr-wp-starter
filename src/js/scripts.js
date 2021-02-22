@@ -1,11 +1,10 @@
-import { Modal } from 'bootstrap';
+const Modal = import('../../node_modules/bootstrap/js/src/modal');
 
-import './cookieconsent';
-import './lazyload';
+const CookieConsent = import('./cookieconsent')
+const LazyLoad = import('./lazyload')
 
-import AOS from 'aos';
-
-AOS.init();
-
-window.acf = Object;
-document.acf = Object;
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./../dist/js/service-worker.js");
+  })
+}

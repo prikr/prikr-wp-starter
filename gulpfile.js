@@ -10,9 +10,9 @@ import { compile, config as webpackConfig} from './operators/webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 
 const bundler = webpack(webpackConfig)
-const browser = Browser.create()
+const browser = Browser.create('Server')
 
-export async function serve(done) {
+export function serve(done) {
   let config = {
     browser: 'Chrome',
     proxy: 'localhost',
@@ -40,7 +40,10 @@ export function watcher() {
       './src/scss/**/*.scss'
     ],
     { ignoreInitial: false },
-    processSass(browser),
+    gulp.series(processSass, function (done) {
+      browser.reload();
+      done();
+    }),
   );
   gulp.watch("./src/js/**/*", gulp.series(compile, function (done) {
     browser.reload();

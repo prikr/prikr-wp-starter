@@ -3,7 +3,6 @@ import path    from 'path'
 import debug from 'gulp-debug'
 import Browser from 'browser-sync'
 
-const browser = Browser.create();
 
 const csso = require('gulp-csso')
 const postcss = require('gulp-postcss')
@@ -14,7 +13,9 @@ const purgecss = require('gulp-purgecss')
 const purgeRules = require('./../.purgecss.safelist')
 const headerComment = require('gulp-header-comment')
 
-function processSass(browser) {
+function processSass() {
+  const browser = Browser.get('Server') ?? Browser.get('Server');
+
   let stream = gulp.src('./src/scss/style.scss')
   .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))

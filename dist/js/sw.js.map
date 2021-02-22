@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://prikr-wp-starter/./src/js/service-worker.js"],"names":["workbox","precaching","precacheAndRoute","self","__precacheManifest"],"mappings":";AAAAA,QAAQC,WAAWC,iBAAiBC,KAAKC","file":"sw.js","sourcesContent":["workbox.precaching.precacheAndRoute(self.__precacheManifest);\r\n"],"sourceRoot":""}
