@@ -65,15 +65,7 @@ let config = {
 			jquery: 'jquery'
 		}),
 		new webpack.optimize.ModuleConcatenationPlugin(),
-		new CleanWebpackPlugin(),
-		new HtmlWebpackPlugin({
-			title: 'Output Management',
-			title: 'Progressive Web Application',
-		}),
-		new WorkboxPlugin.InjectManifest({
-			swSrc: JS_DIR + "/service-worker.js",
-			swDest: BUILD_DIR + "/sw.js"
-		}),
+		new CleanWebpackPlugin()
 	],
 }
 

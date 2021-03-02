@@ -5,6 +5,7 @@ import Browser from 'browser-sync'
 
 
 const csso = require('gulp-csso')
+const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const sass = require('gulp-sass')
@@ -63,4 +64,35 @@ function processSass() {
   return stream;
 }
 
-module.exports = { processSass }
+// Compile SASS files
+function compileSass() {
+  return gulp.src('./src/scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src/css/'))
+}
+
+
+function rejectCss() {
+  return gulp.src('./src/css/style.css')
+    .pipe(debug({title: 'in pipe!'}))
+    .pipe(rename({
+      suffix: '.rejected'
+    }))
+    .pipe(purgecss({
+      content: [
+        './*.php',
+        './**/*.php',
+        './**/**/*.php',  
+        './**/**/**/*.php',  
+      ],
+      safelist: {
+        standard: purgeRules.standard,
+        greedy: purgeRules.greedy,
+      },
+      rejected: true,
+    }))
+    .pipe(debug({title: 'Purge CSS completed'}))
+    .pipe(gulp.dest('./'))
+}
+
+module.exports = { processSass, compileSass, rejectCss }

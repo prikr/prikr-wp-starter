@@ -1,10 +1,57 @@
-const Modal = import('../../node_modules/bootstrap/js/src/modal');
+/**
+ * Helpers
+ */
+import { onVisibilityChange } from './helpers'
 
-const CookieConsent = import('./cookieconsent')
-const LazyLoad = import('./lazyload')
+/**
+ * Web standards
+ */
+import './lazyload'
+import './cookieconsent'
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./../dist/js/service-worker.js");
-  })
-}
+/**
+ * Scripts which doesn't need dynamic import
+ */
+import {  Modal } from 'bootstrap';
+
+/**
+ * Dynamic import scripts
+ */
+const elements = [
+  '.tdfilters',
+
+];
+
+[].forEach.call(elements, (element) => {
+
+
+  if (document.querySelector(element) !== null && document.querySelector(element) !== undefined) {
+
+    const lazyloadHandler = onVisibilityChange(document.querySelector(element), function () {
+
+      // Example library without init:
+      // if (element === '.tdfilters') {
+      //   const Filters = import('./filters')
+      // }
+      
+      // Example library with init:
+      // if (element === '[data-aos]' || element === '.aos-element') {
+      //   const AOS = import('aos').then(AOS => {
+      //     AOS.init();
+      //   });
+      // }
+    })
+
+    if (window.addEventListener) {
+      addEventListener('DOMContentLoaded', lazyloadHandler, false);
+      addEventListener('load', lazyloadHandler, false);
+      addEventListener('scroll', lazyloadHandler, false);
+      addEventListener('resize', lazyloadHandler, false);
+    } else if (window.attachEvent) {
+      attachEvent('onDOMContentLoaded', lazyloadHandler); // Internet Explorer 9+ :(
+      attachEvent('onload', lazyloadHandler);
+      attachEvent('onscroll', lazyloadHandler);
+      attachEvent('onresize', lazyloadHandler);
+    }
+  }
+});

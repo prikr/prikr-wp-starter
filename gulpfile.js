@@ -2,7 +2,7 @@ import gulp from 'gulp'
 import webpack from 'webpack'
 import Browser from 'browser-sync'
 
-import { processSass } from './operators/styles'
+import { processSass, compileSass, rejectCss } from './operators/styles'
 import { images } from './operators/images'
 import { fonts } from './operators/fonts'
 
@@ -40,10 +40,7 @@ export function watcher() {
       './src/scss/**/*.scss'
     ],
     { ignoreInitial: false },
-    gulp.series(processSass, function (done) {
-      browser.reload();
-      done();
-    }),
+    processSass,
   );
   gulp.watch("./src/js/**/*", gulp.series(compile, function (done) {
     browser.reload();
@@ -76,7 +73,8 @@ export function watcher() {
 }
 
 // Define complex tasks
-export const dev   = gulp.series(serve, watcher);
+export const dev   = gulp.series(serve, processSass, compile, watcher);
 export const build = gulp.series(compile, processSass, images);
+export const reject = gulp.series(compileSass, rejectCss);
 
 export default dev
