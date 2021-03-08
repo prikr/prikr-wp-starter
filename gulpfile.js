@@ -78,6 +78,6 @@ export const dev   = gulp.series(serve, processSass, compile, watcher);
 export const build = gulp.series(compile, processSass, generateCriticalCss, images);
 export const reject = gulp.series(compileSass, rejectCss);
 export const critical = gulp.series(generateCriticalCss);
-export const fonts = gulp.series(fonts);
+export const generateFonts = gulp.series(fonts);
 
 export default dev

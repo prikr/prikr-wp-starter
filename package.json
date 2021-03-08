@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp --require @babel/register",
     "style": "cross-env NODE_ENV=development gulp style --require @babel/register",
-    "fonts": "cross-env NODE_ENV=development gulp fonts --require @babel/register",
+    "fonts": "cross-env NODE_ENV=development gulp generateFonts --require @babel/register",
     "build": "cross-env NODE_ENV=production gulp build --require @babel/register",
     "reject": "cross-env NODE_ENV=production gulp reject --require @babel/register",
     "critical": "cross-env NODE_ENV=production gulp critical --require @babel/register"
