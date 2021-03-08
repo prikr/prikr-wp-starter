@@ -5,6 +5,7 @@ import Browser from 'browser-sync'
 import { processSass, compileSass, rejectCss } from './operators/styles'
 import { images } from './operators/images'
 import { fonts } from './operators/fonts'
+import { generateCriticalCss } from './operators/critical'
 
 import { compile, config as webpackConfig} from './operators/webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
@@ -74,7 +75,9 @@ export function watcher() {
 
 // Define complex tasks
 export const dev   = gulp.series(serve, processSass, compile, watcher);
-export const build = gulp.series(compile, processSass, images);
+export const build = gulp.series(compile, processSass, generateCriticalCss, images);
 export const reject = gulp.series(compileSass, rejectCss);
+export const critical = gulp.series(generateCriticalCss);
+export const fonts = gulp.series(fonts);
 
 export default dev

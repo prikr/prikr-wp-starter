@@ -3,6 +3,9 @@
  * Content for cookie noticer
  * Author: Jasper van Doorn
  */
+ 
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 ?>
 
 <div class="cookieconsent cookieconsent__open" id="cookie_consent">

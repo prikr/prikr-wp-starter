@@ -11,24 +11,54 @@ if (!defined("MY_THEME_DIR_URI")) define("MY_THEME_DIR_URI", trailingslashit( ge
 
 include_once(MY_THEME_DIR . '.env.php');
 
-/* Enqueue scripts and styles.*/
-function template_scripts() {
-  // Enque font style file
-  wp_enqueue_style( 'template-style', get_template_directory_uri() . '/style.css');
-  if (!is_admin()) { 
-    // wp_register_script( 'jquery-defer', 'https://code.jquery.com/jquery-3.5.1.min.js', false, 0, true );
-    $environment = new Environment;
-    if ($environment->is_production()) {
-      wp_register_script( 'main-defer', get_template_directory_uri() . '/dist/js/scripts.min.js', 'template-style', '1', true);
-    } else {
-      wp_register_script( 'main-dev-defer', get_template_directory_uri() . '/dist/js/scripts.min.js', 'template-style', '1', true);
+/**
+ * Template styles with critical styles
+ */
+function prikr_critical_css() {
+	$styles = '';
+	$name = '';
+  $hasCritical = false;
+  $files = json_decode(file_get_contents( MY_THEME_DIR . 'critical.pages.json' ), true);
+  foreach( $files['urls'] as $file) {
+    if( call_user_func($file['condition'], $file['condition_argument']) ) {
+      $name = $file['name'];
+      $hasCritical = true;
     }
+  }
 
+	if($hasCritical !== true) {
+    $styles .= '<link rel="stylesheet" href="' . get_template_directory_uri() . '/style.css" />';		
+	} else {
+		$styles .= '<style>' . file_get_contents(get_template_directory_uri() . '/dist/critical/critical-' . $name . '.css', true) .'</style>';
+    $styles .= '<link rel="preload" href="' . get_template_directory_uri() . '/style.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"/>';
+  }
+
+  echo $styles;
+}
+add_action( 'wp_head', 'prikr_critical_css' );
+
+/**
+ * Template scripts
+ */
+function teachdigital_template_scripts()
+{
+  $environment = new Environment;
+  if (!is_admin()) {
     if ($environment->is_production()) {
-      wp_enqueue_script('main-defer');
+      wp_enqueue_script('main-defer', get_template_directory_uri() . '/dist/js/scripts.min.js', null, '1', true);
     } else {
-      wp_enqueue_script('main-dev-defer');
+      wp_enqueue_script('main-dev-defer', get_template_directory_uri() . '/dist/js/scripts.min.js', null, '1', true);
     }
   }
 }
-add_action( 'wp_enqueue_scripts', 'template_scripts' );
+add_action('wp_enqueue_scripts', 'teachdigital_template_scripts', 12);
+
+/**
+ * General theme functions
+ */
+require get_template_directory() . '/functions/functions.php';
+
+/**
+ * Theme includes
+ */
+require get_template_directory() . '/includes/includes.php';

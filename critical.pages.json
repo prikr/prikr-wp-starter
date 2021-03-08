@@ -1,0 +1,10 @@
+{
+  "urls": [
+    {
+      "name": "front-page",
+      "link": "http://localhost/",
+      "condition": "is_front_page",
+      "condition_argument": false
+    }
+  ]
+}

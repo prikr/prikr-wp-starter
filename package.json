@@ -20,7 +20,8 @@
     "style": "cross-env NODE_ENV=development gulp style --require @babel/register",
     "fonts": "cross-env NODE_ENV=development gulp fonts --require @babel/register",
     "build": "cross-env NODE_ENV=production gulp build --require @babel/register",
-    "reject": "cross-env NODE_ENV=production gulp reject --require @babel/register"
+    "reject": "cross-env NODE_ENV=production gulp reject --require @babel/register",
+    "critical": "cross-env NODE_ENV=production gulp critical --require @babel/register"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
@@ -45,6 +46,7 @@
     "html-webpack-plugin": "^5.2.0",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.5.1",
+    "penthouse": "^2.3.2",
     "popper.js": "^1.16.0",
     "postcss": "^8.2.4",
     "postcss-cli": "^8.3.1",
