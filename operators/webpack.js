@@ -3,8 +3,10 @@ import webpack from 'webpack'
 
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const dotenv = require('dotenv')
 
 const removeContent = require('rimraf');
 
@@ -13,6 +15,7 @@ const JS_DIR = path.resolve(__dirname, './../src/js/');
 const BUILD_DIR = path.resolve(__dirname, './../dist/js/');
 
 const mode = process.env.NODE_ENV;
+
 
 let config = {
 	context: HOME_DIR,
@@ -32,14 +35,31 @@ let config = {
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
 		alias: {
-			'vue$': 'vue/dist/vue.esm.js',
-		}
+			vue$: 'vue/dist/vue.esm.js',
+			process: 'process/browser',
+		},
+		fallback: {
+			"fs": false,
+			"tls": false,
+			"net": false,
+			"path": false,
+			"zlib": false,
+			"http": require.resolve('stream-http'),
+			"https": require.resolve('https-browserify'),
+			"stream": false,
+			"crypto": false,
+			"assert": require.resolve('assert'),
+			"url": require.resolve('url'),
+			"process": false,
+			"util": require.resolve('util'),
+			"crypto-browserify": require.resolve('crypto-browserify'), //if you want to use this module also don't forget npm i crypto-browserify,
+		} 
 	},
 
 	module: {
 		rules: [{
 				test: /\.js$/,
-				use: 'babel-loader',
+				use:  'babel-loader?cacheDirectory',
 				exclude: /node_modules/,
 			},
 			{
@@ -48,14 +68,14 @@ let config = {
 			},
 			{
 				test: /\.(scss|css)$/,
-				use: ['style-loader', 'css-loader', 'sass-loader'],
+				use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader'],
 			}
 		]
 	},
 
 	optimization: {
-		minimize: true,
-		minimizer: [new TerserPlugin()],
+		minimize: mode === 'production' ? true : false,
+		minimizer: mode === 'production' ? [new TerserPlugin()] : [],
 	},
 
 	plugins: [
@@ -65,12 +85,17 @@ let config = {
 			jquery: 'jquery'
 		}),
 		new webpack.optimize.ModuleConcatenationPlugin(),
-		new CleanWebpackPlugin()
+		new CleanWebpackPlugin(),
+		new VueLoaderPlugin(),
+		new webpack.DefinePlugin({
+			'process.env': JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
+	 }),
+	 new webpack.HotModuleReplacementPlugin(),
 	],
 }
 
 function compile() {
-	removeContent(BUILD_DIR, () => { console.log('content deleted and obtaining new content now.') })
+	if (mode === 'production') removeContent(BUILD_DIR, () => { console.log('content deleted and obtaining new content now.') });
 	return new Promise(resolve => webpack(config, (err, stats) => {
 		if (err) console.log('Webpack', err)
 		console.log(stats.toString({
