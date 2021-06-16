@@ -1,5 +1,3 @@
-import path from 'path'
-import penthouse from 'penthouse'
 import fs from 'fs'
 import urlList from '../critical.pages.json'
 import gulp from 'gulp'
@@ -8,28 +6,16 @@ import debug from 'gulp-debug'
 const es = require('event-stream');
 const mergeStream = require('merge-stream');
 const penthouser = require('gulp-penthouse');
-const addsrc = require('gulp-add-src');
 
-const sourcemaps = require('gulp-sourcemaps')
 const cleancss = require('gulp-clean-css');
-const headerComment = require('gulp-header-comment')
 const rename = require('gulp-rename')
-const csso = require('gulp-csso')
-const postcss = require('gulp-postcss')
 const concat = require('gulp-concat')
-const autoprefixer = require('autoprefixer')
-const sass = require('gulp-sass')
 const purgecss = require('gulp-purgecss')
 const purge = require('gulp-css-purge')
 const purgeRules = require('./../.purgecss.safelist')
 const wait = require('gulp-wait')
-
-
-var critical = require('critical');
-var ecss = require('gulp-extract-css');
-
-
-
+const replace = require('gulp-replace');
+const gutil = require('gulp-util');
 
 function generateCriticalCss(cb) {
 
@@ -72,11 +58,17 @@ function generateCriticalCss(cb) {
         .pipe(debug({
           title: '[ Penthouse done..  for' + obj.name + '!]'
         }))
-        // .pipe(purge({
-        //   trim : true,
-        //   shorten : true,
-        //   verbose : true
-        // }))
+        .pipe(replace(new RegExp('(:root{)([^}]*)(})'), (match, p1, offset, string) => {
+          console.log('Found ' + match + ' with param ' + p1 + ' at ' + offset + ' inside of ' + string);
+          return ':root{}'
+        })).on('error', gutil.log)
+        .pipe(replace('dist/fonts', 'wp-content/themes/vitalsun/dist/fonts'))
+        .pipe(replace('dist/img', 'wp-content/themes/vitalsun/dist/img'))
+        .pipe(purge({
+          trim : true,
+          shorten : true,
+          verbose : true
+        }))
         .pipe(gulp.dest('./dist/critical/'))
     }),
     urlList.urls.map((obj) => {

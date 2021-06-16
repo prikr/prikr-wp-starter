@@ -6,7 +6,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-function get_teachdigital_pagination($pages = '', $range = 4) {  
+function get_prikr_pagination($pages = '', $range = 4) {  
   $showitems = ($range * 2)+1;  
   global $paged;
   if (empty($paged)) $paged = 1;

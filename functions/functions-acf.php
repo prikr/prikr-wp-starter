@@ -6,7 +6,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-function teachdigital_add_theme_options_pages() {
+function prikr_add_theme_options_pages() {
   // Register option pages
   if( function_exists('acf_add_options_page') ):
 
@@ -124,7 +124,7 @@ function teachdigital_add_theme_options_pages() {
 
   endif;
 }
-add_action( 'init', 'teachdigital_add_theme_options_pages', 10 );
+add_action( 'init', 'prikr_add_theme_options_pages', 10 );
 
 // add default image setting to ACF image fields
 // let's you select a defualt image
@@ -141,12 +141,12 @@ function add_default_value_to_image_field($field) {
 }
 
 // Format Price fields value
-function teachdigital_currency_format($value, $post_id, $field) {
+function prikr_currency_format($value, $post_id, $field) {
   $value = number_format($value, 2, ',', '.');
   if (strpos($value, ',00')) return substr($value, -3) == ",00" ? substr($value, 0, -3) . ',-' : $value;
   return $value;
 }
-add_filter('acf/format_value/name=subprijs', 'teachdigital_currency_format', 20, 3);
+add_filter('acf/format_value/name=subprijs', 'prikr_currency_format', 20, 3);
 
 function form_remove_enqueues() {
   // Stylized select (including user and post fields)

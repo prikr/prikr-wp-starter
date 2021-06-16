@@ -40,7 +40,7 @@ add_action( 'wp_head', 'prikr_critical_css' );
 /**
  * Template scripts
  */
-function teachdigital_template_scripts()
+function prikr_template_scripts()
 {
   $environment = new Environment;
   if (!is_admin()) {
@@ -51,7 +51,7 @@ function teachdigital_template_scripts()
     }
   }
 }
-add_action('wp_enqueue_scripts', 'teachdigital_template_scripts', 12);
+add_action('wp_enqueue_scripts', 'prikr_template_scripts', 12);
 
 /**
  * General theme functions

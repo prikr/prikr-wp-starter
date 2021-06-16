@@ -7,13 +7,13 @@ class Environment
   private $is_production;
   
   function is_production() {
-    if ($_SERVER['SERVER_NAME'] == 'teachdigital.nl') {
+    if ($_SERVER['SERVER_NAME'] == 'prikr.nl') {
       // Production environment
       $this->is_production = true;
-    } else if($_SERVER['SERVER_NAME'] == 'teachdigital.dev') {
+    } else if($_SERVER['SERVER_NAME'] == 'prikr.dev') {
       // Development environment
       $this->is_production = true;
-    } else if ($_SERVER['SERVER_NAME'] != 'teachdigital.dev' && $_SERVER['SERVER_NAME'] != 'teachdigital.nl') {
+    } else if ($_SERVER['SERVER_NAME'] != 'prikr.dev' && $_SERVER['SERVER_NAME'] != 'prikr.nl') {
       // Local environment
       $this->is_production = false;
     }

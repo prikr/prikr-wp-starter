@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.PROD_FTP_USERNAME }}
         password: ${{ secrets.PROD_FTP_PASSWORD }}
         dry-run: true
-        server-dir: public_html/wp-content/themes/teachdigital/
+        server-dir: public_html/wp-content/themes/prikr/
         exclude: .git*
           - .git*/**
           -  **/.git*/**

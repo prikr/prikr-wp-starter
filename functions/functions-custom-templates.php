@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // defining the sub-directory so that it can be easily accessed from elsewhere as well.
 define( 'WPSE_PAGE_TEMPLATE_SUB_DIR', 'templates' );
 
-function teachdigital_page_template_add_subdir( $templates = array() ) {
+function prikr_page_template_add_subdir( $templates = array() ) {
     // Generally this doesn't happen, unless another plugin / theme does modifications
     // of their own. In that case, it's better not to mess with it again with our code.
     if( empty( $templates ) || ! is_array( $templates ) || count( $templates ) < 3 )
@@ -32,4 +32,4 @@ function teachdigital_page_template_add_subdir( $templates = array() ) {
 }
 // the original filter hook is {$type}_template_hierarchy,
 // wihch is located in wp-includes/template.php file
-add_filter( 'page_template_hierarchy', 'teachdigital_page_template_add_subdir' );
+add_filter( 'page_template_hierarchy', 'prikr_page_template_add_subdir' );

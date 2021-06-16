@@ -3,7 +3,6 @@ import webpack from 'webpack'
 
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const dotenv = require('dotenv')
@@ -33,9 +32,8 @@ let config = {
 	devtool: 'source-map',
 
 	resolve: {
-		extensions: ['.js', '.vue', '.json'],
+		extensions: ['.js', '.json'],
 		alias: {
-			vue$: 'vue/dist/vue.esm.js',
 			process: 'process/browser',
 		},
 		fallback: {
@@ -63,12 +61,8 @@ let config = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.vue$/,
-				loader: 'vue-loader'
-			},
-			{
 				test: /\.(scss|css)$/,
-				use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader'],
+				use: ['style-loader', 'css-loader', 'sass-loader'],
 			}
 		]
 	},
@@ -86,7 +80,6 @@ let config = {
 		}),
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new CleanWebpackPlugin(),
-		new VueLoaderPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
 	 }),

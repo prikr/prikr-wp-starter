@@ -4,13 +4,10 @@ import newer from 'gulp-newer'
 
 function images() {
   return gulp
-    .src("./../src/img/*")
-    .pipe(newer("./../dist/img"))
+    .src("./src/img/*")
+    .pipe(newer("./dist/img"))
     .pipe(
       imagemin([
-        imagemin.gifsicle({
-          interlaced: true
-        }),
         imagemin.mozjpeg({
           progressive: true
         }),
@@ -43,7 +40,7 @@ function images() {
         })
       ])
     )
-    .pipe(gulp.dest("./../dist/img"));
+    .pipe(gulp.dest("./dist/img"));
 }
 
 module.exports = { images };
