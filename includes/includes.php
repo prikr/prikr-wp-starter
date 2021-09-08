@@ -12,10 +12,10 @@ require get_template_directory() . '/includes/admin/admin.php';
 // ACF
 require get_template_directory() . '/includes/acf/import.php';
 
-// ACF Extended
-require get_template_directory() . '/includes/acf-extended/import.php';
+// // ACF Extended
+// require get_template_directory() . '/includes/acf-extended/import.php';
 
-// ACF Fields
-require get_template_directory() . '/includes/acf-fields/fields.php';
+// // ACF Fields
+// require get_template_directory() . '/includes/acf-fields/fields.php';
 
 ?>

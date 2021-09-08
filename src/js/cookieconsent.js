@@ -5,26 +5,54 @@ const declinedCookiesBtn = document.querySelector('#declineCookies');
 const acceptedCookiesBtn = document.querySelector('#acceptCookies');
 const cookieNoticerCk = crumbs.get('acceptedCookies');
 const cookieNoticerLs = crumbs.ls.get('acceptedCookies');
-const gtmId = document.head.querySelector("[name=gtm]") ? document.head.querySelector("[name=gtm]").content : '';
-const gaId = document.head.querySelector("[name=ga]") ? document.head.querySelector("[name=ga]").content : '';
+const gtmId = window.gtmid;
+const ga3Id = window.ga3id;
+const ga4Id = window.ga4id;
+const conformAvg = window.avg;
+const preloadGa = window.preload_ga;
 
-window.addEventListener( 'load', (e) => {
-  if (document.body.contains(cookieNoticer)) {
-    checkCookies('cookie'); 
-    checkCookies('localStorage');
+window.addEventListener('load', (e) => {
+  
+  if (preloadGa) { initGa(); }
+
+  if (conformAvg === false) {
+    initGtm();
+    if (document.body.contains(cookieNoticer)) {
+      if (checkCookies('cookie') === false) {
+        if (checkCookies('localStorage') === false) {
+          cookieNoticer.style.transform = 'translateY(0)';
+        } else {
+          return true;
+        }
+      }
+    }
+  } else {
+    if (document.body.contains(cookieNoticer)) {
+      if (checkCookies('cookie') === false) {
+        if (checkCookies('localStorage') === false) {
+          cookieNoticer.style.transform = 'translateY(0)';
+        } else {
+          return true;
+        }
+      }
+    }
   }
 });
 
 if (document.body.contains(cookieNoticer)) {
-  declinedCookiesBtn.addEventListener('click', (e) => {
-    initGa();
-    setCookie('all', true);
-    deleteCookieNotice(true);
-  }, false);
+  if (document.body.contains(declinedCookiesBtn)) {
+    declinedCookiesBtn.addEventListener('click', (e) => {
+      setCookie('all', true);
+      deleteCookieNotice(true);
+    }, false);
+  }
   acceptedCookiesBtn.addEventListener('click', (e) => {
-    initGtm();
-    initGa();
-    setCookie('all', true);
+
+    if (conformAvg) {
+      initGtm();
+      setCookie('all', true);
+    }
+    
     deleteCookieNotice(true);
   }, false);
 }
@@ -33,23 +61,32 @@ function checkCookies(type) {
   let hasCookie = false;
 
   if (type === 'cookie') {
-    if (cookieNoticerCk === 'declined') {
-      hasCookie = true;
-      deleteCookieNotice(false);
-    } else if (cookieNoticerCk === 'accepted') {
-      initGtm();
-      deleteCookieNotice(false);
-      hasCookie = true;
+
+    if (!cookieNoticerCk) {
+      hasCookie = false;
+    } else {
+      if (cookieNoticerCk === 'declined') {
+        hasCookie = true;
+        deleteCookieNotice(false);
+      } else if (cookieNoticerCk === 'accepted') {
+        initGtm();
+        deleteCookieNotice(false);
+        hasCookie = true;
+      }
     }
-  } 
-  else if (type === 'localStorage') {
-    if (cookieNoticerLs === 'declined') {
-      hasCookie = true;
-      deleteCookieNotice(false);
-    } else if (cookieNoticerLs === 'accepted') {
-      initGtm();
-      deleteCookieNotice(false);
-      hasCookie = true;
+
+  } else if (type === 'localStorage') {
+    if (!cookieNoticerLs) {
+      hasCookie = false;
+    } else {
+      if (cookieNoticerLs === 'declined') {
+        hasCookie = true;
+        deleteCookieNotice(false);
+      } else if (cookieNoticerLs === 'accepted') {
+        initGtm();
+        deleteCookieNotice(false);
+        hasCookie = true;
+      }
     }
   }
   return hasCookie;
@@ -57,43 +94,131 @@ function checkCookies(type) {
 
 function setCookie(type, accepted) {
   let validation = accepted ? 'accepted' : 'declined';
-  return (type === 'localStorage') ? crumbs.ls.set("acceptedCookies", validation) : (type === 'all') ? crumbs.ls.set("acceptedCookies", validation) && crumbs.set("acceptedCookies", validation) : crumbs.set("acceptedCookies", validation);
+  return (type === 'localStorage') ? crumbs.ls.set("acceptedCookies", validation, {
+    type: "day",
+    value: 7
+  }, "/crumbsjs") : (type === 'all') ? crumbs.ls.set("acceptedCookies", validation, {
+    type: "day",
+    value: 7
+  }, "/crumbsjs") && crumbs.set("acceptedCookies", validation, {
+    type: "day",
+    value: 7
+  }, "/crumbsjs") : crumbs.set("acceptedCookies", validation, {
+    type: "day",
+    value: 7
+  }, "/crumbsjs");
 }
 
 function deleteCookieNotice(wasVisible) {
   if (wasVisible) {
     cookieNoticer.classList.add('cookieconsent__close');
-    setTimeout( () => {
-      return cookieNoticer.remove();
+    setTimeout(() => {
+      cookieNoticer.remove();
     }, 15000)
   } else {
-    return cookieNoticer.remove();
+    cookieNoticer.remove();
   }
 }
 
-function initGtm () {
-	if (window.gtmDidInit) return false;
-  if (gtmId === '' || gtmId === null || gtmId === undefined) return false;
-	window.gtmDidInit = true; // flag to ensure script does not get added to DOM more than once.
-	const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-    script.onload = () => { dataLayer.push({ event: 'gtm.js', 'gtm.start': (new Date()).getTime(), 'gtm.uniqueEventId': 0 }); } // this part ensures PageViews is always tracked
-    script.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
-	document.head.appendChild(script);
+function initGa() {
+  if (ga3Id !== '' && ga3Id !== null && ga3Id !== undefined) {
+    const ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.id = 'ga3-init';
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga3Id;
+    if (isMyScriptLoaded(ga.src)) return false;
+
+    const s = document.getElementsByTagName('meta')[0];
+    s.parentNode.insertBefore(ga, s);
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', ga3Id);
+  }
+
+  if (ga4Id !== '' && ga4Id !== null && ga4Id !== undefined) {
+    // Init GA 4
+    const ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.id = 'ga4-init';
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga4Id;
+    if (isMyScriptLoaded(ga.src)) return false;
+
+    const s = document.getElementsByTagName('meta')[0];
+    s.parentNode.insertBefore(ga, s);
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', ga4Id);
+
+  } else {
+    return false;
+  }
+  
 }
 
-var _gaq = [];
-_gaq.push(['_setAccount', gaId]);
-_gaq.push(['_trackPageview']);
+function initGtm() {
+  if (window.gtmDidInit) return false;
+  if (gtmId === '' || gtmId === null || gtmId === undefined) return false;
+  removeGa();
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName('meta')[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.id = 'gtm-init'
+    j.src =
+      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+    j.onload = async () => {
+      window.gtmDidInit = true;
+      startGtm();
+    }
+  })(window, document, 'script', 'dataLayer', gtmId);
+}
 
-function initGa() {
-  if (gaId === '' || gaId === null || gaId === undefined) return false;
-  const ga = document.createElement('script');
-  ga.type = 'text/javascript';
-  ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 
-  const s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(ga, s);
+function startGtm() {
+  dataLayer.push({
+    event: 'gtm.js',
+    'gtm.start': (new Date()).getTime(),
+    'gtm.uniqueEventId': 0
+  });
+}
+
+function removeGa() {
+  const scriptGa2 = document.querySelector('script[src="https://www.google-analytics.com/analytics.js"]');
+  const scriptGa = document.getElementById('ga-init');
+  const scriptGa4 = document.getElementById('ga4-init');
+
+  if (scriptGa !== '' && scriptGa !== null && scriptGa !== undefined) {
+    scriptGa.remove();
+  }
+
+  if (scriptGa2 !== '' && scriptGa2 !== null && scriptGa2 !== undefined) {
+    scriptGa2.remove();
+  }
+
+  if (scriptGa4 !== '' && scriptGa4 !== null && scriptGa4 !== undefined) {
+    scriptGa4.remove();
+  }
+}
+
+function isMyScriptLoaded(url) {
+  var scripts = document.getElementsByTagName('script');
+  for (var i = scripts.length; i--;) {
+    if (scripts[i].src == url) return true;
+  }
+  return false;
 }

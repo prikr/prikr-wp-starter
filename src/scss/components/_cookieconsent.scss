@@ -1,51 +1,49 @@
 .cookieconsent {
   position: fixed;
   bottom: 50px;
-  right: 50px;
+  left: 50px;
   animation-duration: .4s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   transition: .2s ease;
-  z-index: 150;
-  opacity: 0;
-  max-height: 0;
+  z-index: 1000;
+  opacity: 1;
+  max-height: 300px;
+  transform: translateY(150%);
   
   @include respond-to(mobile) {
     bottom: 0px;
     right: 0px;
     width: 100%;
-    height: 250px;
+    height: auto;
   }
 
   &__wrapper {
-    background: #fff;
-    border-radius: 20px;
+    background: var(--bs-dark);
+    box-shadow: 0px 5px 30px rgba(0,0,0,.3);
+    border-top-right-radius: 20px;
     box-shadow: 0 0 17px #00000030;
-    width: 100%;
     height: auto;
     padding: 2em;
-  }
+    
 
-  &__open {
-    animation-delay: 1s;
-    animation-name: openCookieNotice;
+    @include respond-from(sm) { width: unset; }
+    @include respond-from(md) { width: unset; }
+    @include respond-from(lg) { width: 30vw; }
+    @include respond-from(xl) { width: 26vw; }
+
+    @include respond-to(mobile) {
+      font-size: 90%;
+      border-radius: 0;
+      padding: 1em;
+      max-width: unset;
+    }
   }
 
   &__close {
     animation-delay: 0s;
     animation-name: closeCookieNotice;
-  }
-}
-
-@keyframes openCookieNotice {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 300px;
   }
 }
 
