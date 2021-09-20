@@ -26,7 +26,6 @@ remove_action( 'wp_head', 'feed_links_extra', 3 ); //Extra feeds such as categor
 remove_action( 'wp_head', 'feed_links', 2 ); // General feeds: Post and Comment Feed
 
 // Disable json api
-add_filter('rest_jsonp_enabled', '__return_false');
 remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 
@@ -52,11 +51,6 @@ function theme_img($img) {
 function get_theme_img($img) {
   if ( $img ) return get_template_directory_uri() . '/dist/img/' . $img;
   return;
-}
-
-/* Get modals */
-function get_modal( $modal ) {
-  return get_template_part('content/modals/modal', $modal );
 }
 
 // Get featured image of post
@@ -118,6 +112,7 @@ add_filter('show_admin_bar', '__return_false');
 
 // Remove generator tag
 remove_action('wp_head', 'wp_generator');
+remove_action( 'wp_head', array($sitepress, 'meta_generator_tag' ) );
 
 add_filter( 'query_vars', function( $vars ){
     $vars[] = 'post_parent';
@@ -153,16 +148,6 @@ function image_size_setup() {
   add_image_size( 'medium', 800 );
   add_image_size( 'normal', 1100 );
   add_image_size( 'large', 1400 );
-  add_image_size( 'product-card', 432, 96, array( 'center', 'center' ) );
-  add_image_size( 'featured-big', 1038, 385, array( 'center', 'center' ) );
-  add_image_size( 'blog-card', 500, 305, array( 'center', 'center' ) );
-  add_image_size( 'blog-card-normal-thumbnail', 251, 141, array( 'center', 'center' ) );
-  add_image_size( 'blog-footer-cta-icon', 100, 120, false );
-  add_image_size( 'blog-footer-cta-background', 1100, 250, array( 'center', 'center' ) );
-  add_image_size( 'blog-footer-author', 312, 312, array( 'center', 'center' ) );
-  add_image_size( 'featured-logo', 80, 80, false );
-  add_image_size( 'testimonial-person', 70, 70, false );
-  add_image_size( 'partner-avatar', 95, 142, array( 'center', 'center' ) );
 }
 add_action( 'after_setup_theme', 'image_size_setup' );
 
@@ -281,13 +266,39 @@ function prikr_favicon() {
   echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-32x32.png" sizes="32x32" />';
   echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-16x16.png" sizes="16x16" />';
   echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-128.png" sizes="128x128" />';
-  echo '<meta name="application-name" content="Teach Digital"/>';
-  echo '<meta name="msapplication-TileColor" content="##EA5B0" />';
+  echo '<meta name="application-name" content="MvR Academy"/>';
+  echo '<meta name="msapplication-TileColor" content="#5C2483" />';
   echo '<meta name="msapplication-TileImage" content="'. MY_THEME_DIR_URI . '/favicons/mstile-144x144.png" />';
   echo '<meta name="msapplication-square70x70logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-70x70.png" />';
   echo '<meta name="msapplication-square150x150logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-150x150.png" />';
   echo '<meta name="msapplication-wide310x150logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-310x150.png" />';
   echo '<meta name="msapplication-square310x310logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-310x310.png" />';
-
 }
 add_action('wp_head', 'prikr_favicon');
+
+/**
+ * Create an more advanced search method
+ */
+add_action( 'pre_get_posts', function( $q )
+{
+    if( $title = $q->get( '_meta_or_title' ) )
+    {
+        add_filter( 'get_meta_sql', function( $sql ) use ( $title )
+        {
+            global $wpdb;
+
+            // Only run once:
+            static $nr = 0; 
+            if( 0 != $nr++ ) return $sql;
+
+            // Modified WHERE
+            $sql['where'] = sprintf(
+                " AND ( %s OR %s ) ",
+                $wpdb->prepare( "{$wpdb->posts}.post_title like '%%%s%%'", $title),
+                mb_substr( $sql['where'], 5, mb_strlen( $sql['where'] ) )
+            );
+
+            return $sql;
+        });
+    }
+});

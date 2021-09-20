@@ -12,10 +12,16 @@ require get_template_directory() . '/includes/admin/admin.php';
 // ACF
 require get_template_directory() . '/includes/acf/import.php';
 
-// // ACF Extended
-// require get_template_directory() . '/includes/acf-extended/import.php';
+// ACF Fields
+require get_template_directory() . '/includes/acf-fields/fields.php';
 
-// // ACF Fields
-// require get_template_directory() . '/includes/acf-fields/fields.php';
+// Marketing dashboard
+require get_template_directory() . '/includes/marketing/marketing-admin.php';
+
+// HTML minifier
+require get_template_directory() . '/includes/minifier/minifier.php';
+
+// Plugin activator
+require get_template_directory() . '/includes/plugin-activation/plugin-activation.php';
 
 ?>

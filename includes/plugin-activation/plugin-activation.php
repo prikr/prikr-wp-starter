@@ -17,7 +17,7 @@
  * @link       https://github.com/TGMPA/TGM-Plugin-Activation
  */
 
-require_once get_template_directory() . '/modules/plugin-activation/class-tgm-plugin-activation.php';
+require_once get_template_directory() . '/includes/plugin-activation/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'prikr_register_required_plugins' );
 
@@ -36,14 +36,6 @@ function prikr_register_required_plugins() {
     array(
 			'name'               => 'ACF Flexible layouts manager', // The plugin name.
 			'slug'               => 'acf-flexible-layouts-manager', // The plugin slug (typically the folder name).
-			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-			'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-    ),
-    
-    array(
-			'name'               => 'ACF Font Awesome', // The plugin name.
-			'slug'               => 'advanced-custom-fields-font-awesome', // The plugin slug (typically the folder name).
 			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
 			'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
@@ -70,9 +62,9 @@ function prikr_register_required_plugins() {
       'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
     ),
 
-    array(
-      'name'      => 'SVG Support',
-      'slug'      => 'svg-support',
+		array(
+      'name'      => 'WooCommerce',
+      'slug'      => 'woocommerce',
       'required'  => true,
       'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
     ),

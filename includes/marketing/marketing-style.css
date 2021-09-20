@@ -1,0 +1,14 @@
+.inside-card {
+
+  background: rgb(231, 231, 231);
+  padding: 16px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.inside-footer {
+  padding-top: 12px;
+  margin-top: 8px;
+  display: block;
+  border-top: 1px solid rgb(201, 201, 201);
+}

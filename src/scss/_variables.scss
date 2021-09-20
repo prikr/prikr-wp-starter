@@ -1,0 +1,116 @@
+// Colors
+$white: #fff !default;
+$gray: #adb5bd !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #F0F0F0 !default;
+$gray-300: #d9d9d9 !default;
+$gray-400: #adb5bd !default;
+$gray-500: #898989 !default;
+$gray-600: #707070 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #363636 !default;
+
+// Neutrals
+$black:  #000000 !default;
+$dark: #1A1A1A  !default;
+$antra: #444 !default;
+$light: #F9F9F9 !default;
+$gray-dark: $gray-900 !default;
+
+$purple: #5c2483 !default;
+$purple-dark: #401361 !default;
+$orange: #F6A600 !default;
+$orange-dark: #F07E00 !default;
+$red: #da0101 !default;
+$green: #5acf16 !default;
+$yellow: #daf019 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "white": $white,
+  "black": $black,
+  "dark": $dark,
+  "antra": $antra,
+  "gray": $gray-500,
+  "gray-dark": $gray-900,
+  "light": $gray-200,
+  "primary": $orange,
+  "primary-dark": $orange-dark,
+  "secondary": $dark,
+  "secondary-dark": $black,
+  "purple": $purple,
+  "purple-dark": $purple,
+  "danger": $red,
+  "success": $green,
+  "warning": $yellow
+),$theme-colors);
+
+$body-bg: $white;
+$body-color: $antra;
+
+$font-family-sans-serif:      'Averta', system-ui, -apple-system, 'Arial', "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !default;
+$font-headings:               'Averta', system-ui, -apple-system, "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !default;
+$font-size-root:              null !default;
+$font-size-base:              1.125rem !default; // Assumes the browser default, typically `16px` 18px now
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-lg:                $font-size-base * 1.25 !default;
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal !default;
+
+$line-height-base:            1.875 !default;
+$line-height-sm:              1.25 !default;
+$line-height-lg:              2.1 !default;
+
+$h1-font-size:                2.5rem !default;
+$h2-font-size:                1.875rem !default;
+$h3-font-size:                1.875rem !default;
+$h4-font-size:                1.5rem !default;
+$h5-font-size:                1.25rem !default;
+$h6-font-size:                $font-size-base !default;
+
+$grid-gutter-width: 72px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1280px
+) !default;
+
+$border-color: $gray-300;
+
+$border-radius: .25rem !default;
+$border-radius-lg: .25rem !default;
+$border-radius-sm: .25rem !default;
+
+$input-btn-padding-y:         0.7rem !default;
+$input-btn-padding-x:         1.5rem !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           4px !default;
+$btn-border-radius-sm:        4px !default;
+$btn-border-radius-lg:        4px !default;
+
+$btn-font-weight: bold !default;
+
+:root {
+  --bs-font-headings: 'Heebo', system-ui, -apple-system, "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --bs-font-sans-serif: 'Heebo', system-ui, -apple-system, 'Arial', "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
