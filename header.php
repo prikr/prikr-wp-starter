@@ -28,7 +28,6 @@ $args = wp_parse_args(
   )
 );
 $body        =   $args['body'];
-$content     =   $args['content'];
 ?>
 
 <head> 

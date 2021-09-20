@@ -23,13 +23,13 @@ if (have_rows('pagebuilder', $id)) :
   // Loop through rows.
   while (have_rows('pagebuilder', $id)) : the_row();
 
-    if (get_row_layout() == 'jobalert') :
+    if (get_row_layout() == 'hero') :
 
-      get_template_part( 'content/pagebuilder/pb', 'jobalert' );
+      get_template_part( 'content/pagebuilder/pb', 'hero' );
 
-    elseif (get_row_layout() == 'specialisations') :
+    elseif (get_row_layout() == 'cursus_categories') :
       
-      get_template_part( 'content/pagebuilder/pb', 'branches' );
+      get_template_part( 'content/pagebuilder/pb', 'cursus_categories' );
            
     endif;
 

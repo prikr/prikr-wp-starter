@@ -1,0 +1,15 @@
+.btn {
+
+  &-primary {
+    @extend .font-roboto;
+    font-weight: bold;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    
+    color: var(--bs-white) !important;
+
+    &:hover {
+      color: var(--bs-white) !important;
+    }
+  }
+}

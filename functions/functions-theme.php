@@ -112,7 +112,6 @@ add_filter('show_admin_bar', '__return_false');
 
 // Remove generator tag
 remove_action('wp_head', 'wp_generator');
-remove_action( 'wp_head', array($sitepress, 'meta_generator_tag' ) );
 
 add_filter( 'query_vars', function( $vars ){
     $vars[] = 'post_parent';

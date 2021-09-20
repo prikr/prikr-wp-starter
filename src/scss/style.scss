@@ -16,7 +16,10 @@
 @import "base/typography";
 
 // Components
+@import "components/header";
 @import "components/navigation";
+@import "components/buttons";
+@import "components/pagebuilder";
 
 // Hard components
 @import "components/lazyload";

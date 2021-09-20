@@ -6,7 +6,7 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-if( function_exists('acf_add_local_field_group') ):
+if (function_exists('acf_add_local_field_group')) :
 
   acf_add_local_field_group(array(
     'key' => 'group_6051ba5b53be0',
@@ -66,5 +66,54 @@ if( function_exists('acf_add_local_field_group') ):
     'acfe_note' => '',
     'modified' => 1621235012,
   ));
-  
-  endif;
+
+endif;
+
+if (function_exists('acf_add_local_field_group')) :
+
+  acf_add_local_field_group(array(
+    'key' => 'group_61487879ad8a5',
+    'title' => 'Standaard call to action in header',
+    'fields' => array(
+      array(
+        'key' => 'field_614878865435b',
+        'label' => 'Call to action',
+        'name' => 'header_default_cta',
+        'type' => 'acfe_advanced_link',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'post_type' => '',
+        'taxonomy' => '',
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'options_page',
+          'operator' => '==',
+          'value' => 'header',
+        ),
+      ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'left',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+    'acfe_display_title' => 'Standaard call to action in header',
+    'acfe_autosync' => '',
+    'acfe_form' => 0,
+    'acfe_meta' => '',
+    'acfe_note' => '',
+  ));
+
+endif;

@@ -9,6 +9,8 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
+$button = get_field('header_default_cta', 'header'); 
+
 ?>
 
 <div class="navigation d-flex flex-row align-items-center">
@@ -22,7 +24,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
   </div>
   <div class="hamburger__backbutton back-button d-flex flex-row align-items-baseline">
     <svg xmlns="http://www.w3.org/2000/svg" width="11.22" height="10.936" viewBox="0 0 11.22 10.936">
-      <path id="Icon_awesome-arrow-right" data-name="Icon awesome-arrow-right" d="M4.77,3.38l.556-.556a.6.6,0,0,1,.849,0l4.868,4.866a.6.6,0,0,1,0,.849L6.175,13.406a.6.6,0,0,1-.849,0L4.77,12.85a.6.6,0,0,1,.01-.859L7.8,9.117H.6a.6.6,0,0,1-.6-.6v-.8a.6.6,0,0,1,.6-.6H7.8L4.78,4.239A.6.6,0,0,1,4.77,3.38Z" transform="translate(11.22 13.583) rotate(180)" fill="#ff7300"/>
+      <path id="Icon_awesome-arrow-right" data-name="Icon awesome-arrow-right" d="M4.77,3.38l.556-.556a.6.6,0,0,1,.849,0l4.868,4.866a.6.6,0,0,1,0,.849L6.175,13.406a.6.6,0,0,1-.849,0L4.77,12.85a.6.6,0,0,1,.01-.859L7.8,9.117H.6a.6.6,0,0,1-.6-.6v-.8a.6.6,0,0,1,.6-.6H7.8L4.78,4.239A.6.6,0,0,1,4.77,3.38Z" transform="translate(11.22 13.583) rotate(180)" fill="#5c2483"/>
     </svg>
     <span class="fw-bold ps-2 text-primary">Terug</span>
   </div>
@@ -37,7 +39,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
         'menu'              => "primary",
         'container_class'   => 'nav__container',
         'menu_class'        => 'nav__menu d-flex flex-column flex-lg-row list-unstyled mb-0',
-        'add_a_class'       => 'nav__anchor text-dark',
+        'add_a_class'       => 'nav__anchor text-purple',
         'depth'             => 3,
         'fallback_cb'       => false,
         'container'         => "ul",
@@ -59,8 +61,9 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
       ));
     endif;
 
-    echo prikr_get_button($button, 'btn btn-primary d-none d-lg-inline-block');
 
-    ?>
+    if ($button['title']) : ?>
+      <a href="<?php echo $button['url']; ?>" target="<?php echo $button['target']; ?>" class="btn btn-primary"><?php echo $button['title']; ?></a>
+    <?php endif; ?>
   </nav>
 </div>

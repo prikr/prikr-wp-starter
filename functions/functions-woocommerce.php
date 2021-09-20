@@ -5,7 +5,7 @@
  * File: functions-woocommerce.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 
-*/
+ */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -135,3 +135,22 @@ function cleanup_default_rewrite_rules($rules)
   return $rules;
 }
 add_filter('rewrite_rules_array', 'cleanup_default_rewrite_rules');
+
+add_filter('gettext', 'translate_text');
+add_filter('ngettext', 'translate_text');
+
+function translate_text($translated)
+{
+  $translated = str_ireplace('Producten', 'Cursussen', $translated);
+  $translated = str_ireplace('Product', 'Cursus', $translated);
+  $translated = str_ireplace('producten', 'cursussen', $translated);
+  $translated = str_ireplace('Coupon', 'Discount', $translated);
+  return $translated;
+}
+
+add_action( 'admin_menu', 'custom_change_admin_label', 99);
+function custom_change_admin_label() {
+    global $menu;
+
+    $menu[28][0] = 'Cursussen';
+}

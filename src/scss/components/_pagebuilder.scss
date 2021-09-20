@@ -1,0 +1,96 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  &__background {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  &__wrapper {
+    margin-top: -100px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .background {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -50px;
+    height: auto;
+  }
+}
+
+.cursus_categories {
+  .flip {
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    z-index: 3;
+    position: relative;
+    text-align: center;
+    height: 315px;
+
+    .card {
+      
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: all 0.5s ease-out 0s;
+      transform-style: preserve-3d;
+      transition: all 0.5s ease-out 0s;
+      background-color: #fff;
+
+      .face {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        z-index: 2;
+      }
+
+      .front {
+        position: absolute;
+        z-index: 1;
+        border: 1px solid rgba(204, 204, 204, 1);
+        height: 300px;
+
+        .plus {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+        }
+      }
+
+      .img {
+        position: relative;
+        z-index: 1;
+        border: 2px solid #000;
+      }
+
+      &.flipped {
+        -webkit-transform: rotatey(-180deg);
+        transform: rotatey(-180deg);
+      }
+
+      .back {
+        padding-top: 10%;
+        -webkit-transform: rotatey(-180deg);
+        transform: rotatey(-180deg);
+        height: 315px;
+        position: absolute;
+        background: var(--bs-purple);
+        color: var(--bs-white);
+
+        .min {
+          position: absolute;
+          right: 15px;
+          top: 20px;
+        }
+      }
+    
+    }
+  }
+
+  .inner {
+    margin: 0px !important;
+    padding: 2em;
+  }
+}

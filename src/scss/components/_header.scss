@@ -1,0 +1,24 @@
+.header {
+  position: relative;
+
+  &__top {
+    z-index: 33;
+    position: relative;
+  }
+
+  &__navigation {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: #fff;
+    position: relative;
+    z-index: 32;
+  }
+}
+
+.logo {
+  max-width: 130px;
+
+  @include respond-from(lg) {
+    max-width: 200px;
+  }
+}
