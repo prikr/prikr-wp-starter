@@ -26,14 +26,13 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
         $odd = true;
         if ($index % 2 == 0) $odd = false;
         ?> 
-    <div class="row padding-top-100 padding-bottom-100">
-          
-          <div class="col-12 col-lg-6 order-2 <?php if ($odd === true) { echo 'order-lg-2'; } else { echo 'order-lg-1'; } ?> padding-top-60 padding-top-lg-16">
+        <div class="row padding-top-100 padding-bottom-100 d-flex flex-row align-items-center">
+          <div class="col-12 col-lg-6 order-2 <?php echo ($odd === true ? 'order-lg-2' : 'order-lg-1'); ?> padding-top-60 padding-top-lg-16">
             <img src="<?php echo get_theme_img('owl-with-line.png'); ?>" width="100%" height="auto" />
             <h3><?php the_title(); ?></h3>
             <span><?php echo get_field('omschrijving', $post->ID); ?></span>
           </div>
-          <div class="col-12 col-lg-6 order-1 <?php if ($odd === true) { echo 'order-lg-1'; } else { echo 'order-lg-2';} ?> padding-top-32 padding-top-lg-16">
+          <div class="col-12 col-lg-6 order-1 <?php echo ($odd === true ? 'order-lg-1' : 'order-lg-2'); ?> padding-top-32 padding-top-lg-16">
             <?php
             $acfimage = get_post_thumbnail_id($post->ID);
             if ($acfimage) :
@@ -48,7 +47,8 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
           </div>
 
         <?php endwhile;
-      endif;  
+      endif;
+      wp_reset_postdata();
       ?>            
   </div>
 </section>

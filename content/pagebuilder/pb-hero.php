@@ -56,7 +56,7 @@ global $post;
   <div class="hero__wrapper<?php if(get_sub_field('titelvak_door_header_heen') === true) { echo ' hero__wrapper__margin'; } ?>">
     <div class="container hero__title">
       <div class="row d-flex flex-row align-items-center justify-content-center">
-        <div class="col-12 <?php if(get_sub_field('titelvak_door_header_heen') === true) { echo 'col-lg-10 col-xl-8 padding-32'; } ?> bg-white">
+        <div class="col-12 <?php if(get_sub_field('titelvak_door_header_heen') === true) { echo 'col-lg-10 col-xl-8 padding-48'; } ?> bg-white">
           <?php echo get_sub_field('heading_tekst'); ?>
         </div>
       </div>

@@ -9,9 +9,13 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
+$args = wp_parse_args($args,array(
+  'max-width' =>  '130px'
+))
+
 ?>
 
-<section class="logo">
+<section class="logo" style="max-width: <?php echo $args['max-width']; ?>">
   <a href="/">
     <?php
     $acfimage = get_field('header_logo', 'header');

@@ -63,7 +63,7 @@ $button = get_field('header_default_cta', 'header');
 
 
     if ($button['title']) : ?>
-      <a href="<?php echo $button['url']; ?>" target="<?php echo $button['target']; ?>" class="btn btn-primary margin-left-0 margin-left-lg-16"><?php echo $button['title']; ?></a>
+      <a href="<?php echo $button['url']; ?>" class="btn btn-primary margin-left-0 margin-left-lg-16"><?php echo $button['title']; ?></a>
     <?php endif; ?>
   </nav>
 </div>

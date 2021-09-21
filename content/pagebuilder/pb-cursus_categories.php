@@ -93,7 +93,7 @@ if ($bgcolor === false) {
     if (!empty($cta)) : ?>
       <div class="row padding-top-80">
         <div class="col-12 d-flex flex-row align-items-center justify-content-center">
-          <a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>" class="btn btn-secondary"><?php echo $cta['title']; ?></a>
+          <a href="<?php echo $cta['url']; ?>" class="btn btn-secondary"><?php echo $cta['title']; ?></a>
         </div>
       </div>
     <?php endif; ?>

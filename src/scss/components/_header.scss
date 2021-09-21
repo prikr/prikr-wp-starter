@@ -28,15 +28,16 @@
       width: 100%;
       top: 0;
       transform: translateY(-100%);
-      transition: .3 ease-in-out;
+      transition: .5s ease-in-out;
       box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);
       
       .logo {
         max-width: 140px;
-        transition: .3s ease;
+        transition: .3s ease-in-out;
       }
 
       &.active {
+        transition: .5s ease-in-out;
         transform: translateY(0);
       }
     }

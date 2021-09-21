@@ -16,13 +16,14 @@ $socials = get_field( 'kanalen', 'algemeen' );
 <div class="container padding-top-32 padding-bottom-120">
 
 
-  <div class="row border-top border-primary padding-top-16">
+  <div class="row border-top border-sm-0 border-primary padding-top-16">
 
-    <div class="col-12 col-lg-6 order-1 order-lg-0">
-    <?php get_template_part('content/content', 'logo'); ?>
-
+    <div class="col-12 col-lg-6 order-1 order-lg-0 d-flex flex-row justify-content-center justify-content-lg-start">
+      <?php get_template_part('content/content', 'logo', array(
+        'max-width' =>  '200px'
+      )); ?>
     </div>
-    <div class="col-12 col-lg-6 d-flex flex-row justify-content-lg-end order-0 order-lg-1">
+    <div class="col-12 col-lg-6 d-flex flex-row justify-content-center justify-content-lg-end order-0 order-lg-1 padding-top-48 padding-top-lg-0 padding-bottom-48">
       <?php 
 
         if (have_rows('kanalen', 'algemeen')) :

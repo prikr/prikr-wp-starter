@@ -22,7 +22,7 @@ if ($acfimage) :
           <?php echo get_sub_field('tekst');
             $cta = get_sub_field('knop');
             if (!empty($cta)) : ?>
-              <a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>" class="btn btn-secondary margin-top-16"><?php echo $cta['title']; ?></a>
+              <a href="<?php echo $cta['url']; ?>" class="btn btn-secondary margin-top-16"><?php echo $cta['title']; ?></a>
             <?php endif; ?>
         </div>
         <div class="col-lg-4 col-md-12 order-1 px-0 col-bg-image" style="background-image: url('<?php echo $image['src']; ?>');">
