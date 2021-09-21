@@ -90,3 +90,19 @@
 .font-roboto {
   font-family: 'Roboto', 'Averta', Arial, Helvetica, sans-serif;
 }
+
+.bg-404 {
+  font-size: 250px;
+  z-index: -1;
+  position: absolute;
+  top: 22%;
+  left: 0;
+  opacity: 0.1;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+
+  @include respond-from(lg) {
+    font-size: 450px;
+  }
+}

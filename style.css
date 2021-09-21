@@ -10074,6 +10074,20 @@ textarea.form-control-lg {
 .font-roboto, nav ul li a, .btn-primary, .btn-secondary {
   font-family: 'Roboto', 'Averta', Arial, Helvetica, sans-serif; }
 
+.bg-404 {
+  font-size: 250px;
+  z-index: -1;
+  position: absolute;
+  top: 22%;
+  left: 0;
+  opacity: 0.1;
+  font-weight: bold;
+  width: 100%;
+  text-align: center; }
+  @media (min-width: 992px) {
+    .bg-404 {
+      font-size: 450px; } }
+
 h1, .h1 {
   color: #5c2483;
   font-family: Roboto;
