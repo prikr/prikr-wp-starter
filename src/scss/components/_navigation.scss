@@ -60,6 +60,15 @@ nav {
             background-repeat: no-repeat;
             background-size: contain;
           }
+
+          
+        }
+        &.sub-menu-active {
+          a {
+            &:after {
+              content: unset !important;
+            }
+          }
         }
         ul.sub-menu {
           padding-left: 0;
@@ -70,7 +79,6 @@ nav {
           z-index: 30;
 
           background: #fff;
-          padding-left: 15px;
           padding-bottom: 8px;
           padding-top: 10px;
 
@@ -82,13 +90,16 @@ nav {
           overflow: hidden;
           pointer-events: none;
           opacity: 0;
-          transition: .3s ease;
+          transition: .1s ease;
 
           li {
             list-style-type: none;
+            padding: 10px 20px 2px;
+            margin-left: 0 !important;
             a { 
               padding-bottom: 8px;
               display: block;
+              color: var(--bs-dark);
 
               @include respond-to(lg) {
                 pointer-events: none;
@@ -96,6 +107,17 @@ nav {
 
               &:after {
                 content: unset;
+              }
+            }
+
+            @include respond-from(lg) {
+            &:hover {
+
+                background: var(--bs-purple);
+                a {
+                  color: var(--bs-white) !important;
+                  text-decoration: none !important;
+                }
               }
             }
           }
@@ -109,7 +131,7 @@ nav {
             opacity: 1;
             max-height: 100vw;
             pointer-events: all;
-            transition: .2s ease;
+            transition: .3s ease .3s;
             
             li {
               list-style-type: none;
@@ -123,21 +145,25 @@ nav {
                 width: 100%;
                 margin-right: 0 !important;
                 pointer-events: all;
+                transition: 0s;
   
                 &:after {
+                  transition: 0s;
                   content: unset;
+                  opacity: 0;
                 }
               }
             }
           }
         }
-
-        &:hover { // on hover: sub menu active
-          ul.sub-menu {
-            opacity: 1;
-            max-height: 500px;
-            pointer-events: all;
-            transition: .3s ease;
+        @include respond-from(lg) {
+          &:hover { // on hover: sub menu active
+            ul.sub-menu {
+              opacity: 1;
+              max-height: 500px;
+              pointer-events: all;
+              transition: .3s ease;
+            }
           }
         }
       }
@@ -202,6 +228,11 @@ nav {
             background-repeat: no-repeat;
             background-size: contain;
             right: 0
+          }
+          &.sub-menu-is-active {
+            a:after {
+              content: unset !important;
+            }
           }
         }
         a {

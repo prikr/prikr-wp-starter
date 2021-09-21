@@ -2,19 +2,12 @@
 
 /**
  * Project: mvr
- * File: index.php
+ * File: 404.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 
 */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
-
-global $post;
-if ($post === NULL) :
-  if (!empty($_GET)) :
-    $post = get_post($_GET['ID']);
-  endif;
-endif;
 
 /**
  * Generate settings
@@ -25,7 +18,7 @@ $settings = array(
   'mainClass'          =>    'main',
 
   // Default settings
-  'isSingle'           => (is_single() || is_singular() ? true : false),
+  'isSingle'           => (is_single() || is_singular() ? true : false)
 );
 
 if (is_front_page()) :
@@ -39,7 +32,7 @@ get_header(true, array(
   )
 ));
 
-get_template_part('content/content', 'pagebuilder');
+get_template_part('content/content', '404');
 
 get_footer(true, array(
   'background'    =>    'gray'

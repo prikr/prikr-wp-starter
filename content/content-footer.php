@@ -13,7 +13,7 @@ $socials = get_field( 'kanalen', 'algemeen' );
 
 ?>
 
-<div class="container padding-top-80 padding-bottom-120">
+<div class="container padding-top-32 padding-bottom-120">
 
 
   <div class="row border-top border-primary padding-top-16">

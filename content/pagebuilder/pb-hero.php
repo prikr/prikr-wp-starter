@@ -11,8 +11,22 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 global $post;
 ?>
 
+<style>
+
+  .hero__background {
+    height: <?php echo intval(get_sub_field('min_height')) * 0.75; ?>px !important;
+  }
+
+  @media screen and (min-width: 992px) {
+    .hero__background {
+      height: <?php echo intval(get_sub_field('min_height')); ?>px !important;
+    } 
+  }
+
+</style>
+
 <section name="hero" class="hero">
-  <div class="hero__background" style="<?php echo 'height: ' . get_sub_field('min_height') . 'px !important;'; ?>">
+  <div class="hero__background">
 
 <div class="background background-desktop d-none d-lg-block">
     <?php
@@ -39,10 +53,10 @@ global $post;
     </div>
     </div>
 
-  <div class="hero__wrapper">
+  <div class="hero__wrapper<?php if(get_sub_field('titelvak_door_header_heen') === true) { echo ' hero__wrapper__margin'; } ?>">
     <div class="container hero__title">
       <div class="row d-flex flex-row align-items-center justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-8 p-5 bg-white">
+        <div class="col-12 <?php if(get_sub_field('titelvak_door_header_heen') === true) { echo 'col-lg-10 col-xl-8 padding-32'; } ?> bg-white">
           <?php echo get_sub_field('heading_tekst'); ?>
         </div>
       </div>

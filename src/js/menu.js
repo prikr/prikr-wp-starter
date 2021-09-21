@@ -8,6 +8,43 @@ const body = document.querySelector('body');
 const navigation = document.querySelector('.navigation');
 
 /**
+ * Fixed nav
+ */
+/**
+ * Fixed navigation and call-us button
+ */
+ const fixedNav = document.querySelector('.header__navigation');
+ 
+ 
+ window.addEventListener('scroll', function () {
+   let scrollPosition = window.scrollY;
+   let offsetA = 50;
+   let offsetB = 150;
+
+   if (scrollPosition >= offsetA) {
+     if (fixedNav) {
+       fixedNav.classList.add('sticky');
+       body.style.marginTop = '56px';
+     }
+   } else {
+    if (fixedNav.classList.contains('sticky')) {
+      fixedNav.classList.remove('sticky');
+      body.style.marginTop = '0px';
+
+     }
+   } 
+
+
+   if(scrollPosition >= offsetB) {
+     fixedNav.classList.add('active');
+   } else {
+     if (fixedNav.classList.contains('active')) {
+      fixedNav.classList.remove('active');
+     }
+   }
+ });
+
+/**
  * Toggle menu on menu-icon click
  */
 if (hamburgerWrapper) {

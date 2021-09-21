@@ -51,8 +51,8 @@ $button = get_field('header_default_cta', 'header');
       wp_nav_menu(array(
         'menu'              => "topbar",
         'container_class'   => 'topbar',
-        'menu_class'        => 'topbar__menu d-flex flex-column d-lg-none list-unstyled margin-bottom-0 margin-top-48 py-2',
-        'add_a_class'       => 'text-decoration-none small text-gray pe-3 py-2 fw-normal',
+        'menu_class'        => 'topbar__menu d-flex flex-column d-lg-none list-unstyled margin-bottom-16 margin-top-120 py-2',
+        'add_a_class'       => 'text-decoration-none text-purple fw-bold pe-3 py-2',
         'add_li_class'      => 'border-0',
         'depth'             => 1,
         'fallback_cb'       => false,
@@ -63,7 +63,7 @@ $button = get_field('header_default_cta', 'header');
 
 
     if ($button['title']) : ?>
-      <a href="<?php echo $button['url']; ?>" target="<?php echo $button['target']; ?>" class="btn btn-primary"><?php echo $button['title']; ?></a>
+      <a href="<?php echo $button['url']; ?>" target="<?php echo $button['target']; ?>" class="btn btn-primary margin-left-0 margin-left-lg-16"><?php echo $button['title']; ?></a>
     <?php endif; ?>
   </nav>
 </div>

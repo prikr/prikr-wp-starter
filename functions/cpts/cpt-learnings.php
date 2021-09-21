@@ -20,12 +20,7 @@ $postTypes = [
     'show_in_menu' => true,
     'show_in_nav_menus' => true,
     'show_in_admin_bar' => true,
-    'rewrite' => array(
-      'slug' => 'leervormen',
-      'with_front' => true,
-      'feeds' => true,
-      'pages' => true,
-    ),
+    'rewrite' => false,
   )
 ];
 
@@ -52,7 +47,7 @@ foreach ($postTypes as $type) {
       'show_in_nav_menus' => $type['show_in_nav_menus'],
       'show_in_admin_bar' => $type['show_in_admin_bar'],
       'rewrite' => $type['rewrite'],
-      'has_archive' => true,
+      'has_archive' => false,
       'acfe_admin_archive' => false,
       'acfe_admin_ppp' => 10,
       'acfe_admin_orderby' => 'date',
