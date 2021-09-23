@@ -20,7 +20,8 @@ import {  Modal } from 'bootstrap';
  */
 const elements = [
   '.has-js-flip',
-  '.googlemap_textright'
+  '.googlemap_textright',
+  '#trainingsaanbod'
 
 ];
 
@@ -38,6 +39,10 @@ const elements = [
       
       if (element === '.googlemap_textright') {
         const Filters = import('./googlemap')
+      }
+
+      if (element === '#trainingsaanbod') {
+        const Filters = import('./trainingsaanbod')
       }
 
       // Example library with init:

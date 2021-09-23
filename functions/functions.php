@@ -30,8 +30,13 @@ require get_template_directory() . '/functions/functions-navigation.php';
 // Forms, buttons and modals
 require get_template_directory() . '/functions/functions-buttons-forms-and-modals.php';
 
+// Lazyload functions
+require get_template_directory() . '/functions/functions-trainingsaanbod.php';
+
 // Pagination functions
 require get_template_directory() . '/functions/functions-pagination.php';
 
 // Lazyload functions
 require get_template_directory() . '/functions/functions-lazyload.php';
+
+

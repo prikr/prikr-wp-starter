@@ -50,6 +50,10 @@ if (have_rows('pagebuilder', $id)) :
     elseif (get_row_layout() == 'map_tekst') :
       
       get_template_part( 'content/pagebuilder/pb', 'map_tekst' );
+
+    elseif (get_row_layout() == 'trainingsaanbod') :
+      
+      get_template_part( 'content/pagebuilder/pb', 'trainingsaanbod' );
            
     endif;
 

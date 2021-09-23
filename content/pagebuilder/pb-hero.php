@@ -122,7 +122,7 @@ endif;
   <div class="hero__wrapper<?php echo (get_sub_field('titelvak_door_header_heen') === true ? ' hero__wrapper__margin padding-left-32 padding-right-32 padding-left-lg-0 padding-right-lg-0' : ''); ?>">
     <div class="container hero__title">
       <div class="row d-flex flex-row align-items-center justify-content-center">
-        <div class="col-12 <?php echo (get_sub_field('titelvak_door_header_heen') === true ? ' col-lg-10 col-xl-8 padding-16 padding-lg-48' : ''); ?>" <?php echo ($wrapperbgcolor !== '' ? 'style="background-color: ' . $wrapperbgcolor . '"' : ''); ?>>
+        <div class="col-12 <?php echo (get_sub_field('titelvak_door_header_heen') === true ? ' col-lg-10 col-xl-8 padding-16 padding-lg-48' : ''); ?> <?php echo ($wrapperbgcolor === '' ? 'bg-white' : ''); ?>" <?php echo ($wrapperbgcolor !== '' ? 'style="background-color: ' . $wrapperbgcolor . '"' : ''); ?>>
           <?php echo get_sub_field('heading_tekst'); ?>
         </div>
       </div>

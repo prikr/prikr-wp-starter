@@ -1,0 +1,145 @@
+.trainingsaanbod {
+
+  &__search {
+    position: relative;
+    
+    &:after {
+      content: ' ';
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35.997' height='36.004' viewBox='0 0 35.997 36.004'%3E%3Cpath id='Icon_awesome-search' data-name='Icon awesome-search' d='M35.508,31.127l-7.01-7.01a1.686,1.686,0,0,0-1.2-.492H26.156a14.618,14.618,0,1,0-2.531,2.531V27.3a1.686,1.686,0,0,0,.492,1.2l7.01,7.01a1.681,1.681,0,0,0,2.384,0l1.99-1.99a1.7,1.7,0,0,0,.007-2.391Zm-20.883-7.5a9,9,0,1,1,9-9A8.995,8.995,0,0,1,14.625,23.625Z' fill='%23606060'/%3E%3C/svg%3E%0A");
+      position: absolute;
+      height: 52px;
+      width: 52px;
+      background-color: $gray-400;
+      top: 0;
+      left: 0;
+      display: block;
+      z-index: 1;
+      border-bottom-left-radius: 4px;
+      border-top-left-radius: 4px;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 40%;
+    }
+
+    &__input {
+      height: 52px;
+      position: relative;
+      padding-left: 68px;
+      z-index: 0;
+      @include respond-from(lg) {
+        width: 500px;
+      }
+    }   
+  }
+
+
+  &__submit {
+
+    &__button {
+      height: 52px;
+    }
+  }
+
+  &__item {
+    border: 1px solid #606060;
+    display: flex;
+    padding: 0;
+
+    header {
+      color: #fff !important;
+    }
+
+    main {
+      display: flex;
+      svg {
+        margin-right: 8px;
+      }
+    }
+
+
+    .list_view & {
+      @extend .col-12;
+
+      flex-direction: row;
+      margin-bottom: 16px;
+
+      header {
+        padding: 16px;
+        @include respond-from(lg) {
+          max-width: 485px;
+        }
+      }
+
+      main {
+        flex-direction: row;
+        align-items: center;
+        padding: 16px;
+
+        span {
+          margin-right: 36px;
+        }
+      }
+
+      .description { display: none; }
+
+    }
+
+    .block_view & {
+      @extend .col-12;
+      @extend .col-md-6;
+      @extend .col-lg-4;
+
+      flex-direction: column;
+
+      header {
+        padding: 26px;
+        max-height: 180px;
+      }
+
+      main {
+        flex-direction: column;
+        padding: 16px 32px;
+        div {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}
+
+.layout_switcher {
+
+  &_buttons {
+    &_rectangle {
+      fill: none;
+      stroke: #606060;
+      
+      .active & {
+
+        fill: #606060;
+        stroke: #606060;
+      }
+    }
+
+    &_switch {
+      fill: none;
+      stroke: #606060;
+      .active & {
+
+        fill: #606060;
+        stroke: #fff;
+      }
+    }
+
+    .active {
+      fill: #606060;
+      .layout_switcher_buttons_switch {
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.replace_list {
+  min-height: 600px;
+}
