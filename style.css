@@ -10088,6 +10088,10 @@ textarea.form-control-lg {
     .bg-404 {
       font-size: 450px; } }
 
+@media (max-width: 768px) {
+  .border-sm-0 {
+    border: 0 !important; } }
+
 h1, .h1 {
   color: #5c2483;
   font-family: Roboto;
@@ -10454,6 +10458,9 @@ body.sub-menu-active .back-button {
 .hero {
   position: relative;
   overflow: hidden; }
+  .hero__header__text {
+    z-index: 3;
+    position: relative; }
   .hero__background {
     position: relative;
     overflow: hidden;
@@ -10586,6 +10593,16 @@ ul li {
   .galerij img:hover {
     transform: scale(1.07);
     transition: .3s ease; }
+
+.divider {
+  position: relative; }
+  .divider:before {
+    content: ' ';
+    width: 50px;
+    border-bottom: 3px solid var(--bs-purple);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px; }
 
 img:not([src]) {
   visibility: hidden; }

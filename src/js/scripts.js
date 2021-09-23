@@ -20,6 +20,7 @@ import {  Modal } from 'bootstrap';
  */
 const elements = [
   '.has-js-flip',
+  '.googlemap_textright'
 
 ];
 
@@ -35,6 +36,10 @@ const elements = [
         const Filters = import('./flip')
       }
       
+      if (element === '.googlemap_textright') {
+        const Filters = import('./googlemap')
+      }
+
       // Example library with init:
       // if (element === '[data-aos]' || element === '.aos-element') {
       //   const AOS = import('aos').then(AOS => {

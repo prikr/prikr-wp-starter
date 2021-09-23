@@ -2,6 +2,14 @@
   position: relative;
   overflow: hidden;
 
+  &__header__text {
+    z-index: 3;
+    position: relative;
+    @include respond-from(lg) {
+      
+    }
+  }
+
   &__background {
     position: relative;
     overflow: hidden;
@@ -207,4 +215,16 @@ ul {
       transition: .3s ease;
     }
   }
+}
+
+.divider {
+  &:before {
+    content: ' ';
+    width: 50px;
+    border-bottom: 3px solid var(--bs-purple);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+  }
+  position: relative;
 }

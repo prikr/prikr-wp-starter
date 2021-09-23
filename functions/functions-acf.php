@@ -191,3 +191,10 @@ function my_deregister_scripts() {
   }
 }
 add_action( 'wp_print_scripts', 'my_deregister_scripts', 100 );
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyAtfsjVSyWIHxCW2-kfZ55j-eWXdj78UG0');
+}
+
+add_action('acf/init', 'my_acf_init');

@@ -46,6 +46,10 @@ if (have_rows('pagebuilder', $id)) :
     elseif (get_row_layout() == 'referentie_kaarten') :
       
       get_template_part( 'content/pagebuilder/pb', 'referentie_kaarten' );
+
+    elseif (get_row_layout() == 'map_tekst') :
+      
+      get_template_part( 'content/pagebuilder/pb', 'map_tekst' );
            
     endif;
 
