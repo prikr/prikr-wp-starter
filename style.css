@@ -11006,17 +11006,11 @@ ul li {
         .list_view .trainingsaanbod__item__wrapper main .flex-switcher {
           flex-direction: row; }
         .list_view .trainingsaanbod__item__wrapper main .goto {
-          background: var(--bs-primary);
-          border-left: 1px solid #606060;
           height: 100%;
           padding: 30px;
           margin-top: -16px;
           margin-right: -16px;
-          margin-bottom: -16px;
-          transition: .3s ease; }
-          .list_view .trainingsaanbod__item__wrapper main .goto:hover {
-            transition: .3s ease;
-            background: var(--bs-primary-light); }
+          margin-bottom: -16px; }
       .list_view .trainingsaanbod__item__wrapper .description {
         display: none; }
     .block_view .trainingsaanbod__item__wrapper {
@@ -11026,6 +11020,7 @@ ul li {
         padding: 26px;
         max-height: 180px; }
       .block_view .trainingsaanbod__item__wrapper main {
+        position: relative;
         flex-direction: column;
         padding: 16px 32px;
         border-left: 1px solid #606060;
@@ -11039,7 +11034,11 @@ ul li {
         .block_view .trainingsaanbod__item__wrapper main div {
           margin-bottom: 8px; }
         .block_view .trainingsaanbod__item__wrapper main .goto {
-          display: none; }
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          padding: 30px;
+          border-top: 1px solid #606060; }
   .trainingsaanbod__item header {
     color: #fff !important; }
   .trainingsaanbod__item main {
@@ -11047,6 +11046,13 @@ ul li {
     position: relative; }
     .trainingsaanbod__item main svg {
       margin-right: 8px; }
+  .trainingsaanbod__item .goto {
+    background: var(--bs-primary);
+    border-left: 1px solid #606060;
+    transition: .3s ease; }
+    .trainingsaanbod__item .goto:hover {
+      transition: .3s ease;
+      background: var(--bs-primary-light); }
 
 .layout_switcher_buttons_rectangle {
   fill: none;

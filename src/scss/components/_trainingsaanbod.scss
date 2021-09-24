@@ -110,19 +110,11 @@
 
 
           .goto {
-            background: var(--bs-primary);
-            border-left: 1px solid #606060;
             height: 100%;
             padding: 30px;
             margin-top: -16px;
             margin-right: -16px;
             margin-bottom: -16px;
-            transition: .3s ease;
-
-            &:hover {
-              transition: .3s ease;
-              background: var(--bs-primary-light);
-            }
           }
         }
 
@@ -142,6 +134,7 @@
         }
 
         main {
+          position: relative;
           flex-direction: column;
           padding: 16px 32px;
           border-left: 1px solid #606060;
@@ -160,7 +153,11 @@
             margin-bottom: 8px;
           }
           .goto {
-            display: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 30px;
+            border-top: 1px solid #606060;
           }
         }
       }
@@ -176,6 +173,18 @@
 
       svg {
         margin-right: 8px;
+      }
+    }
+
+    .goto {
+      background: var(--bs-primary);
+      border-left: 1px solid #606060;
+
+      transition: .3s ease;
+
+      &:hover {
+        transition: .3s ease;
+        background: var(--bs-primary-light);
       }
     }
 
