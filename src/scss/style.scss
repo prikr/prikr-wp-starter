@@ -14,6 +14,7 @@
 // Base
 @import "base/base";
 @import "base/typography";
+@import "base/forms";
 
 // Components
 @import "components/header";
@@ -21,6 +22,7 @@
 @import "components/buttons";
 @import "components/pagebuilder";
 @import "components/trainingsaanbod";
+@import "components/modals";
 
 // Hard components
 @import "components/lazyload";

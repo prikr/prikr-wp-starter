@@ -25,3 +25,8 @@ require get_template_directory() . '/includes/acf-fields/options-header.php';
  * Footer options
  */
 require get_template_directory() . '/includes/acf-fields/options-footer.php';
+
+/**
+ * Modal options
+ */
+require get_template_directory() . '/includes/acf-fields/options-modals.php';

@@ -139,6 +139,7 @@ function add_modal_to_queue($modalId)
     );
   }
 
+
   if (is_array($queue) && is_array($currentModals)) :
     $queue = array_merge($queue, $currentModals); // merge the already existing modals into the queue
     $queue[] = $newModal; // Add the new modal to the queue 

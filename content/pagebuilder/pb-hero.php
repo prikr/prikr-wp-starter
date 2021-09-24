@@ -41,6 +41,7 @@ endif;
     .hero__content {
       text-align: left;
     }
+
     .hero__background,
     .hero__header__text,
     .image-col {
@@ -87,34 +88,46 @@ endif;
       </div>
     </div>
 
-  <?php else : ?>
+    <?php else :
 
-    <div class="hero__background">
-      <div class="background background-desktop d-none d-lg-block">
-        <?php
-        $acfimage = get_sub_field('desktop_afbeelding');
-        if ($acfimage) :
+    $acfimage = get_sub_field('desktop_afbeelding');
+    if ($acfimage) :
+    ?>
+      <div class="hero__background">
+        <div class="background background-desktop d-none d-lg-block">
+          <?php
+
           $image = wp_get_attachment($acfimage['id'], 'full');
           if ($image !== false) :
             echo '<img alt="' . $image['alt'] . '" src="' . $image['src'] . '" title="' . $image['title'] . '" width="100%" height="auto" />';
           endif;
-        endif;
-        ?>
-      </div>
+          ?>
+        </div>
 
-      <div class="background background-mobile d-block d-lg-none">
-        <?php
-        $acfimage = get_sub_field('mobiel_afbeelding');
-        if ($acfimage) :
+      <?php
+    else :
+      ?>
+      <div class="hero__background__replacer">
+
+      </div>
+      <?php
+      endif;
+      ?>
+
+      <?php $acfimage = get_sub_field('mobiel_afbeelding');
+      if ($acfimage) : ?>
+        <div class="background background-mobile d-block d-lg-none">
+          <?php
           $image = wp_get_attachment($acfimage['id'], 'full');
           if ($image !== false) :
             echo '<img alt="' . $image['alt'] . '" src="' . $image['src'] . '" title="' . $image['title'] . '" width="100%" height="auto" />';
           endif;
-        endif;
-        ?>
+          ?>
+        </div>
       </div>
-    </div>
-
+    <?php
+      endif;
+    ?>
   <?php endif; ?>
 
 

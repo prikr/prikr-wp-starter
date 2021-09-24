@@ -62,17 +62,26 @@ function mvr_get_new_trainingsaanbod_results()
             'taxonomy' => 'product_cat',
             'field' => 'slug',
             'terms' => $payload['product_cat'],
+            'operator' => 'IN'
           ),
         );
       }
     }
-
+    
+    $listview = 'block';
+    if (key_exists('listview', $payload)) {
+      if ($payload['listview'] !== '') {
+        $listview = $payload['listview'];
+      }
+    }
 
     ob_start();
 
     if ($payload['search'] === '' && $payload['product_cat'] === 'all') :
       $count = count(get_posts(array('post_type' => 'product', 'post_status' => 'publish', 'posts_per_page' => -1, 'nopaging' => true)));
-      get_template_part('content/content', 'trainingsaanbod');
+      get_template_part('content/content', 'trainingsaanbod', array(
+        'listview'  =>  $listview
+      ));
     elseif ($payload['search'] === '' && $payload['product_cat'] !== 'all') :
       get_template_part('content/content', 'trainingsaanbod', array(
         'query' =>  array(
@@ -87,12 +96,14 @@ function mvr_get_new_trainingsaanbod_results()
               'terms' => $payload['product_cat'],
             )
           )
-        )
+          ),
+          'listview'  =>  $listview
       ));
     else :
       $count = count(get_posts($args));
       get_template_part('content/content', 'trainingsaanbod', array(
-        'query' =>  $args
+        'query' =>  $args,
+        'listview'  =>  $listview
       ));
     endif;
 

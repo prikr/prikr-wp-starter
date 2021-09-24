@@ -284,7 +284,8 @@
   --bs-gray-dark: #363636;
   --bs-light: #F0F0F0;
   --bs-primary: #F07E00;
-  --bs-primary-dark: #F07E00;
+  --bs-primary-dark: #db9509;
+  --bs-primary-light: #F6A600;
   --bs-secondary: #1A1A1A;
   --bs-secondary-dark: #000000;
   --bs-purple: #5c2483;
@@ -1775,7 +1776,7 @@ progress {
   font-size: 0.875em;
   color: #707070; }
 
-.form-control {
+.form-control, .af-input input, .af-input textarea, .wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea, .wpcf7-form-control.wpcf7-email, .wpcf7-form-control.wpcf7-file {
   display: block;
   width: 100%;
   padding: 0.7rem 1.5rem;
@@ -1792,33 +1793,33 @@ progress {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
-    .form-control {
+    .form-control, .af-input input, .af-input textarea, .wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea, .wpcf7-form-control.wpcf7-email, .wpcf7-form-control.wpcf7-file {
       transition: none; } }
-  .form-control[type="file"] {
+  .form-control[type="file"], .af-input input[type="file"], .af-input textarea[type="file"], .wpcf7-form-control.wpcf7-text[type="file"], .wpcf7-form-control.wpcf7-textarea[type="file"], .wpcf7-form-control.wpcf7-email[type="file"], .wpcf7-form-control.wpcf7-file[type="file"] {
     overflow: hidden; }
-    .form-control[type="file"]:not(:disabled):not([readonly]) {
+    .form-control[type="file"]:not(:disabled):not([readonly]), .af-input input[type="file"]:not(:disabled):not([readonly]), .af-input textarea[type="file"]:not(:disabled):not([readonly]), .wpcf7-form-control.wpcf7-text[type="file"]:not(:disabled):not([readonly]), .wpcf7-form-control.wpcf7-textarea[type="file"]:not(:disabled):not([readonly]), .wpcf7-form-control.wpcf7-email[type="file"]:not(:disabled):not([readonly]), .wpcf7-form-control.wpcf7-file[type="file"]:not(:disabled):not([readonly]) {
       cursor: pointer; }
-  .form-control:focus {
+  .form-control:focus, .af-input input:focus, .af-input textarea:focus, .wpcf7-form-control.wpcf7-text:focus, .wpcf7-form-control.wpcf7-textarea:focus, .wpcf7-form-control.wpcf7-email:focus, .wpcf7-form-control.wpcf7-file:focus {
     color: #444;
     background-color: #fff;
     border-color: #86b7fe;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
-  .form-control::-webkit-date-and-time-value {
+  .form-control::-webkit-date-and-time-value, .af-input input::-webkit-date-and-time-value, .af-input textarea::-webkit-date-and-time-value, .wpcf7-form-control.wpcf7-text::-webkit-date-and-time-value, .wpcf7-form-control.wpcf7-textarea::-webkit-date-and-time-value, .wpcf7-form-control.wpcf7-email::-webkit-date-and-time-value, .wpcf7-form-control.wpcf7-file::-webkit-date-and-time-value {
     height: 1.3em; }
-  .form-control::-moz-placeholder {
+  .form-control::-moz-placeholder, .af-input input::-moz-placeholder, .af-input textarea::-moz-placeholder, .wpcf7-form-control.wpcf7-text::-moz-placeholder, .wpcf7-form-control.wpcf7-textarea::-moz-placeholder, .wpcf7-form-control.wpcf7-email::-moz-placeholder, .wpcf7-form-control.wpcf7-file::-moz-placeholder {
     color: #707070;
     opacity: 1; }
-  .form-control:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, .af-input input:-ms-input-placeholder, .af-input textarea:-ms-input-placeholder, .wpcf7-form-control.wpcf7-text:-ms-input-placeholder, .wpcf7-form-control.wpcf7-textarea:-ms-input-placeholder, .wpcf7-form-control.wpcf7-email:-ms-input-placeholder, .wpcf7-form-control.wpcf7-file:-ms-input-placeholder {
     color: #707070;
     opacity: 1; }
-  .form-control::placeholder {
+  .form-control::placeholder, .af-input input::placeholder, .af-input textarea::placeholder, .wpcf7-form-control.wpcf7-text::placeholder, .wpcf7-form-control.wpcf7-textarea::placeholder, .wpcf7-form-control.wpcf7-email::placeholder, .wpcf7-form-control.wpcf7-file::placeholder {
     color: #707070;
     opacity: 1; }
-  .form-control:disabled, .form-control[readonly] {
+  .form-control:disabled, .af-input input:disabled, .af-input textarea:disabled, .wpcf7-form-control.wpcf7-text:disabled, .wpcf7-form-control.wpcf7-textarea:disabled, .wpcf7-form-control.wpcf7-email:disabled, .wpcf7-form-control.wpcf7-file:disabled, .form-control[readonly], .af-input input[readonly], .af-input textarea[readonly], .wpcf7-form-control.wpcf7-text[readonly], .wpcf7-form-control.wpcf7-textarea[readonly], .wpcf7-form-control.wpcf7-email[readonly], .wpcf7-form-control.wpcf7-file[readonly] {
     background-color: #F0F0F0;
     opacity: 1; }
-  .form-control::file-selector-button {
+  .form-control::file-selector-button, .af-input input::file-selector-button, .af-input textarea::file-selector-button, .wpcf7-form-control.wpcf7-text::file-selector-button, .wpcf7-form-control.wpcf7-textarea::file-selector-button, .wpcf7-form-control.wpcf7-email::file-selector-button, .wpcf7-form-control.wpcf7-file::file-selector-button {
     padding: 0.7rem 1.5rem;
     margin: -0.7rem -1.5rem;
     -webkit-margin-end: 1.5rem;
@@ -1833,11 +1834,11 @@ progress {
     border-radius: 0;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
-      .form-control::file-selector-button {
+      .form-control::file-selector-button, .af-input input::file-selector-button, .af-input textarea::file-selector-button, .wpcf7-form-control.wpcf7-text::file-selector-button, .wpcf7-form-control.wpcf7-textarea::file-selector-button, .wpcf7-form-control.wpcf7-email::file-selector-button, .wpcf7-form-control.wpcf7-file::file-selector-button {
         transition: none; } }
-  .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+  .form-control:hover:not(:disabled):not([readonly])::file-selector-button, .af-input input:hover:not(:disabled):not([readonly])::file-selector-button, .af-input textarea:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7-form-control.wpcf7-text:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7-form-control.wpcf7-textarea:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7-form-control.wpcf7-email:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7-form-control.wpcf7-file:hover:not(:disabled):not([readonly])::file-selector-button {
     background-color: #e4e4e4; }
-  .form-control::-webkit-file-upload-button {
+  .form-control::-webkit-file-upload-button, .af-input input::-webkit-file-upload-button, .af-input textarea::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-text::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-textarea::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-email::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-file::-webkit-file-upload-button {
     padding: 0.7rem 1.5rem;
     margin: -0.7rem -1.5rem;
     -webkit-margin-end: 1.5rem;
@@ -1853,10 +1854,10 @@ progress {
     -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
-      .form-control::-webkit-file-upload-button {
+      .form-control::-webkit-file-upload-button, .af-input input::-webkit-file-upload-button, .af-input textarea::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-text::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-textarea::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-email::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-file::-webkit-file-upload-button {
         -webkit-transition: none;
         transition: none; } }
-  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .af-input input:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .af-input textarea:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-text:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-textarea:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-email:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7-form-control.wpcf7-file:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
     background-color: #e4e4e4; }
 
 .form-control-plaintext {
@@ -1908,7 +1909,7 @@ progress {
     -webkit-margin-end: 1rem;
             margin-inline-end: 1rem; }
 
-textarea.form-control {
+textarea.form-control, .af-input textarea, textarea.wpcf7-form-control.wpcf7-text, textarea.wpcf7-form-control.wpcf7-textarea, textarea.wpcf7-form-control.wpcf7-email, textarea.wpcf7-form-control.wpcf7-file {
   min-height: calc(1.3em + 1.4rem + 2px); }
 
 textarea.form-control-sm {
@@ -2055,7 +2056,7 @@ textarea.form-control-lg {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
-  .btn-check[disabled] + .btn, .btn-check:disabled + .btn {
+  .btn-check[disabled] + .btn, .af-submit .btn-check[disabled] + button, .btn-check[disabled] + .wpcf7-submit, .btn-check:disabled + .btn, .af-submit .btn-check:disabled + button, .btn-check:disabled + .wpcf7-submit {
     pointer-events: none;
     filter: none;
     opacity: 0.65; }
@@ -2134,7 +2135,7 @@ textarea.form-control-lg {
 
 .form-floating {
   position: relative; }
-  .form-floating > .form-control,
+  .form-floating > .form-control, .af-input .form-floating > input, .af-input .form-floating > textarea, .form-floating > .wpcf7-form-control.wpcf7-text, .form-floating > .wpcf7-form-control.wpcf7-textarea, .form-floating > .wpcf7-form-control.wpcf7-email, .form-floating > .wpcf7-form-control.wpcf7-file,
   .form-floating > .form-select {
     height: calc(3.5rem + 2px);
     padding: 1rem 1.5rem; }
@@ -2151,39 +2152,45 @@ textarea.form-control-lg {
     @media (prefers-reduced-motion: reduce) {
       .form-floating > label {
         transition: none; } }
-  .form-floating > .form-control::-moz-placeholder {
+  .form-floating > .form-control::-moz-placeholder, .af-input .form-floating > input::-moz-placeholder, .af-input .form-floating > textarea::-moz-placeholder, .form-floating > .wpcf7-form-control.wpcf7-text::-moz-placeholder, .form-floating > .wpcf7-form-control.wpcf7-textarea::-moz-placeholder, .form-floating > .wpcf7-form-control.wpcf7-email::-moz-placeholder, .form-floating > .wpcf7-form-control.wpcf7-file::-moz-placeholder {
     color: transparent; }
-  .form-floating > .form-control:-ms-input-placeholder {
+  .form-floating > .form-control:-ms-input-placeholder, .af-input .form-floating > input:-ms-input-placeholder, .af-input .form-floating > textarea:-ms-input-placeholder, .form-floating > .wpcf7-form-control.wpcf7-text:-ms-input-placeholder, .form-floating > .wpcf7-form-control.wpcf7-textarea:-ms-input-placeholder, .form-floating > .wpcf7-form-control.wpcf7-email:-ms-input-placeholder, .form-floating > .wpcf7-form-control.wpcf7-file:-ms-input-placeholder {
     color: transparent; }
-  .form-floating > .form-control::placeholder {
+  .form-floating > .form-control::placeholder, .af-input .form-floating > input::placeholder, .af-input .form-floating > textarea::placeholder, .form-floating > .wpcf7-form-control.wpcf7-text::placeholder, .form-floating > .wpcf7-form-control.wpcf7-textarea::placeholder, .form-floating > .wpcf7-form-control.wpcf7-email::placeholder, .form-floating > .wpcf7-form-control.wpcf7-file::placeholder {
     color: transparent; }
-  .form-floating > .form-control:not(:-moz-placeholder-shown) {
+  .form-floating > .form-control:not(:-moz-placeholder-shown), .af-input .form-floating > input:not(:-moz-placeholder-shown), .af-input .form-floating > textarea:not(:-moz-placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-text:not(:-moz-placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-textarea:not(:-moz-placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-email:not(:-moz-placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-file:not(:-moz-placeholder-shown) {
     padding-top: 1.625rem;
     padding-bottom: 0.625rem; }
-  .form-floating > .form-control:not(:-ms-input-placeholder) {
+  .form-floating > .form-control:not(:-ms-input-placeholder), .af-input .form-floating > input:not(:-ms-input-placeholder), .af-input .form-floating > textarea:not(:-ms-input-placeholder), .form-floating > .wpcf7-form-control.wpcf7-text:not(:-ms-input-placeholder), .form-floating > .wpcf7-form-control.wpcf7-textarea:not(:-ms-input-placeholder), .form-floating > .wpcf7-form-control.wpcf7-email:not(:-ms-input-placeholder), .form-floating > .wpcf7-form-control.wpcf7-file:not(:-ms-input-placeholder) {
     padding-top: 1.625rem;
     padding-bottom: 0.625rem; }
-  .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown) {
+  .form-floating > .form-control:focus, .af-input .form-floating > input:focus, .af-input .form-floating > textarea:focus, .form-floating > .wpcf7-form-control.wpcf7-text:focus, .form-floating > .wpcf7-form-control.wpcf7-textarea:focus, .form-floating > .wpcf7-form-control.wpcf7-email:focus, .form-floating > .wpcf7-form-control.wpcf7-file:focus, .form-floating > .form-control:not(:placeholder-shown), .af-input .form-floating > input:not(:placeholder-shown), .af-input .form-floating > textarea:not(:placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-text:not(:placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-textarea:not(:placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-email:not(:placeholder-shown), .form-floating > .wpcf7-form-control.wpcf7-file:not(:placeholder-shown) {
     padding-top: 1.625rem;
     padding-bottom: 0.625rem; }
-  .form-floating > .form-control:-webkit-autofill {
+  .form-floating > .form-control:-webkit-autofill, .af-input .form-floating > input:-webkit-autofill, .af-input .form-floating > textarea:-webkit-autofill, .form-floating > .wpcf7-form-control.wpcf7-text:-webkit-autofill, .form-floating > .wpcf7-form-control.wpcf7-textarea:-webkit-autofill, .form-floating > .wpcf7-form-control.wpcf7-email:-webkit-autofill, .form-floating > .wpcf7-form-control.wpcf7-file:-webkit-autofill {
     padding-top: 1.625rem;
     padding-bottom: 0.625rem; }
   .form-floating > .form-select {
     padding-top: 1.625rem;
     padding-bottom: 0.625rem; }
-  .form-floating > .form-control:not(:-moz-placeholder-shown) ~ label {
+  .form-floating > .form-control:not(:-moz-placeholder-shown) ~ label, .af-input .form-floating > input:not(:-moz-placeholder-shown) ~ label, .af-input .form-floating > textarea:not(:-moz-placeholder-shown) ~ label, .form-floating > .wpcf7-form-control.wpcf7-text:not(:-moz-placeholder-shown) ~ label, .form-floating > .wpcf7-form-control.wpcf7-textarea:not(:-moz-placeholder-shown) ~ label, .form-floating > .wpcf7-form-control.wpcf7-email:not(:-moz-placeholder-shown) ~ label, .form-floating > .wpcf7-form-control.wpcf7-file:not(:-moz-placeholder-shown) ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
-  .form-floating > .form-control:not(:-ms-input-placeholder) ~ label {
+  .form-floating > .form-control:not(:-ms-input-placeholder) ~ label, .af-input .form-floating > input:not(:-ms-input-placeholder) ~ label, .af-input .form-floating > textarea:not(:-ms-input-placeholder) ~ label, .form-floating > .wpcf7-form-control.wpcf7-text:not(:-ms-input-placeholder) ~ label, .form-floating > .wpcf7-form-control.wpcf7-textarea:not(:-ms-input-placeholder) ~ label, .form-floating > .wpcf7-form-control.wpcf7-email:not(:-ms-input-placeholder) ~ label, .form-floating > .wpcf7-form-control.wpcf7-file:not(:-ms-input-placeholder) ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
-  .form-floating > .form-control:focus ~ label,
+  .form-floating > .form-control:focus ~ label, .af-input .form-floating > input:focus ~ label, .af-input .form-floating > textarea:focus ~ label, .form-floating > .wpcf7-form-control.wpcf7-text:focus ~ label, .form-floating > .wpcf7-form-control.wpcf7-textarea:focus ~ label, .form-floating > .wpcf7-form-control.wpcf7-email:focus ~ label, .form-floating > .wpcf7-form-control.wpcf7-file:focus ~ label,
   .form-floating > .form-control:not(:placeholder-shown) ~ label,
+  .af-input .form-floating > input:not(:placeholder-shown) ~ label,
+  .af-input .form-floating > textarea:not(:placeholder-shown) ~ label,
+  .form-floating > .wpcf7-form-control.wpcf7-text:not(:placeholder-shown) ~ label,
+  .form-floating > .wpcf7-form-control.wpcf7-textarea:not(:placeholder-shown) ~ label,
+  .form-floating > .wpcf7-form-control.wpcf7-email:not(:placeholder-shown) ~ label,
+  .form-floating > .wpcf7-form-control.wpcf7-file:not(:placeholder-shown) ~ label,
   .form-floating > .form-select ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
-  .form-floating > .form-control:-webkit-autofill ~ label {
+  .form-floating > .form-control:-webkit-autofill ~ label, .af-input .form-floating > input:-webkit-autofill ~ label, .af-input .form-floating > textarea:-webkit-autofill ~ label, .form-floating > .wpcf7-form-control.wpcf7-text:-webkit-autofill ~ label, .form-floating > .wpcf7-form-control.wpcf7-textarea:-webkit-autofill ~ label, .form-floating > .wpcf7-form-control.wpcf7-email:-webkit-autofill ~ label, .form-floating > .wpcf7-form-control.wpcf7-file:-webkit-autofill ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
 
@@ -2193,19 +2200,19 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%; }
-  .input-group > .form-control,
+  .input-group > .form-control, .af-input .input-group > input, .af-input .input-group > textarea, .input-group > .wpcf7-form-control.wpcf7-text, .input-group > .wpcf7-form-control.wpcf7-textarea, .input-group > .wpcf7-form-control.wpcf7-email, .input-group > .wpcf7-form-control.wpcf7-file,
   .input-group > .form-select {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
     min-width: 0; }
-  .input-group > .form-control:focus,
+  .input-group > .form-control:focus, .af-input .input-group > input:focus, .af-input .input-group > textarea:focus, .input-group > .wpcf7-form-control.wpcf7-text:focus, .input-group > .wpcf7-form-control.wpcf7-textarea:focus, .input-group > .wpcf7-form-control.wpcf7-email:focus, .input-group > .wpcf7-form-control.wpcf7-file:focus,
   .input-group > .form-select:focus {
     z-index: 3; }
-  .input-group .btn {
+  .input-group .btn, .input-group .af-submit button, .af-submit .input-group button, .input-group .wpcf7-submit {
     position: relative;
     z-index: 2; }
-    .input-group .btn:focus {
+    .input-group .btn:focus, .input-group .af-submit button:focus, .af-submit .input-group button:focus, .input-group .wpcf7-submit:focus {
       z-index: 3; }
 
 .input-group-text {
@@ -2222,24 +2229,30 @@ textarea.form-control-lg {
   border: 1px solid #adb5bd;
   border-radius: 0.25rem; }
 
-.input-group-lg > .form-control,
+.input-group-lg > .form-control, .af-input .input-group-lg > input, .af-input .input-group-lg > textarea, .input-group-lg > .wpcf7-form-control.wpcf7-text, .input-group-lg > .wpcf7-form-control.wpcf7-textarea, .input-group-lg > .wpcf7-form-control.wpcf7-email, .input-group-lg > .wpcf7-form-control.wpcf7-file,
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
-.input-group-lg > .btn {
+.input-group-lg > .btn,
+.af-submit .input-group-lg > button,
+.input-group-lg > .wpcf7-submit {
   padding: 0.5rem 1rem;
   font-size: calc(1.26562rem + 0.1875vw);
   border-radius: 0.25rem; }
   @media (min-width: 1200px) {
-    .input-group-lg > .form-control,
+    .input-group-lg > .form-control, .af-input .input-group-lg > input, .af-input .input-group-lg > textarea, .input-group-lg > .wpcf7-form-control.wpcf7-text, .input-group-lg > .wpcf7-form-control.wpcf7-textarea, .input-group-lg > .wpcf7-form-control.wpcf7-email, .input-group-lg > .wpcf7-form-control.wpcf7-file,
     .input-group-lg > .form-select,
     .input-group-lg > .input-group-text,
-    .input-group-lg > .btn {
+    .input-group-lg > .btn,
+    .af-submit .input-group-lg > button,
+    .input-group-lg > .wpcf7-submit {
       font-size: 1.40625rem; } }
 
-.input-group-sm > .form-control,
+.input-group-sm > .form-control, .af-input .input-group-sm > input, .af-input .input-group-sm > textarea, .input-group-sm > .wpcf7-form-control.wpcf7-text, .input-group-sm > .wpcf7-form-control.wpcf7-textarea, .input-group-sm > .wpcf7-form-control.wpcf7-email, .input-group-sm > .wpcf7-form-control.wpcf7-file,
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
-.input-group-sm > .btn {
+.input-group-sm > .btn,
+.af-submit .input-group-sm > button,
+.input-group-sm > .wpcf7-submit {
   padding: 0.25rem 0.5rem;
   font-size: 0.98438rem;
   border-radius: 0.25rem; }
@@ -2289,18 +2302,18 @@ textarea.form-control-lg {
 .is-valid ~ .valid-tooltip {
   display: block; }
 
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .form-control:valid, .was-validated .af-input input:valid, .af-input .was-validated input:valid, .was-validated .af-input textarea:valid, .af-input .was-validated textarea:valid, .was-validated .wpcf7-form-control.wpcf7-text:valid, .was-validated .wpcf7-form-control.wpcf7-textarea:valid, .was-validated .wpcf7-form-control.wpcf7-email:valid, .was-validated .wpcf7-form-control.wpcf7-file:valid, .form-control.is-valid, .af-input input.is-valid, .af-input textarea.is-valid, .is-valid.wpcf7-form-control.wpcf7-text, .is-valid.wpcf7-form-control.wpcf7-textarea, .is-valid.wpcf7-form-control.wpcf7-email, .is-valid.wpcf7-form-control.wpcf7-file {
   border-color: #5acf16;
   padding-right: calc(1.3em + 1.4rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%235acf16' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.325em + 0.35rem) center;
   background-size: calc(0.65em + 0.7rem) calc(0.65em + 0.7rem); }
-  .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  .was-validated .form-control:valid:focus, .was-validated .af-input input:valid:focus, .af-input .was-validated input:valid:focus, .was-validated .af-input textarea:valid:focus, .af-input .was-validated textarea:valid:focus, .was-validated .wpcf7-form-control.wpcf7-text:valid:focus, .was-validated .wpcf7-form-control.wpcf7-textarea:valid:focus, .was-validated .wpcf7-form-control.wpcf7-email:valid:focus, .was-validated .wpcf7-form-control.wpcf7-file:valid:focus, .form-control.is-valid:focus, .af-input input.is-valid:focus, .af-input textarea.is-valid:focus, .is-valid.wpcf7-form-control.wpcf7-text:focus, .is-valid.wpcf7-form-control.wpcf7-textarea:focus, .is-valid.wpcf7-form-control.wpcf7-email:focus, .is-valid.wpcf7-form-control.wpcf7-file:focus {
     border-color: #5acf16;
     box-shadow: 0 0 0 0.25rem rgba(90, 207, 22, 0.25); }
 
-.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
+.was-validated textarea.form-control:valid, .was-validated .af-input textarea:valid, .af-input .was-validated textarea:valid, .was-validated textarea.wpcf7-form-control.wpcf7-text:valid, .was-validated textarea.wpcf7-form-control.wpcf7-textarea:valid, .was-validated textarea.wpcf7-form-control.wpcf7-email:valid, .was-validated textarea.wpcf7-form-control.wpcf7-file:valid, textarea.form-control.is-valid, .af-input textarea.is-valid, textarea.is-valid.wpcf7-form-control.wpcf7-text, textarea.is-valid.wpcf7-form-control.wpcf7-textarea, textarea.is-valid.wpcf7-form-control.wpcf7-email, textarea.is-valid.wpcf7-form-control.wpcf7-file {
   padding-right: calc(1.3em + 1.4rem);
   background-position: top calc(0.325em + 0.35rem) right calc(0.325em + 0.35rem); }
 
@@ -2352,18 +2365,18 @@ textarea.form-control-lg {
 .is-invalid ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
+.was-validated .form-control:invalid, .was-validated .af-input input:invalid, .af-input .was-validated input:invalid, .was-validated .af-input textarea:invalid, .af-input .was-validated textarea:invalid, .was-validated .wpcf7-form-control.wpcf7-text:invalid, .was-validated .wpcf7-form-control.wpcf7-textarea:invalid, .was-validated .wpcf7-form-control.wpcf7-email:invalid, .was-validated .wpcf7-form-control.wpcf7-file:invalid, .form-control.is-invalid, .af-input input.is-invalid, .af-input textarea.is-invalid, .is-invalid.wpcf7-form-control.wpcf7-text, .is-invalid.wpcf7-form-control.wpcf7-textarea, .is-invalid.wpcf7-form-control.wpcf7-email, .is-invalid.wpcf7-form-control.wpcf7-file {
   border-color: #da0101;
   padding-right: calc(1.3em + 1.4rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23da0101'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23da0101' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.325em + 0.35rem) center;
   background-size: calc(0.65em + 0.7rem) calc(0.65em + 0.7rem); }
-  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  .was-validated .form-control:invalid:focus, .was-validated .af-input input:invalid:focus, .af-input .was-validated input:invalid:focus, .was-validated .af-input textarea:invalid:focus, .af-input .was-validated textarea:invalid:focus, .was-validated .wpcf7-form-control.wpcf7-text:invalid:focus, .was-validated .wpcf7-form-control.wpcf7-textarea:invalid:focus, .was-validated .wpcf7-form-control.wpcf7-email:invalid:focus, .was-validated .wpcf7-form-control.wpcf7-file:invalid:focus, .form-control.is-invalid:focus, .af-input input.is-invalid:focus, .af-input textarea.is-invalid:focus, .is-invalid.wpcf7-form-control.wpcf7-text:focus, .is-invalid.wpcf7-form-control.wpcf7-textarea:focus, .is-invalid.wpcf7-form-control.wpcf7-email:focus, .is-invalid.wpcf7-form-control.wpcf7-file:focus {
     border-color: #da0101;
     box-shadow: 0 0 0 0.25rem rgba(218, 1, 1, 0.25); }
 
-.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
+.was-validated textarea.form-control:invalid, .was-validated .af-input textarea:invalid, .af-input .was-validated textarea:invalid, .was-validated textarea.wpcf7-form-control.wpcf7-text:invalid, .was-validated textarea.wpcf7-form-control.wpcf7-textarea:invalid, .was-validated textarea.wpcf7-form-control.wpcf7-email:invalid, .was-validated textarea.wpcf7-form-control.wpcf7-file:invalid, textarea.form-control.is-invalid, .af-input textarea.is-invalid, textarea.is-invalid.wpcf7-form-control.wpcf7-text, textarea.is-invalid.wpcf7-form-control.wpcf7-textarea, textarea.is-invalid.wpcf7-form-control.wpcf7-email, textarea.is-invalid.wpcf7-form-control.wpcf7-file {
   padding-right: calc(1.3em + 1.4rem);
   background-position: top calc(0.325em + 0.35rem) right calc(0.325em + 0.35rem); }
 
@@ -2389,7 +2402,7 @@ textarea.form-control-lg {
 .form-check-inline .form-check-input ~ .invalid-feedback {
   margin-left: .5em; }
 
-.btn {
+.btn, .af-submit button, .wpcf7-submit {
   display: inline-block;
   font-weight: 400;
   line-height: 1.3;
@@ -2409,15 +2422,18 @@ textarea.form-control-lg {
   border-radius: 6px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
-    .btn {
+    .btn, .af-submit button, .wpcf7-submit {
       transition: none; } }
-  .btn:hover {
+  .btn:hover, .af-submit button:hover, .wpcf7-submit:hover {
     color: #444; }
-  .btn-check:focus + .btn, .btn:focus {
+  .btn-check:focus + .btn, .af-submit .btn-check:focus + button, .btn-check:focus + .wpcf7-submit, .btn:focus, .af-submit button:focus, .wpcf7-submit:focus {
     outline: 0;
     box-shadow: none; }
-  .btn:disabled, .btn.disabled,
-  fieldset:disabled .btn {
+  .btn:disabled, .af-submit button:disabled, .wpcf7-submit:disabled, .btn.disabled, .af-submit button.disabled, .disabled.wpcf7-submit,
+  fieldset:disabled .btn,
+  fieldset:disabled .af-submit button,
+  .af-submit fieldset:disabled button,
+  fieldset:disabled .wpcf7-submit {
     pointer-events: none;
     opacity: 0.65; }
 
@@ -2617,61 +2633,97 @@ textarea.form-control-lg {
     background-color: #F0F0F0;
     border-color: #F0F0F0; }
 
-.btn-primary {
+.btn-primary, .af-submit button, .wpcf7-submit {
   color: #000000;
   background-color: #F07E00;
   border-color: #F07E00; }
-  .btn-primary:hover {
+  .btn-primary:hover, .af-submit button:hover, .wpcf7-submit:hover {
     color: #000000;
     background-color: #f29126;
     border-color: #f28b1a; }
-  .btn-check:focus + .btn-primary, .btn-primary:focus {
+  .btn-check:focus + .btn-primary, .af-submit .btn-check:focus + button, .btn-check:focus + .wpcf7-submit, .btn-primary:focus, .af-submit button:focus, .wpcf7-submit:focus {
     color: #000000;
     background-color: #f29126;
     border-color: #f28b1a;
     box-shadow: 0 0 0 0 rgba(204, 107, 0, 0.5); }
-  .btn-check:checked + .btn-primary,
-  .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active,
-  .show > .btn-primary.dropdown-toggle {
+  .btn-check:checked + .btn-primary, .af-submit .btn-check:checked + button, .btn-check:checked + .wpcf7-submit,
+  .btn-check:active + .btn-primary,
+  .af-submit .btn-check:active + button,
+  .btn-check:active + .wpcf7-submit, .btn-primary:active, .af-submit button:active, .wpcf7-submit:active, .btn-primary.active, .af-submit button.active, .active.wpcf7-submit,
+  .show > .btn-primary.dropdown-toggle,
+  .af-submit .show > button.dropdown-toggle,
+  .show > .dropdown-toggle.wpcf7-submit {
     color: #000000;
     background-color: #f39833;
     border-color: #f28b1a; }
-    .btn-check:checked + .btn-primary:focus,
-    .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus,
-    .show > .btn-primary.dropdown-toggle:focus {
+    .btn-check:checked + .btn-primary:focus, .af-submit .btn-check:checked + button:focus, .btn-check:checked + .wpcf7-submit:focus,
+    .btn-check:active + .btn-primary:focus,
+    .af-submit .btn-check:active + button:focus,
+    .btn-check:active + .wpcf7-submit:focus, .btn-primary:active:focus, .af-submit button:active:focus, .wpcf7-submit:active:focus, .btn-primary.active:focus, .af-submit button.active:focus, .active.wpcf7-submit:focus,
+    .show > .btn-primary.dropdown-toggle:focus,
+    .af-submit .show > button.dropdown-toggle:focus,
+    .show > .dropdown-toggle.wpcf7-submit:focus {
       box-shadow: 0 0 0 0 rgba(204, 107, 0, 0.5); }
-  .btn-primary:disabled, .btn-primary.disabled {
+  .btn-primary:disabled, .af-submit button:disabled, .wpcf7-submit:disabled, .btn-primary.disabled, .af-submit button.disabled, .disabled.wpcf7-submit {
     color: #000000;
     background-color: #F07E00;
     border-color: #F07E00; }
 
 .btn-primary-dark {
   color: #000000;
-  background-color: #F07E00;
-  border-color: #F07E00; }
+  background-color: #db9509;
+  border-color: #db9509; }
   .btn-primary-dark:hover {
     color: #000000;
-    background-color: #f29126;
-    border-color: #f28b1a; }
+    background-color: #e0a52e;
+    border-color: #dfa022; }
   .btn-check:focus + .btn-primary-dark, .btn-primary-dark:focus {
     color: #000000;
-    background-color: #f29126;
-    border-color: #f28b1a;
-    box-shadow: 0 0 0 0 rgba(204, 107, 0, 0.5); }
+    background-color: #e0a52e;
+    border-color: #dfa022;
+    box-shadow: 0 0 0 0 rgba(186, 127, 8, 0.5); }
   .btn-check:checked + .btn-primary-dark,
   .btn-check:active + .btn-primary-dark, .btn-primary-dark:active, .btn-primary-dark.active,
   .show > .btn-primary-dark.dropdown-toggle {
     color: #000000;
-    background-color: #f39833;
-    border-color: #f28b1a; }
+    background-color: #e2aa3a;
+    border-color: #dfa022; }
     .btn-check:checked + .btn-primary-dark:focus,
     .btn-check:active + .btn-primary-dark:focus, .btn-primary-dark:active:focus, .btn-primary-dark.active:focus,
     .show > .btn-primary-dark.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0 rgba(204, 107, 0, 0.5); }
+      box-shadow: 0 0 0 0 rgba(186, 127, 8, 0.5); }
   .btn-primary-dark:disabled, .btn-primary-dark.disabled {
     color: #000000;
-    background-color: #F07E00;
-    border-color: #F07E00; }
+    background-color: #db9509;
+    border-color: #db9509; }
+
+.btn-primary-light {
+  color: #000000;
+  background-color: #F6A600;
+  border-color: #F6A600; }
+  .btn-primary-light:hover {
+    color: #000000;
+    background-color: #f7b326;
+    border-color: #f7af1a; }
+  .btn-check:focus + .btn-primary-light, .btn-primary-light:focus {
+    color: #000000;
+    background-color: #f7b326;
+    border-color: #f7af1a;
+    box-shadow: 0 0 0 0 rgba(209, 141, 0, 0.5); }
+  .btn-check:checked + .btn-primary-light,
+  .btn-check:active + .btn-primary-light, .btn-primary-light:active, .btn-primary-light.active,
+  .show > .btn-primary-light.dropdown-toggle {
+    color: #000000;
+    background-color: #f8b833;
+    border-color: #f7af1a; }
+    .btn-check:checked + .btn-primary-light:focus,
+    .btn-check:active + .btn-primary-light:focus, .btn-primary-light:active:focus, .btn-primary-light.active:focus,
+    .show > .btn-primary-light.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0 rgba(209, 141, 0, 0.5); }
+  .btn-primary-light:disabled, .btn-primary-light.disabled {
+    color: #000000;
+    background-color: #F6A600;
+    border-color: #F6A600; }
 
 .btn-secondary {
   color: #fff;
@@ -2813,30 +2865,46 @@ textarea.form-control-lg {
     background-color: #da0101;
     border-color: #da0101; }
 
-.btn-success {
+.btn-success, .page-template-template-form form .btn.btn-primary, .page-template-template-form form .af-submit button, .af-submit .page-template-template-form form button, .page-template-template-form form .wpcf7-submit, .page-template-template-delete-alert form .btn.btn-primary, .page-template-template-delete-alert form .af-submit button, .af-submit .page-template-template-delete-alert form button, .page-template-template-delete-alert form .wpcf7-submit, .single-af_thankpages form .btn.btn-primary, .single-af_thankpages form .af-submit button, .af-submit .single-af_thankpages form button, .single-af_thankpages form .wpcf7-submit, form .btn.btn-primary, form .af-submit button, .af-submit form button, form .wpcf7-submit {
   color: #000000;
   background-color: #5acf16;
   border-color: #5acf16; }
-  .btn-success:hover {
+  .btn-success:hover, .page-template-template-form form .af-submit button:hover, .af-submit .page-template-template-form form button:hover, .page-template-template-form form .wpcf7-submit:hover, .page-template-template-delete-alert form .af-submit button:hover, .af-submit .page-template-template-delete-alert form button:hover, .page-template-template-delete-alert form .wpcf7-submit:hover, .single-af_thankpages form .af-submit button:hover, .af-submit .single-af_thankpages form button:hover, .single-af_thankpages form .wpcf7-submit:hover, form .btn.btn-primary:hover, form .af-submit button:hover, .af-submit form button:hover, form .wpcf7-submit:hover {
     color: #000000;
     background-color: #73d639;
     border-color: #6bd42d; }
-  .btn-check:focus + .btn-success, .btn-success:focus {
+  .btn-check:focus + .btn-success, form .btn-check:focus + .btn.btn-primary, form .af-submit .btn-check:focus + button, .af-submit form .btn-check:focus + button, form .btn-check:focus + .wpcf7-submit, .btn-success:focus, .page-template-template-form form .af-submit button:focus, .af-submit .page-template-template-form form button:focus, .page-template-template-form form .wpcf7-submit:focus, .page-template-template-delete-alert form .af-submit button:focus, .af-submit .page-template-template-delete-alert form button:focus, .page-template-template-delete-alert form .wpcf7-submit:focus, .single-af_thankpages form .af-submit button:focus, .af-submit .single-af_thankpages form button:focus, .single-af_thankpages form .wpcf7-submit:focus, form .btn.btn-primary:focus, form .af-submit button:focus, .af-submit form button:focus, form .wpcf7-submit:focus {
     color: #000000;
     background-color: #73d639;
     border-color: #6bd42d;
     box-shadow: 0 0 0 0 rgba(77, 176, 19, 0.5); }
-  .btn-check:checked + .btn-success,
-  .btn-check:active + .btn-success, .btn-success:active, .btn-success.active,
-  .show > .btn-success.dropdown-toggle {
+  .btn-check:checked + .btn-success, form .btn-check:checked + .btn.btn-primary, form .af-submit .btn-check:checked + button, .af-submit form .btn-check:checked + button, form .btn-check:checked + .wpcf7-submit,
+  .btn-check:active + .btn-success,
+  form .btn-check:active + .btn.btn-primary,
+  form .af-submit .btn-check:active + button,
+  .af-submit form .btn-check:active + button,
+  form .btn-check:active + .wpcf7-submit, .btn-success:active, .page-template-template-form form .af-submit button:active, .af-submit .page-template-template-form form button:active, .page-template-template-form form .wpcf7-submit:active, .page-template-template-delete-alert form .af-submit button:active, .af-submit .page-template-template-delete-alert form button:active, .page-template-template-delete-alert form .wpcf7-submit:active, .single-af_thankpages form .af-submit button:active, .af-submit .single-af_thankpages form button:active, .single-af_thankpages form .wpcf7-submit:active, form .btn.btn-primary:active, form .af-submit button:active, .af-submit form button:active, form .wpcf7-submit:active, .btn-success.active, .page-template-template-form form .af-submit button.active, .af-submit .page-template-template-form form button.active, .page-template-template-form form .active.wpcf7-submit, .page-template-template-delete-alert form .af-submit button.active, .af-submit .page-template-template-delete-alert form button.active, .page-template-template-delete-alert form .active.wpcf7-submit, .single-af_thankpages form .af-submit button.active, .af-submit .single-af_thankpages form button.active, .single-af_thankpages form .active.wpcf7-submit, form .active.btn.btn-primary, form .af-submit button.active, .af-submit form button.active, form .active.wpcf7-submit,
+  .show > .btn-success.dropdown-toggle,
+  form .show > .dropdown-toggle.btn.btn-primary,
+  form .af-submit .show > button.dropdown-toggle,
+  .af-submit form .show > button.dropdown-toggle,
+  form .show > .dropdown-toggle.wpcf7-submit {
     color: #000000;
     background-color: #7bd945;
     border-color: #6bd42d; }
-    .btn-check:checked + .btn-success:focus,
-    .btn-check:active + .btn-success:focus, .btn-success:active:focus, .btn-success.active:focus,
-    .show > .btn-success.dropdown-toggle:focus {
+    .btn-check:checked + .btn-success:focus, form .btn-check:checked + .btn.btn-primary:focus, form .af-submit .btn-check:checked + button:focus, .af-submit form .btn-check:checked + button:focus, form .btn-check:checked + .wpcf7-submit:focus,
+    .btn-check:active + .btn-success:focus,
+    form .btn-check:active + .btn.btn-primary:focus,
+    form .af-submit .btn-check:active + button:focus,
+    .af-submit form .btn-check:active + button:focus,
+    form .btn-check:active + .wpcf7-submit:focus, .btn-success:active:focus, form .btn.btn-primary:active:focus, form .af-submit button:active:focus, .af-submit form button:active:focus, form .wpcf7-submit:active:focus, .btn-success.active:focus, form .active.btn.btn-primary:focus, form .af-submit button.active:focus, .af-submit form button.active:focus, form .active.wpcf7-submit:focus,
+    .show > .btn-success.dropdown-toggle:focus,
+    form .show > .dropdown-toggle.btn.btn-primary:focus,
+    form .af-submit .show > button.dropdown-toggle:focus,
+    .af-submit form .show > button.dropdown-toggle:focus,
+    form .show > .dropdown-toggle.wpcf7-submit:focus {
       box-shadow: 0 0 0 0 rgba(77, 176, 19, 0.5); }
-  .btn-success:disabled, .btn-success.disabled {
+  .btn-success:disabled, .page-template-template-form form .af-submit button:disabled, .af-submit .page-template-template-form form button:disabled, .page-template-template-form form .wpcf7-submit:disabled, .page-template-template-delete-alert form .af-submit button:disabled, .af-submit .page-template-template-delete-alert form button:disabled, .page-template-template-delete-alert form .wpcf7-submit:disabled, .single-af_thankpages form .af-submit button:disabled, .af-submit .single-af_thankpages form button:disabled, .single-af_thankpages form .wpcf7-submit:disabled, form .btn.btn-primary:disabled, form .af-submit button:disabled, .af-submit form button:disabled, form .wpcf7-submit:disabled, .btn-success.disabled, .page-template-template-form form .af-submit button.disabled, .af-submit .page-template-template-form form button.disabled, .page-template-template-form form .disabled.wpcf7-submit, .page-template-template-delete-alert form .af-submit button.disabled, .af-submit .page-template-template-delete-alert form button.disabled, .page-template-template-delete-alert form .disabled.wpcf7-submit, .single-af_thankpages form .af-submit button.disabled, .af-submit .single-af_thankpages form button.disabled, .single-af_thankpages form .disabled.wpcf7-submit, form .disabled.btn.btn-primary, form .af-submit button.disabled, .af-submit form button.disabled, form .disabled.wpcf7-submit {
     color: #000000;
     background-color: #5acf16;
     border-color: #5acf16; }
@@ -3038,24 +3106,45 @@ textarea.form-control-lg {
     background-color: transparent; }
 
 .btn-outline-primary-dark {
-  color: #F07E00;
-  border-color: #F07E00; }
+  color: #db9509;
+  border-color: #db9509; }
   .btn-outline-primary-dark:hover {
     color: #000000;
-    background-color: #F07E00;
-    border-color: #F07E00; }
+    background-color: #db9509;
+    border-color: #db9509; }
   .btn-check:focus + .btn-outline-primary-dark, .btn-outline-primary-dark:focus {
-    box-shadow: 0 0 0 0 rgba(240, 126, 0, 0.5); }
+    box-shadow: 0 0 0 0 rgba(219, 149, 9, 0.5); }
   .btn-check:checked + .btn-outline-primary-dark,
   .btn-check:active + .btn-outline-primary-dark, .btn-outline-primary-dark:active, .btn-outline-primary-dark.active, .btn-outline-primary-dark.dropdown-toggle.show {
     color: #000000;
-    background-color: #F07E00;
-    border-color: #F07E00; }
+    background-color: #db9509;
+    border-color: #db9509; }
     .btn-check:checked + .btn-outline-primary-dark:focus,
     .btn-check:active + .btn-outline-primary-dark:focus, .btn-outline-primary-dark:active:focus, .btn-outline-primary-dark.active:focus, .btn-outline-primary-dark.dropdown-toggle.show:focus {
-      box-shadow: 0 0 0 0 rgba(240, 126, 0, 0.5); }
+      box-shadow: 0 0 0 0 rgba(219, 149, 9, 0.5); }
   .btn-outline-primary-dark:disabled, .btn-outline-primary-dark.disabled {
-    color: #F07E00;
+    color: #db9509;
+    background-color: transparent; }
+
+.btn-outline-primary-light {
+  color: #F6A600;
+  border-color: #F6A600; }
+  .btn-outline-primary-light:hover {
+    color: #000000;
+    background-color: #F6A600;
+    border-color: #F6A600; }
+  .btn-check:focus + .btn-outline-primary-light, .btn-outline-primary-light:focus {
+    box-shadow: 0 0 0 0 rgba(246, 166, 0, 0.5); }
+  .btn-check:checked + .btn-outline-primary-light,
+  .btn-check:active + .btn-outline-primary-light, .btn-outline-primary-light:active, .btn-outline-primary-light.active, .btn-outline-primary-light.dropdown-toggle.show {
+    color: #000000;
+    background-color: #F6A600;
+    border-color: #F6A600; }
+    .btn-check:checked + .btn-outline-primary-light:focus,
+    .btn-check:active + .btn-outline-primary-light:focus, .btn-outline-primary-light:active:focus, .btn-outline-primary-light.active:focus, .btn-outline-primary-light.dropdown-toggle.show:focus {
+      box-shadow: 0 0 0 0 rgba(246, 166, 0, 0.5); }
+  .btn-outline-primary-light:disabled, .btn-outline-primary-light.disabled {
+    color: #F6A600;
     background-color: transparent; }
 
 .btn-outline-secondary {
@@ -3214,15 +3303,15 @@ textarea.form-control-lg {
   .btn-link:disabled, .btn-link.disabled {
     color: #707070; }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .af-submit .btn-group-lg > button, .btn-group-lg > .wpcf7-submit {
   padding: 0.5rem 1rem;
   font-size: calc(1.26562rem + 0.1875vw);
   border-radius: 6px; }
   @media (min-width: 1200px) {
-    .btn-lg, .btn-group-lg > .btn {
+    .btn-lg, .btn-group-lg > .btn, .af-submit .btn-group-lg > button, .btn-group-lg > .wpcf7-submit {
       font-size: 1.40625rem; } }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .af-submit .btn-group-sm > button, .btn-group-sm > .wpcf7-submit {
   padding: 0.25rem 0.5rem;
   font-size: 0.98438rem;
   border-radius: 6px; }
@@ -3506,22 +3595,46 @@ textarea.form-control-lg {
   position: relative;
   display: inline-flex;
   vertical-align: middle; }
-  .btn-group > .btn,
-  .btn-group-vertical > .btn {
+  .btn-group > .btn, .af-submit .btn-group > button, .btn-group > .wpcf7-submit,
+  .btn-group-vertical > .btn,
+  .af-submit .btn-group-vertical > button,
+  .btn-group-vertical > .wpcf7-submit {
     position: relative;
     flex: 1 1 auto; }
-  .btn-group > .btn-check:checked + .btn,
+  .btn-group > .btn-check:checked + .btn, .af-submit .btn-group > .btn-check:checked + button, .btn-group > .btn-check:checked + .wpcf7-submit,
   .btn-group > .btn-check:focus + .btn,
+  .af-submit .btn-group > .btn-check:focus + button,
+  .btn-group > .btn-check:focus + .wpcf7-submit,
   .btn-group > .btn:hover,
+  .af-submit .btn-group > button:hover,
+  .btn-group > .wpcf7-submit:hover,
   .btn-group > .btn:focus,
+  .af-submit .btn-group > button:focus,
+  .btn-group > .wpcf7-submit:focus,
   .btn-group > .btn:active,
+  .af-submit .btn-group > button:active,
+  .btn-group > .wpcf7-submit:active,
   .btn-group > .btn.active,
+  .af-submit .btn-group > button.active,
+  .btn-group > .active.wpcf7-submit,
   .btn-group-vertical > .btn-check:checked + .btn,
+  .af-submit .btn-group-vertical > .btn-check:checked + button,
+  .btn-group-vertical > .btn-check:checked + .wpcf7-submit,
   .btn-group-vertical > .btn-check:focus + .btn,
+  .af-submit .btn-group-vertical > .btn-check:focus + button,
+  .btn-group-vertical > .btn-check:focus + .wpcf7-submit,
   .btn-group-vertical > .btn:hover,
+  .af-submit .btn-group-vertical > button:hover,
+  .btn-group-vertical > .wpcf7-submit:hover,
   .btn-group-vertical > .btn:focus,
+  .af-submit .btn-group-vertical > button:focus,
+  .btn-group-vertical > .wpcf7-submit:focus,
   .btn-group-vertical > .btn:active,
-  .btn-group-vertical > .btn.active {
+  .af-submit .btn-group-vertical > button:active,
+  .btn-group-vertical > .wpcf7-submit:active,
+  .btn-group-vertical > .btn.active,
+  .af-submit .btn-group-vertical > button.active,
+  .btn-group-vertical > .active.wpcf7-submit {
     z-index: 1; }
 
 .btn-toolbar {
@@ -3531,18 +3644,24 @@ textarea.form-control-lg {
   .btn-toolbar .input-group {
     width: auto; }
 
-.btn-group > .btn:not(:first-child),
+.btn-group > .btn:not(:first-child), .af-submit .btn-group > button:not(:first-child), .btn-group > .wpcf7-submit:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px; }
 
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
-.btn-group > .btn-group:not(:last-child) > .btn {
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .af-submit .btn-group > button:not(:last-child):not(.dropdown-toggle), .btn-group > .wpcf7-submit:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn-group:not(:last-child) > .btn,
+.af-submit .btn-group > .btn-group:not(:last-child) > button,
+.btn-group > .btn-group:not(:last-child) > .wpcf7-submit {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
-.btn-group > .btn:nth-child(n + 3),
+.btn-group > .btn:nth-child(n + 3), .af-submit .btn-group > button:nth-child(n + 3), .btn-group > .wpcf7-submit:nth-child(n + 3),
 .btn-group > :not(.btn-check) + .btn,
-.btn-group > .btn-group:not(:first-child) > .btn {
+.af-submit .btn-group > :not(.btn-check) + button,
+.btn-group > :not(.btn-check) + .wpcf7-submit,
+.btn-group > .btn-group:not(:first-child) > .btn,
+.af-submit .btn-group > .btn-group:not(:first-child) > button,
+.btn-group > .btn-group:not(:first-child) > .wpcf7-submit {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
 
@@ -3556,11 +3675,11 @@ textarea.form-control-lg {
   .dropstart .dropdown-toggle-split::before {
     margin-right: 0; }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .af-submit .btn-group-sm > button + .dropdown-toggle-split, .btn-group-sm > .wpcf7-submit + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem; }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .af-submit .btn-group-lg > button + .dropdown-toggle-split, .btn-group-lg > .wpcf7-submit + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem; }
 
@@ -3568,18 +3687,25 @@ textarea.form-control-lg {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; }
+  
   .btn-group-vertical > .btn,
+  .af-submit .btn-group-vertical > button,
+  .btn-group-vertical > .wpcf7-submit,
   .btn-group-vertical > .btn-group {
     width: 100%; }
-  .btn-group-vertical > .btn:not(:first-child),
+  .btn-group-vertical > .btn:not(:first-child), .af-submit .btn-group-vertical > button:not(:first-child), .btn-group-vertical > .wpcf7-submit:not(:first-child),
   .btn-group-vertical > .btn-group:not(:first-child) {
     margin-top: -1px; }
-  .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
-  .btn-group-vertical > .btn-group:not(:last-child) > .btn {
+  .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .af-submit .btn-group-vertical > button:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .wpcf7-submit:not(:last-child):not(.dropdown-toggle),
+  .btn-group-vertical > .btn-group:not(:last-child) > .btn,
+  .af-submit .btn-group-vertical > .btn-group:not(:last-child) > button,
+  .btn-group-vertical > .btn-group:not(:last-child) > .wpcf7-submit {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0; }
-  .btn-group-vertical > .btn ~ .btn,
-  .btn-group-vertical > .btn-group:not(:first-child) > .btn {
+  .btn-group-vertical > .btn ~ .btn, .af-submit .btn-group-vertical > button ~ .btn, .btn-group-vertical > .wpcf7-submit ~ .btn, .af-submit .btn-group-vertical > .btn ~ button, .af-submit .btn-group-vertical > button ~ button, .af-submit .btn-group-vertical > .wpcf7-submit ~ button, .btn-group-vertical > .btn ~ .wpcf7-submit, .af-submit .btn-group-vertical > button ~ .wpcf7-submit, .btn-group-vertical > .wpcf7-submit ~ .wpcf7-submit,
+  .btn-group-vertical > .btn-group:not(:first-child) > .btn,
+  .af-submit .btn-group-vertical > .btn-group:not(:first-child) > button,
+  .btn-group-vertical > .btn-group:not(:first-child) > .wpcf7-submit {
     border-top-left-radius: 0;
     border-top-right-radius: 0; }
 
@@ -4239,7 +4365,7 @@ textarea.form-control-lg {
   .badge:empty {
     display: none; }
 
-.btn .badge {
+.btn .badge, .af-submit button .badge, .wpcf7-submit .badge {
   position: relative;
   top: -1px; }
 
@@ -4322,11 +4448,18 @@ textarea.form-control-lg {
     color: #733d00; }
 
 .alert-primary-dark {
-  color: #904c00;
-  background-color: #fce5cc;
-  border-color: #fbd8b3; }
+  color: #835905;
+  background-color: #f8eace;
+  border-color: #f4dfb5; }
   .alert-primary-dark .alert-link {
-    color: #733d00; }
+    color: #694704; }
+
+.alert-primary-light {
+  color: #624200;
+  background-color: #fdedcc;
+  border-color: #fce4b3; }
+  .alert-primary-light .alert-link {
+    color: #4e3500; }
 
 .alert-secondary {
   color: #101010;
@@ -4670,15 +4803,26 @@ textarea.form-control-lg {
     border-color: #904c00; }
 
 .list-group-item-primary-dark {
-  color: #904c00;
-  background-color: #fce5cc; }
+  color: #835905;
+  background-color: #f8eace; }
   .list-group-item-primary-dark.list-group-item-action:hover, .list-group-item-primary-dark.list-group-item-action:focus {
-    color: #904c00;
-    background-color: #e3ceb8; }
+    color: #835905;
+    background-color: #dfd3b9; }
   .list-group-item-primary-dark.list-group-item-action.active {
     color: #fff;
-    background-color: #904c00;
-    border-color: #904c00; }
+    background-color: #835905;
+    border-color: #835905; }
+
+.list-group-item-primary-light {
+  color: #624200;
+  background-color: #fdedcc; }
+  .list-group-item-primary-light.list-group-item-action:hover, .list-group-item-primary-light.list-group-item-action:focus {
+    color: #624200;
+    background-color: #e4d5b8; }
+  .list-group-item-primary-light.list-group-item-action.active {
+    color: #fff;
+    background-color: #624200;
+    border-color: #624200; }
 
 .list-group-item-secondary {
   color: #101010;
@@ -5540,9 +5684,14 @@ textarea.form-control-lg {
     color: #f39833; }
 
 .link-primary-dark {
-  color: #F07E00; }
+  color: #db9509; }
   .link-primary-dark:hover, .link-primary-dark:focus {
-    color: #f39833; }
+    color: #e2aa3a; }
+
+.link-primary-light {
+  color: #F6A600; }
+  .link-primary-light:hover, .link-primary-light:focus {
+    color: #f8b833; }
 
 .link-secondary {
   color: #1A1A1A; }
@@ -5883,7 +6032,10 @@ textarea.form-control-lg {
   border-color: #F07E00 !important; }
 
 .border-primary-dark {
-  border-color: #F07E00 !important; }
+  border-color: #db9509 !important; }
+
+.border-primary-light {
+  border-color: #F6A600 !important; }
 
 .border-secondary {
   border-color: #1A1A1A !important; }
@@ -6644,7 +6796,10 @@ textarea.form-control-lg {
   color: #F07E00 !important; }
 
 .text-primary-dark {
-  color: #F07E00 !important; }
+  color: #db9509 !important; }
+
+.text-primary-light {
+  color: #F6A600 !important; }
 
 .text-secondary {
   color: #1A1A1A !important; }
@@ -6719,7 +6874,10 @@ textarea.form-control-lg {
   background-color: #F07E00 !important; }
 
 .bg-primary-dark {
-  background-color: #F07E00 !important; }
+  background-color: #db9509 !important; }
+
+.bg-primary-light {
+  background-color: #F6A600 !important; }
 
 .bg-secondary {
   background-color: #1A1A1A !important; }
@@ -10071,7 +10229,7 @@ textarea.form-control-lg {
     position: absolute;
     top: 0; }
 
-.font-roboto, nav ul li a, .btn-primary, .btn-secondary {
+.font-roboto, nav ul li a, .btn-primary, .af-submit button, .wpcf7-submit, .btn-secondary, .trainingsaanbod__item__wrapper h2, .trainingsaanbod__item__wrapper .h2 {
   font-family: 'Roboto', 'Averta', Arial, Helvetica, sans-serif; }
 
 .bg-404 {
@@ -10177,6 +10335,173 @@ h6, .h6 {
   letter-spacing: 0px;
   line-height: 1.1em; }
 
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01; }
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.65em;
+  font-size: 1.05em;
+  line-height: 1.35;
+  cursor: pointer; }
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--bs-primary);
+  background: #fff;
+  border-radius: 2px;
+  transition: all .275s; }
+
+[type="checkbox"]:checked + label:before {
+  background: var(--bs-primary); }
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: ' ';
+  position: absolute;
+  top: 0.335em;
+  left: .18em;
+  font-size: 1.175em;
+  line-height: 0;
+  transition: all .2s;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30.85' height='24.102' viewBox='0 0 30.85 24.102'%3E%3Cpath d='M28.6,5.784l-14.46,14.46L7.391,13.5l-4.82,4.82s8.05,11.568,11.568,11.568S33.419,10.6,33.419,10.6Z' transform='translate(-2.57 -5.783)' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat;
+  width: 10px;
+  height: 10px; }
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0) rotate(45deg); }
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1) rotate(0); }
+
+/* Disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #e9e9e9; }
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #777; }
+
+[type="checkbox"]:disabled + label {
+  color: #aaa; }
+
+/* Accessibility */
+.acf-hidden {
+  display: none; }
+
+.af-label {
+  margin-bottom: 10px;
+  padding-left: 10px; }
+
+.td-hidden-frontend {
+  display: none !important; }
+
+.af-input input, .af-input textarea {
+  margin-bottom: 16px;
+  border-width: 1px; }
+
+.form-control, .af-input input, .af-input textarea, .wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea, .wpcf7-form-control.wpcf7-email, .wpcf7-form-control.wpcf7-file {
+  max-height: 42px !important;
+  padding: 0.5rem 1.5rem !important; }
+
+.af-submit {
+  padding: 0 !important;
+  display: inline-flex; }
+  .af-submit button {
+    width: 100%; }
+
+input, textarea, select {
+  color: var(--bs-dark) !important;
+  border: 1px solid #DBDBDB !important;
+  margin-bottom: 12px; }
+  input:focus, textarea:focus, select:focus {
+    outline: 0;
+    box-shadow: none; }
+  input.form-control:focus, .af-input input:focus, input.wpcf7-form-control.wpcf7-text:focus, input.wpcf7-form-control.wpcf7-textarea:focus, input.wpcf7-form-control.wpcf7-email:focus, input.wpcf7-form-control.wpcf7-file:focus, textarea.form-control:focus, .af-input textarea:focus, textarea.wpcf7-form-control.wpcf7-text:focus, textarea.wpcf7-form-control.wpcf7-textarea:focus, textarea.wpcf7-form-control.wpcf7-email:focus, textarea.wpcf7-form-control.wpcf7-file:focus, select.form-control:focus, select.wpcf7-form-control.wpcf7-text:focus, select.wpcf7-form-control.wpcf7-textarea:focus, select.wpcf7-form-control.wpcf7-email:focus, select.wpcf7-form-control.wpcf7-file:focus {
+    outline: 0;
+    box-shadow: none;
+    border: 1px solid var(--bs-dark) !important; }
+
+.td-frontend-hidden {
+  display: none; }
+
+label.acf-basic-uploader {
+  width: 100%; }
+
+.show-if-value.file-wrap {
+  display: none; }
+
+.wpcf7 label {
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
+
+.wpcf7-submit {
+  border: 0 !important;
+  color: #fff !important;
+  margin-top: 16px; }
+
+.form-select {
+  color: #5d5c5c;
+  border-color: #dbdbdb; }
+  .form-select:focus {
+    border: 1px solid var(--bs-dark) !important; }
+
+form p {
+  margin-bottom: 0; }
+
+.page-template-template-form, .page-template-template-delete-alert, .single-af_thankpages {
+  background: var(--bs-light); }
+  .page-template-template-form form label, .page-template-template-delete-alert form label, .single-af_thankpages form label {
+    display: block;
+    width: calc( 50% - 24px);
+    float: left;
+    margin-right: 24px; }
+    .page-template-template-form form label:last-of-type, .page-template-template-delete-alert form label:last-of-type, .single-af_thankpages form label:last-of-type {
+      float: unset; }
+  .page-template-template-form form .btn.btn-primary:after, .page-template-template-form form .af-submit button:after, .af-submit .page-template-template-form form button:after, .page-template-template-form form .wpcf7-submit:after, .page-template-template-delete-alert form .btn.btn-primary:after, .page-template-template-delete-alert form .af-submit button:after, .af-submit .page-template-template-delete-alert form button:after, .page-template-template-delete-alert form .wpcf7-submit:after, .single-af_thankpages form .btn.btn-primary:after, .single-af_thankpages form .af-submit button:after, .af-submit .single-af_thankpages form button:after, .single-af_thankpages form .wpcf7-submit:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.22' height='10.936' viewBox='0 0 11.22 10.936'%3E%3Cpath id='Icon_awesome-arrow-right' data-name='Icon awesome-arrow-right' d='M4.77,3.38l.556-.556a.6.6,0,0,1,.849,0l4.868,4.866a.6.6,0,0,1,0,.849L6.175,13.406a.6.6,0,0,1-.849,0L4.77,12.85a.6.6,0,0,1,.01-.859L7.8,9.117H.6a.6.6,0,0,1-.6-.6v-.8a.6.6,0,0,1,.6-.6H7.8L4.78,4.239A.6.6,0,0,1,4.77,3.38Z' transform='translate(0 -2.647)' fill='%23000000'/%3E%3C/svg%3E%0A"); }
+  .page-template-template-form form .btn.btn-primary:hover, .page-template-template-form form .af-submit button:hover, .af-submit .page-template-template-form form button:hover, .page-template-template-form form .wpcf7-submit:hover, .page-template-template-delete-alert form .btn.btn-primary:hover, .page-template-template-delete-alert form .af-submit button:hover, .af-submit .page-template-template-delete-alert form button:hover, .page-template-template-delete-alert form .wpcf7-submit:hover, .single-af_thankpages form .btn.btn-primary:hover, .single-af_thankpages form .af-submit button:hover, .af-submit .single-af_thankpages form button:hover, .single-af_thankpages form .wpcf7-submit:hover {
+    color: var(--bs-dark) !important; }
+
+form#jobalert.loading label {
+  opacity: 0.5;
+  pointer-events: none; }
+
+form label {
+  display: block !important;
+  width: calc( 50% - 24px) !important;
+  float: left !important;
+  margin-right: 24px !important; }
+  form label:last-of-type {
+    float: unset !important; }
+    form label:last-of-type:nth-child(odd) {
+      float: left !important; }
+
+form .btn.btn-primary:after, form .af-submit button:after, .af-submit form button:after, form .wpcf7-submit:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11.22' height='10.936' viewBox='0 0 11.22 10.936'%3E%3Cpath id='Icon_awesome-arrow-right' data-name='Icon awesome-arrow-right' d='M4.77,3.38l.556-.556a.6.6,0,0,1,.849,0l4.868,4.866a.6.6,0,0,1,0,.849L6.175,13.406a.6.6,0,0,1-.849,0L4.77,12.85a.6.6,0,0,1,.01-.859L7.8,9.117H.6a.6.6,0,0,1-.6-.6v-.8a.6.6,0,0,1,.6-.6H7.8L4.78,4.239A.6.6,0,0,1,4.77,3.38Z' transform='translate(0 -2.647)' fill='%23000000'/%3E%3C/svg%3E%0A"); }
+
+form .btn.btn-primary:hover, form .af-submit button:hover, .af-submit form button:hover, form .wpcf7-submit:hover {
+  color: var(--bs-dark) !important; }
+
 .logo {
   max-width: 130px;
   transition: .3s ease; }
@@ -10213,7 +10538,7 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center; }
-  nav .btn {
+  nav .btn, nav .af-submit button, .af-submit nav button, nav .wpcf7-submit {
     margin-left: 32px; }
   nav ul {
     margin-bottom: 0; }
@@ -10432,12 +10757,12 @@ body.sub-menu-active .back-button {
   font-size: 10px !important;
   font-weight: bold; }
 
-.btn-primary {
+.btn-primary, .af-submit button, .wpcf7-submit {
   font-weight: bold;
   padding: 8px 15px;
   color: var(--bs-white) !important;
   text-transform: uppercase; }
-  .btn-primary:hover {
+  .btn-primary:hover, .af-submit button:hover, .wpcf7-submit:hover {
     color: var(--bs-white) !important; }
 
 .btn-secondary {
@@ -10446,7 +10771,7 @@ body.sub-menu-active .back-button {
   text-transform: uppercase;
   font-size: 13px !important;
   border-radius: 3px;
-  background-color: var(--bs-primary-dark);
+  background-color: var(--bs-primary);
   color: var(--bs-white);
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
   transition: .4s ease-in-out;
@@ -10456,7 +10781,7 @@ body.sub-menu-active .back-button {
   .btn-secondary:hover {
     transition: .4s ease-in-out;
     transform: scale(1.05);
-    background: var(--bs-primary) !important; }
+    background: var(--bs-primary-light) !important; }
 
 .hero {
   position: relative;
@@ -10468,6 +10793,11 @@ body.sub-menu-active .back-button {
     position: relative;
     overflow: hidden;
     z-index: 0; }
+    .hero__background__replacer {
+      height: 100px;
+      width: 100%;
+      background: var(--bs-purple);
+      margin-bottom: -50px; }
   .hero__wrapper {
     position: relative;
     z-index: 2;
@@ -10626,9 +10956,10 @@ ul li {
     background-repeat: no-repeat;
     background-size: 40%; }
   .trainingsaanbod__search__input {
-    height: 52px;
+    height: 52px !important;
+    max-height: unset !important;
     position: relative;
-    padding-left: 68px;
+    padding-left: 68px !important;
     z-index: 0; }
     @media (min-width: 992px) {
       .trainingsaanbod__search__input {
@@ -10638,41 +10969,84 @@ ul li {
   height: 52px; }
 
 .trainingsaanbod__item {
-  border: 1px solid #606060;
   display: flex;
   padding: 0; }
+  .trainingsaanbod__item__wrapper {
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%; }
+    .trainingsaanbod__item__wrapper h2, .trainingsaanbod__item__wrapper .h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 0px; }
+    .list_view .trainingsaanbod__item__wrapper {
+      flex-direction: row;
+      margin-bottom: 32px;
+      margin-left: 36px;
+      margin-right: 36px; }
+      .list_view .trainingsaanbod__item__wrapper header {
+        padding: 16px;
+        border-top: 1px solid var(--bs-purple);
+        border-left: 1px solid var(--bs-purple);
+        border-bottom: 1px solid var(--bs-purple); }
+        @media (min-width: 992px) {
+          .list_view .trainingsaanbod__item__wrapper header {
+            max-width: 485px; } }
+      .list_view .trainingsaanbod__item__wrapper main {
+        flex-direction: row;
+        align-items: center;
+        padding: 16px;
+        border-top: 1px solid #606060;
+        border-right: 1px solid #606060;
+        border-bottom: 1px solid #606060;
+        width: 100%; }
+        .list_view .trainingsaanbod__item__wrapper main span {
+          margin-right: 36px; }
+        .list_view .trainingsaanbod__item__wrapper main .flex-switcher {
+          flex-direction: row; }
+        .list_view .trainingsaanbod__item__wrapper main .goto {
+          background: var(--bs-primary);
+          border-left: 1px solid #606060;
+          height: 100%;
+          padding: 30px;
+          margin-top: -16px;
+          margin-right: -16px;
+          margin-bottom: -16px;
+          transition: .3s ease; }
+          .list_view .trainingsaanbod__item__wrapper main .goto:hover {
+            transition: .3s ease;
+            background: var(--bs-primary-light); }
+      .list_view .trainingsaanbod__item__wrapper .description {
+        display: none; }
+    .block_view .trainingsaanbod__item__wrapper {
+      flex-direction: column;
+      margin: 36px; }
+      .block_view .trainingsaanbod__item__wrapper header {
+        padding: 26px;
+        max-height: 180px; }
+      .block_view .trainingsaanbod__item__wrapper main {
+        flex-direction: column;
+        padding: 16px 32px;
+        border-left: 1px solid #606060;
+        border-right: 1px solid #606060;
+        border-bottom: 1px solid #606060;
+        margin-top: auto; }
+        .block_view .trainingsaanbod__item__wrapper main .flex-switcher {
+          flex-direction: column; }
+          .block_view .trainingsaanbod__item__wrapper main .flex-switcher .date {
+            margin-top: 8px; }
+        .block_view .trainingsaanbod__item__wrapper main div {
+          margin-bottom: 8px; }
+        .block_view .trainingsaanbod__item__wrapper main .goto {
+          display: none; }
   .trainingsaanbod__item header {
     color: #fff !important; }
   .trainingsaanbod__item main {
-    display: flex; }
+    display: flex;
+    position: relative; }
     .trainingsaanbod__item main svg {
       margin-right: 8px; }
-  .list_view .trainingsaanbod__item {
-    flex-direction: row;
-    margin-bottom: 16px; }
-    .list_view .trainingsaanbod__item header {
-      padding: 16px; }
-      @media (min-width: 992px) {
-        .list_view .trainingsaanbod__item header {
-          max-width: 485px; } }
-    .list_view .trainingsaanbod__item main {
-      flex-direction: row;
-      align-items: center;
-      padding: 16px; }
-      .list_view .trainingsaanbod__item main span {
-        margin-right: 36px; }
-    .list_view .trainingsaanbod__item .description {
-      display: none; }
-  .block_view .trainingsaanbod__item {
-    flex-direction: column; }
-    .block_view .trainingsaanbod__item header {
-      padding: 26px;
-      max-height: 180px; }
-    .block_view .trainingsaanbod__item main {
-      flex-direction: column;
-      padding: 16px 32px; }
-      .block_view .trainingsaanbod__item main div {
-        margin-bottom: 8px; }
 
 .layout_switcher_buttons_rectangle {
   fill: none;
@@ -10695,6 +11069,34 @@ ul li {
 
 .replace_list {
   min-height: 600px; }
+  .replace_list.loading {
+    opacity: 0.7; }
+
+@media (min-width: 992px) {
+  #layout_switcher {
+    margin-left: -72px;
+    margin-right: -72px;
+    width: calc(100% + 148px); } }
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 700px;
+    margin: 6rem auto; }
+  .modal-content {
+    border-radius: 12px; }
+  .modal-header {
+    padding: 2em;
+    border-bottom: 0; }
+  .modal-body {
+    padding: 1rem 2rem 3rem 2rem; } }
+
+.btn-close {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29.25' height='29.25' viewBox='0 0 29.25 29.25'%3E%3Cpath id='Icon_ionic-md-close-circle' data-name='Icon ionic-md-close-circle' d='M18,3.375A14.625,14.625,0,1,0,32.625,18,14.574,14.574,0,0,0,18,3.375Zm7.313,19.89-2.048,2.047L18,20.047l-5.265,5.265-2.048-2.047L15.953,18l-5.265-5.265,2.048-2.047L18,15.953l5.265-5.265,2.048,2.047L20.047,18Z' transform='translate(-3.375 -3.375)' fill='%23df4c4c'/%3E%3C/svg%3E%0A");
+  width: 10px;
+  height: 10px;
+  background-size: contain;
+  top: -3px;
+  position: relative; }
 
 img:not([src]) {
   visibility: hidden; }

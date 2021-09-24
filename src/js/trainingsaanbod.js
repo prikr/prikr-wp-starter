@@ -1,3 +1,7 @@
+import crumbs from 'crumbsjs';
+
+const viewCookie = crumbs.get('viewCookie');
+const viewCookieLs = crumbs.ls.get('viewCookie');
 /** 
  * jQuery: Send new jobalert query to database
  */
@@ -13,10 +17,14 @@ jQuery(document).ready(function ($) {
 
     const formData = $('#form_trainingsaanbod').serialize();
     const replaceableList = document.querySelector('.replace_list');
+    const deleteLink = document.querySelector('#deletefilters');
     const count = document.querySelector('#count');
 
     jQuery.ajax({
       type: 'POST',
+      xhrFields: {
+        withCredentials: true
+      },
       url: mvr__trainingsaanbod_ajax.ajaxurl,
       data: {
         action: 'mvr_get_new_trainingsaanbod_results',
@@ -30,6 +38,7 @@ jQuery(document).ready(function ($) {
         replaceableList.innerHTML = response.data.html;
         count.innerHTML = response.data.count;
         replaceableList.classList.remove('loading');
+        deleteLink.style.opacity = '1';
       },
       error: function (error) {
         console.log(error);
@@ -41,6 +50,7 @@ jQuery(document).ready(function ($) {
 })
 
 const switchButtons = document.querySelectorAll( '.switch-layout-button' );
+const hiddenInput = document.querySelector('#listview');
 const switchbuttons = [...switchButtons];
 switchbuttons.forEach( (btn) => {
   
@@ -61,6 +71,9 @@ switchbuttons.forEach( (btn) => {
           } else {
             layout.classList.remove('block_view');
             layout.classList.add('list_view');
+            hiddenInput.setAttribute('value','list');
+            crumbs.set("viewCookie", 'list', { type: "day", value: 7 }, "/crumbsjs");
+            crumbs.ls.set("viewCookie", 'list', { type: "day", value: 7 }, "/crumbsjs");
           }
         } else if (btn.dataset.type === 'block') {
           if (layout.classList.contains('block_view')) {
@@ -68,6 +81,9 @@ switchbuttons.forEach( (btn) => {
           } else {
             layout.classList.remove('list_view');
             layout.classList.add('block_view');
+            hiddenInput.setAttribute('value','block');
+            crumbs.set("viewCookie", 'block', { type: "day", value: 7 }, "/crumbsjs");
+            crumbs.ls.set("viewCookie", 'block', { type: "day", value: 7 }, "/crumbsjs");
           }
         }
       }

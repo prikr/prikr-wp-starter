@@ -14,6 +14,13 @@
     position: relative;
     overflow: hidden;
     z-index: 0;
+
+    &__replacer {
+      height: 100px;
+      width: 100%;
+      background: var(--bs-purple);
+      margin-bottom: -50px;
+    }
   }
 
   &__wrapper {
@@ -144,11 +151,6 @@
 .cursus_categories {
   padding-top: 50px;
   padding-bottom: 50px;
-
-
-
-  
-
   &_curve {
 
     &_top {

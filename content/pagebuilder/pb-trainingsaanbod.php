@@ -9,6 +9,17 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
+$listview = '';
+if (key_exists('viewCookie', $_COOKIE)) {
+  $listview = $_COOKIE['viewCookie'];
+}
+global $wp;
+
+$modal = get_field('nocursusfound_modal', 'content_sections'); 
+if (!empty($modal)) :
+  add_modal_to_queue($modal->ID);
+endif;
+
 ?>
 
 <section id="trainingsaanbod" name="trainingsaanbod">
@@ -20,11 +31,20 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
         <div class="col-12 padding-16 padding-lg-48 bg-light border-1 border border-gray">
           <div class="d-flex flex-row justify-content-center">
             <div class="trainingsaanbod__search margin-right-32">
+              <input hidden class="d-none" id="listview" name="listview" value="<?php echo $listview; ?>" />
               <input class="trainingsaanbod__search__input form-control" type="text" name="search" placeholder="Zoek door naam, tekst, tags of locatie" value="" />
             </div>
             <div class="trainingsaanbod__categories margin-right-32">
 
               <?php
+              $isCategory = false;
+              $product_cat = '';
+              if (function_exists('is_product_category')) {
+                if (is_product_category()) {
+                  $isCategory = true;
+                  $product_cat = get_queried_object();
+                }
+              }
               $categories = get_terms([
                 'taxonomy' => 'product_cat',
                 'hide_empty' => false,
@@ -33,11 +53,11 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
               ?>
 
               <select name="product_cat" class="form-select">
-              <option value="all" selected>Alle categoriën</option>
+                <option value="all" <?php echo !$isCategory ? 'selected' : ''; ?>>Alle categoriën</option>
 
-                  <?php echo __('Specialisatie', 'prikr'); ?></option>
+                <?php echo __('Specialisatie', 'prikr'); ?></option>
                 <?php foreach ($categories as $category) : ?>
-                  <option value="<?php echo $category->slug; ?>"><?php echo $category->name; ?></option>
+                  <option value="<?php echo $category->slug; ?>" <?php echo $category->slug === $product_cat->slug ? 'selected' : ''; ?>><?php echo $category->name; ?></option>
                 <?php endforeach; ?>
               </select>
 
@@ -54,14 +74,21 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
       <div class="row padding-top-32 padding-bottom-32" id="layout_switcher_buttons">
         <div class="col-12 d-flex flex-row justify-content-between align-items-center padding-right-lg-0 padding-left-lg-0">
           <div class="d-flex flex-row">
-            <span>Resultaten: <span id="count"></span></span>
+            <span>Resultaten: <span id="count"><?php $count = count(get_posts(array(
+                                                  'post_type' => 'product',
+                                                  'post_status' => 'publish',
+                                                  'posts_per_page' => -1,
+                                                  'nopaging' => true
+                                                )));
+                                                echo $count; ?></span></span>
+            <span id="deletefilters" class="margin-left-16" style="opacity: 0; transition: .3s ease;"><a href="<?php echo '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '/#form_trainingsaanbod'; ?>" class="text-primary">alle filters verwijderen</a></span>
           </div>
 
           <div class="d-flex flex-row">
             <span class="margin-right-16 font-roboto">
               Weergave:
             </span>
-            <div data-type="list" class="switch-layout-button list-view active margin-right-8">
+            <div data-type="list" class="switch-layout-button list-view <?php echo $listview !== '' && $listview === 'list' ? 'active' : ''; ?> margin-right-8">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                 <g id="Rectangle_1" class="layout_switcher_buttons_rectangle" data-name="Rectangle 1" stroke-width="2">
                   <rect width="30" height="30" rx="3" stroke="none" />
@@ -72,7 +99,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
                 <line id="Line_3" class="layout_switcher_buttons_switch" data-name="Line 3" x2="18.87" transform="translate(5.661 22.644)" stroke-width="3" />
               </svg>
             </div>
-            <div data-type="block" class="switch-layout-button block-view">
+            <div data-type="block" class="switch-layout-button block-view <?php echo $listview !== '' && $listview === 'block' ? 'active' : ''; ?>">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                 <g id="Rectangle_2" class="layout_switcher_buttons_rectangle" data-name="Rectangle 2" stroke-width="2">
                   <rect width="30" height="30" rx="2" stroke="none" />
@@ -93,13 +120,27 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
     </div>
 
     <div class="replace_list">
-      <?php get_template_part('content/content', 'trainingsaanbod', array(
-        'query' =>  array(
-          'post_type' => 'product',
-          'post_status' => 'publish',
-          'posts_per_page' => -1,
-          'nopaging' => true
-        )
+      <?php
+      $args = array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'nopaging' => true
+      );
+
+      if ($isCategory) {
+        $args['tax_query'] = array(
+          array(
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => $product_cat->slug,
+            'operator'  => 'IN'
+          )
+        );
+      }
+
+      get_template_part('content/content', 'trainingsaanbod', array(
+        'query' =>  $args
       ));
       ?>
     </div>

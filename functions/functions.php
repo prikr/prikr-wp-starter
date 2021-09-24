@@ -33,6 +33,9 @@ require get_template_directory() . '/functions/functions-buttons-forms-and-modal
 // Lazyload functions
 require get_template_directory() . '/functions/functions-trainingsaanbod.php';
 
+// Permalinks
+require get_template_directory() . '/functions/functions-permalinks.php';
+
 // Pagination functions
 require get_template_directory() . '/functions/functions-pagination.php';
 
