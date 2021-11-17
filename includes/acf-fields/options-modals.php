@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: options-modals.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

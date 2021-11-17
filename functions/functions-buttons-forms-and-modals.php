@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: functions-buttons-forms-and-modals.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

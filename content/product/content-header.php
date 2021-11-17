@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: content-header.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

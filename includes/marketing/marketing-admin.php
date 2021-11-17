@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: marketing-admin.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

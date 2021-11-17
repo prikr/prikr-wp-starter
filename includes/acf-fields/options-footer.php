@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: options-footer.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

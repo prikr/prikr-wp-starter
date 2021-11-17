@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: search.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

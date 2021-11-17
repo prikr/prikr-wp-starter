@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: functions-permalinks.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

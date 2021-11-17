@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: content-topbar.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 

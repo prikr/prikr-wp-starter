@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Project: mvr
+ * Project: prikr
  * File: header.php
  * Author: Jasper van Doorn
  * Copyright © Prikr 
@@ -86,6 +86,6 @@ $body        =   $args['body'];
 
 </head>
 <body class="<?php echo $body['bodyClass']; ?>" >
-  <section id="__mvr">
+  <section id="__prikr">
 
   <?php get_template_part('content/content', 'header'); ?>
