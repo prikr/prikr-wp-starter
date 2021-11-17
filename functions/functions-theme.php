@@ -6,61 +6,30 @@
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/* Disable features*/
-// if ( !is_admin() ) wp_deregister_script('jquery');
-
-// // Disable rss features
-function prikr_disable_feed() {
-  wp_die( __('No feed available, please visit our <a href="'. get_bloginfo('url') .'">website</a>!') );
-}
-add_action('do_feed', 'prikr_disable_feed', 1);
-add_action('do_feed_rdf', 'prikr_disable_feed', 1);
-add_action('do_feed_rss', 'prikr_disable_feed', 1);
-add_action('do_feed_rss2', 'prikr_disable_feed', 1);
-add_action('do_feed_atom', 'prikr_disable_feed', 1);
-add_action('do_feed_rss2_comments', 'prikr_disable_feed', 1);
-add_action('do_feed_atom_comments', 'prikr_disable_feed', 1);
- 
-// Remove feed link from header
-remove_action( 'wp_head', 'feed_links_extra', 3 ); //Extra feeds such as category feeds
-remove_action( 'wp_head', 'feed_links', 2 ); // General feeds: Post and Comment Feed
-
-// Disable json api
-add_filter('rest_jsonp_enabled', '__return_false');
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
-
-// Remove the Link header for the WP REST API
-// [link] => <http://www.example.com/wp-json/>; rel="https://api.w.org/"
-remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
-
-// Remove script and style versions
-function pu_remove_script_version( $src ){
-    return remove_query_arg( 'ver', $src );
-}
-add_filter( 'script_loader_src', 'pu_remove_script_version' );
-add_filter( 'style_loader_src', 'pu_remove_script_version' );
-
-/* Use theme images */
+/**
+ * Echo theme image
+ * @param $img
+ */
 function theme_img($img) {
   if ( $img ) {
       echo get_template_directory_uri() . '/dist/img/' . $img;
   }
 }
 
-/* Get theme images */
+/**
+ * Return theme image
+ * @param $img
+ * @return String
+ */
 function get_theme_img($img) {
   if ( $img ) return get_template_directory_uri() . '/dist/img/' . $img;
   return;
 }
 
-/* Get modals */
-function get_modal( $modal ) {
-  return get_template_part('content/modals/modal', $modal );
-}
-
-// Get featured image of post
-//get attachment meta
+/**
+ * Get the WordPress attachment 
+ * @return Array
+ */
 if ( !function_exists('wp_get_attachment') ) {
   function wp_get_attachment( $attachment_id, $size )
   {
@@ -85,39 +54,6 @@ if ( !function_exists('wp_get_attachment') ) {
       );
   }
 }
-
-
-// Clean up header
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wlwmanifest_link');
-
-// Disable emojis
-function disable_wp_emojicons() {
-    // all actions related to emojis
-    remove_action( 'admin_print_styles', 'print_emoji_styles' );
-    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-    remove_action( 'wp_print_styles', 'print_emoji_styles' );
-    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-  }
-add_action( 'init', 'disable_wp_emojicons' );
-
-function smartwp_remove_wp_block_library_css(){
-  wp_dequeue_style( 'wp-block-library' );
-  wp_dequeue_style( 'wp-block-library-theme' );
-  wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
-  wp_deregister_script( 'wp-embed' );
-  wp_deregister_script( 'jquery' );
-} 
-add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
-
-// Remove admin bar
-add_filter('show_admin_bar', '__return_false');
-
-// Remove generator tag
-remove_action('wp_head', 'wp_generator');
 
 add_filter( 'query_vars', function( $vars ){
     $vars[] = 'post_parent';
@@ -153,16 +89,6 @@ function image_size_setup() {
   add_image_size( 'medium', 800 );
   add_image_size( 'normal', 1100 );
   add_image_size( 'large', 1400 );
-  add_image_size( 'product-card', 432, 96, array( 'center', 'center' ) );
-  add_image_size( 'featured-big', 1038, 385, array( 'center', 'center' ) );
-  add_image_size( 'blog-card', 500, 305, array( 'center', 'center' ) );
-  add_image_size( 'blog-card-normal-thumbnail', 251, 141, array( 'center', 'center' ) );
-  add_image_size( 'blog-footer-cta-icon', 100, 120, false );
-  add_image_size( 'blog-footer-cta-background', 1100, 250, array( 'center', 'center' ) );
-  add_image_size( 'blog-footer-author', 312, 312, array( 'center', 'center' ) );
-  add_image_size( 'featured-logo', 80, 80, false );
-  add_image_size( 'testimonial-person', 70, 70, false );
-  add_image_size( 'partner-avatar', 95, 142, array( 'center', 'center' ) );
 }
 add_action( 'after_setup_theme', 'image_size_setup' );
 
@@ -212,12 +138,9 @@ function svg_meta_data($data, $id){
     return $data;
 
 }
-
 add_filter('wp_update_attachment_metadata', 'svg_meta_data', 10, 2);
 
-if (defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {
-  ini_set( 'error_log', MY_THEME_DIR . '/debug.txt' );
-}
+
 
 /**
 * Add async or defer attributes to script enqueues
@@ -247,15 +170,6 @@ if(!is_admin()) {
   add_filter('script_loader_tag', 'add_asyncdefer_attribute', 10, 2);
 }
 
-//* Adding DNS Prefetching 
-function prikr_dns_prefetch() { 
-  echo '<meta https-equiv="x-dns-prefetch-control" content="on"> 
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        '; 
-} 
-add_action('wp_head', 'prikr_dns_prefetch', 0);
-
 function html5_video($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"src" => '',
@@ -266,28 +180,41 @@ function html5_video($atts, $content = null) {
 }
 add_shortcode('video', 'html5_video');
 
-function prikr_favicon() {
-  echo '<link rel="shortcut icon" href="'. MY_THEME_DIR_URI . '/favicons/favicon.ico" >';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-57x57.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-114x114.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="72x72" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-72x72.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-144x144.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="60x60" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-60x60.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="120x120" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-120x120.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="76x76" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-76x76.png" />';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="152x152" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-152x152.png" />';
-  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-196x196.png" sizes="196x196" />';
-  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-96x96.png" sizes="96x96" />';
-  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-32x32.png" sizes="32x32" />';
-  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-16x16.png" sizes="16x16" />';
-  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-128.png" sizes="128x128" />';
-  echo '<meta name="application-name" content="Teach Digital"/>';
-  echo '<meta name="msapplication-TileColor" content="##EA5B0" />';
+function prikr_head_tags() {
+  echo '<meta name="theme-color" content="#FFCC00">';
+  echo '<meta name="application-name" content="EKH"/>';
+  echo '<meta name="msapplication-TileColor" content="#FFCC00" />';
   echo '<meta name="msapplication-TileImage" content="'. MY_THEME_DIR_URI . '/favicons/mstile-144x144.png" />';
   echo '<meta name="msapplication-square70x70logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-70x70.png" />';
-  echo '<meta name="msapplication-square150x150logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-150x150.png" />';
-  echo '<meta name="msapplication-wide310x150logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-310x150.png" />';
-  echo '<meta name="msapplication-square310x310logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-310x310.png" />';
-
+  echo '<link rel="shortcut icon" href="'. MY_THEME_DIR_URI . '/favicons/favicon.ico" >';
+  echo '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-57x57.png" />';
+  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-196x196.png" sizes="196x196" />';
 }
-add_action('wp_head', 'prikr_favicon');
+add_action('wp_head', 'prikr_head_tags');
+
+/**
+ * Create an more advanced search method
+ */
+add_action( 'pre_get_posts', function( $q )
+{
+    if( $title = $q->get( '_meta_or_title' ) )
+    {
+        add_filter( 'get_meta_sql', function( $sql ) use ( $title )
+        {
+            global $wpdb;
+
+            // Only run once:
+            static $nr = 0; 
+            if( 0 != $nr++ ) return $sql;
+
+            // Modified WHERE
+            $sql['where'] = sprintf(
+                " AND ( %s OR %s ) ",
+                $wpdb->prepare( "{$wpdb->posts}.post_title like '%%%s%%'", $title),
+                mb_substr( $sql['where'], 5, mb_strlen( $sql['where'] ) )
+            );
+
+            return $sql;
+        });
+    }
+});

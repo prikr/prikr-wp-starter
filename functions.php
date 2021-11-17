@@ -35,7 +35,6 @@ function prikr_critical_css() {
 
   echo $styles;
 }
-add_action( 'wp_head', 'prikr_critical_css' );
 
 /**
  * Template scripts

@@ -6,6 +6,9 @@
  
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+// Security
+require get_template_directory() . '/functions/functions-security.php';
+
 // Theme
 require get_template_directory() . '/functions/functions-theme.php';
 

@@ -48,9 +48,10 @@ if (document.body.contains(cookieNoticer)) {
   }
   acceptedCookiesBtn.addEventListener('click', (e) => {
 
+    setCookie('all', true);
+    
     if (conformAvg) {
       initGtm();
-      setCookie('all', true);
     }
     
     deleteCookieNotice(true);

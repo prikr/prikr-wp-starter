@@ -62,8 +62,8 @@ function generateCriticalCss(cb) {
           console.log('Found ' + match + ' with param ' + p1 + ' at ' + offset + ' inside of ' + string);
           return ':root{}'
         })).on('error', gutil.log)
-        .pipe(replace('dist/fonts', 'wp-content/themes/vitalsun/dist/fonts'))
-        .pipe(replace('dist/img', 'wp-content/themes/vitalsun/dist/img'))
+        .pipe(replace('dist/fonts', 'wp-content/themes/ekh/dist/fonts'))
+        .pipe(replace('dist/img', 'wp-content/themes/ekh/dist/img'))
         .pipe(purge({
           trim : true,
           shorten : true,
