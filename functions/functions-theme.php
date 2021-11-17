@@ -6,10 +6,48 @@
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+<<<<<<< HEAD
 /**
  * Echo theme image
  * @param $img
  */
+=======
+/* Disable features*/
+// if ( !is_admin() ) wp_deregister_script('jquery');
+
+// // Disable rss features
+function prikr_disable_feed() {
+  wp_die( __('No feed available, please visit our <a href="'. get_bloginfo('url') .'">website</a>!') );
+}
+add_action('do_feed', 'prikr_disable_feed', 1);
+add_action('do_feed_rdf', 'prikr_disable_feed', 1);
+add_action('do_feed_rss', 'prikr_disable_feed', 1);
+add_action('do_feed_rss2', 'prikr_disable_feed', 1);
+add_action('do_feed_atom', 'prikr_disable_feed', 1);
+add_action('do_feed_rss2_comments', 'prikr_disable_feed', 1);
+add_action('do_feed_atom_comments', 'prikr_disable_feed', 1);
+ 
+// Remove feed link from header
+remove_action( 'wp_head', 'feed_links_extra', 3 ); //Extra feeds such as category feeds
+remove_action( 'wp_head', 'feed_links', 2 ); // General feeds: Post and Comment Feed
+
+// Disable json api
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+
+// Remove the Link header for the WP REST API
+// [link] => <http://www.example.com/wp-json/>; rel="https://api.w.org/"
+remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+
+// Remove script and style versions
+function pu_remove_script_version( $src ){
+    return remove_query_arg( 'ver', $src );
+}
+add_filter( 'script_loader_src', 'pu_remove_script_version' );
+add_filter( 'style_loader_src', 'pu_remove_script_version' );
+
+/* Use theme images */
+>>>>>>> 2c94cbb5c09e5e794b9a4e9aa39a350615bab73b
 function theme_img($img) {
   if ( $img ) {
       echo get_template_directory_uri() . '/dist/img/' . $img;
@@ -26,10 +64,15 @@ function get_theme_img($img) {
   return;
 }
 
+<<<<<<< HEAD
 /**
  * Get the WordPress attachment 
  * @return Array
  */
+=======
+// Get featured image of post
+//get attachment meta
+>>>>>>> 2c94cbb5c09e5e794b9a4e9aa39a350615bab73b
 if ( !function_exists('wp_get_attachment') ) {
   function wp_get_attachment( $attachment_id, $size )
   {
@@ -189,8 +232,24 @@ function prikr_head_tags() {
   echo '<link rel="shortcut icon" href="'. MY_THEME_DIR_URI . '/favicons/favicon.ico" >';
   echo '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-57x57.png" />';
   echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-196x196.png" sizes="196x196" />';
+<<<<<<< HEAD
 }
 add_action('wp_head', 'prikr_head_tags');
+=======
+  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-96x96.png" sizes="96x96" />';
+  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-32x32.png" sizes="32x32" />';
+  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-16x16.png" sizes="16x16" />';
+  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-128.png" sizes="128x128" />';
+  echo '<meta name="application-name" content="MvR Academy"/>';
+  echo '<meta name="msapplication-TileColor" content="#5C2483" />';
+  echo '<meta name="msapplication-TileImage" content="'. MY_THEME_DIR_URI . '/favicons/mstile-144x144.png" />';
+  echo '<meta name="msapplication-square70x70logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-70x70.png" />';
+  echo '<meta name="msapplication-square150x150logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-150x150.png" />';
+  echo '<meta name="msapplication-wide310x150logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-310x150.png" />';
+  echo '<meta name="msapplication-square310x310logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-310x310.png" />';
+}
+add_action('wp_head', 'prikr_favicon');
+>>>>>>> 2c94cbb5c09e5e794b9a4e9aa39a350615bab73b
 
 /**
  * Create an more advanced search method

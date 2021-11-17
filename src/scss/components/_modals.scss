@@ -1,0 +1,30 @@
+@include respond-from(md) {
+
+  .modal-dialog {
+    max-width: 700px;
+    margin: 6rem auto;
+  }
+
+  .modal-content {
+    border-radius: 12px;
+  }
+
+  .modal-header {
+    padding: 2em;
+    border-bottom: 0;
+  }
+
+  .modal-body {
+    padding: 1rem 2rem 3rem 2rem;
+  }
+
+}
+
+.btn-close {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29.25' height='29.25' viewBox='0 0 29.25 29.25'%3E%3Cpath id='Icon_ionic-md-close-circle' data-name='Icon ionic-md-close-circle' d='M18,3.375A14.625,14.625,0,1,0,32.625,18,14.574,14.574,0,0,0,18,3.375Zm7.313,19.89-2.048,2.047L18,20.047l-5.265,5.265-2.048-2.047L15.953,18l-5.265-5.265,2.048-2.047L18,15.953l5.265-5.265,2.048,2.047L20.047,18Z' transform='translate(-3.375 -3.375)' fill='%23df4c4c'/%3E%3C/svg%3E%0A");
+  width: 10px;
+  height: 10px;
+  background-size: contain;
+  top: -3px;
+  position: relative;
+}

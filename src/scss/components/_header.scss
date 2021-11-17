@@ -1,0 +1,45 @@
+.logo {
+  max-width: 130px;
+  transition: .3s ease;
+
+  @include respond-from(lg) {
+    max-width: 200px;
+  }
+}
+
+
+.header {
+  position: relative;
+
+  &__top {
+    z-index: 33;
+    position: relative;
+  }
+
+  &__navigation {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: #fff;
+    position: relative;
+    z-index: 32;
+
+    &.sticky {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      transform: translateY(-100%);
+      transition: .5s ease-in-out;
+      box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);
+      
+      .logo {
+        max-width: 140px;
+        transition: .3s ease-in-out;
+      }
+
+      &.active {
+        transition: .5s ease-in-out;
+        transform: translateY(0);
+      }
+    }
+  }
+}

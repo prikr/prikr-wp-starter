@@ -6,6 +6,7 @@ import { onVisibilityChange } from './helpers'
 /**
  * Web standards
  */
+import './menu'
 import './lazyload'
 import './cookieconsent'
 
@@ -18,8 +19,7 @@ import {  Modal } from 'bootstrap';
  * Dynamic import scripts
  */
 const elements = [
-  '.tdfilters',
-
+ ''
 ];
 
 [].forEach.call(elements, (element) => {
@@ -30,10 +30,11 @@ const elements = [
     const lazyloadHandler = onVisibilityChange(document.querySelector(element), function () {
 
       // Example library without init:
-      // if (element === '.tdfilters') {
-      //   const Filters = import('./filters')
+      // if (element === '.has-js-flip') {
+      //   const Filters = import('./flip')
       // }
       
+     
       // Example library with init:
       // if (element === '[data-aos]' || element === '.aos-element') {
       //   const AOS = import('aos').then(AOS => {

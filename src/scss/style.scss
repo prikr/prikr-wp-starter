@@ -1,24 +1,28 @@
-// Font Import
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Ubuntu:300,400,500,700&display=swap');
-
 @import 'abstracts/mixins';
-
-// FONTAWESOME
-@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import 'abstracts/utilities';
+@import 'abstracts/fonts';
 
 // Variables
 @import "variables";
 
-// Bootstrap
+// Node modules
+@import 'components/hamburger';
+@import "node_modules/swiper/swiper";
+@import 'node_modules/hamburgers/_sass/hamburgers/hamburgers';
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // Base
 @import "base/base";
 @import "base/typography";
+@import "base/forms";
 
 // Components
+@import "components/header";
+@import "components/navigation";
+@import "components/buttons";
+@import "components/pagebuilder";
+@import "components/modals";
+
+// Hard components
 @import "components/lazyload";
 @import "components/cookieconsent";
-
-// Pages

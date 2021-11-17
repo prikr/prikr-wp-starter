@@ -191,3 +191,80 @@ function my_deregister_scripts() {
   }
 }
 add_action( 'wp_print_scripts', 'my_deregister_scripts', 100 );
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyAtfsjVSyWIHxCW2-kfZ55j-eWXdj78UG0');
+}
+
+add_action('acf/init', 'my_acf_init');
+
+
+add_filter('acfe/fields/advanced_link/sub_fields', 'my_acf_advanced_link_sub_fields', 10, 3);
+function my_acf_advanced_link_sub_fields($sub_fields, $field, $value){
+    
+    /**
+     * @array $sub_fields   Sub fields array
+     * @array $field        Advanced Link field
+     * @array $value        Advanced Link values
+     */
+
+    $sub_fields[] = array(
+			'key' => 'field_614db8788bd87',
+			'label' => 'Modal',
+			'name' => 'modal',
+			'type' => 'true_false',
+			'instructions' => 'Als u deze optie aanvinkt, vervalt de link hierboven.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'Modal koppelen aan knop',
+			'default_value' => 0,
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+		);
+
+    $sub_fields[] = array(
+			'key' => 'field_614db8a08bd88',
+			'label' => 'Modal',
+			'name' => 'modal',
+			'type' => 'post_object',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_614db8788bd87',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'modals',
+			),
+			'taxonomy' => '',
+			'allow_null' => 0,
+			'multiple' => 0,
+			'return_format' => 'object',
+			'save_custom' => 0,
+			'save_post_status' => 'publish',
+			'acfe_bidirectional' => array(
+				'acfe_bidirectional_enabled' => '0',
+			),
+			'ui' => 1,
+		);
+    
+    return $sub_fields;
+    
+}

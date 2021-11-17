@@ -1,0 +1,155 @@
+// Colors
+$white: #fff !default;
+$gray: #adb5bd !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #F0F0F0 !default;
+$gray-300: #d9d9d9 !default;
+$gray-400: #adb5bd !default;
+$gray-500: #898989 !default;
+$gray-600: #707070 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #363636 !default;
+
+// Neutrals
+$black:  #000000 !default;
+$dark: #1A1A1A  !default;
+$antra: #444 !default;
+$light: #F9F9F9 !default;
+$gray-dark: $gray-900 !default;
+
+$purple: #5c2483 !default;
+$purple-dark: #401361 !default;
+$orange-dark: #db9509 !default;
+$orange-light: #F6A600 !default;
+$orange: #F07E00 !default;
+$red: #da0101 !default;
+$green: #5acf16 !default;
+$yellow: #daf019 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "white": $white,
+  "black": $black,
+  "dark": $dark,
+  "antra": $antra,
+  "gray": $gray-500,
+  "gray-dark": $gray-900,
+  "light": $gray-200,
+  "primary": $orange,
+  "primary-dark": $orange-dark,
+  "primary-light": $orange-light,
+  "secondary": $dark,
+  "secondary-dark": $black,
+  "purple": $purple,
+  "purple-dark": $purple,
+  "danger": $red,
+  "success": $green,
+  "warning": $yellow
+),$theme-colors);
+
+$body-bg: $white;
+$body-color: $antra;
+
+$font-family-sans-serif:      'Roboto', system-ui, -apple-system, 'Arial', "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !default;
+$font-headings:               'Roboto', system-ui, -apple-system, "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !default;
+$font-size-root:              null !default;
+$font-size-base:              1.125rem !default; // Assumes the browser default, typically `16px` 18px now
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-lg:                $font-size-base * 1.25 !default;
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal !default;
+
+$line-height-base:            1.3 !default;
+$line-height-sm:              1.15 !default;
+$line-height-lg:              1.3 !default;
+
+$h1-font-size:                2.5rem !default;
+$h2-font-size:                1.875rem !default;
+$h3-font-size:                1.875rem !default;
+$h4-font-size:                1.5rem !default;
+$h5-font-size:                1.25rem !default;
+$h6-font-size:                $font-size-base !default;
+
+$grid-gutter-width: 72px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1280px
+) !default;
+
+$border-color: $gray-300;
+
+$border-radius: .25rem !default;
+$border-radius-lg: .25rem !default;
+$border-radius-sm: .25rem !default;
+
+$input-btn-padding-y:         0.7rem !default;
+$input-btn-padding-x:         1.5rem !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           6px !default;
+$btn-border-radius-sm:        6px !default;
+$btn-border-radius-lg:        6px !default;
+
+// $btn-padding-y:               $input-btn-padding-y !default;
+// $btn-padding-x:               $input-btn-padding-x !default;
+// $btn-font-family:             $input-btn-font-family !default;
+// $btn-font-size:               $input-btn-font-size !default;
+// $btn-line-height:             $input-btn-line-height !default;
+$btn-white-space:             null !default; // Set to `nowrap` to prevent text wrapping
+
+// $btn-padding-y-sm:            $input-btn-padding-y-sm !default;
+// $btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+// $btn-font-size-sm:            $input-btn-font-size-sm !default;
+
+// $btn-padding-y-lg:            $input-btn-padding-y-lg !default;
+// $btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+// $btn-font-size-lg:            $input-btn-font-size-lg !default;
+
+// $btn-border-width:            $input-btn-border-width !default;
+
+// $btn-font-weight:             $font-weight-normal !default;
+$btn-box-shadow:              none !default;
+$btn-focus-width:             0 !default;
+$btn-focus-box-shadow:        none !default;
+$btn-disabled-opacity:        .65 !default;
+$btn-active-box-shadow:       none !default;
+
+$btn-link-color:              $white !default;
+$btn-link-hover-color:        $white !default;
+$btn-link-disabled-color:     $gray-600 !default;
+
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+$btn-hover-bg-shade-amount:       15% !default;
+$btn-hover-bg-tint-amount:        15% !default;
+$btn-hover-border-shade-amount:   20% !default;
+$btn-hover-border-tint-amount:    10% !default;
+$btn-active-bg-shade-amount:      20% !default;
+$btn-active-bg-tint-amount:       20% !default;
+$btn-active-border-shade-amount:  25% !default;
+$btn-active-border-tint-amount:   10% !default;
+
+:root {
+  --bs-font-headings: 'Heebo', system-ui, -apple-system, "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --bs-font-sans-serif: 'Heebo', system-ui, -apple-system, 'Arial', "Segoe UI","Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}

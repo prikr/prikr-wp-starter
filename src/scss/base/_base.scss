@@ -1,1 +1,118 @@
-p { color:red; }
+@function get-breakpoints($key: "md") {
+  @return map-get($container-max-widths, $key);
+}
+
+.s-100 { min-height: 1043px; }
+.s-90 { min-height: 894px; }
+.s-80 { 
+  min-height: 834px; 
+  &-lg {
+    @include respond-from(smallscreen) {
+      min-height: 834px !important;
+    }
+  }
+}
+.s-75 { min-height: 745px; }
+.s-70 { 
+  min-height: 707px; 
+  &-lg {
+    @include respond-from(smallscreen) {
+      min-height: 707px !important;
+    }
+  }
+}
+.s-67 { min-height: 670px; }
+
+.s-55 { 
+  min-height: 560px;
+  &-lg {
+    @include respond-from(smallscreen) {
+      min-height: 560px !important;
+    }
+  }
+}
+.s-50 { 
+  min-height: 530px;
+  &-lg {
+    @include respond-from(smallscreen) {
+      min-height: 530px !important;
+    }
+  }
+}
+.s-60 { 
+  min-height: 607px; 
+  &-lg {
+    @include respond-from(lg) {
+      min-height: 607px !important;
+    }
+  }
+  &-md {
+    @include respond-from(md) {
+      min-height: 607px !important;
+    }
+  }
+}
+.s-45 { 
+  min-height: 447px; }
+.s-40 { 
+  min-height: 400px; 
+  &-lg {
+    @include respond-from(smallscreen) {
+      min-height: 400px !important;
+    }
+  }
+}
+.s-35 { min-height: 372px; }
+.s-30 { min-height: 298px; }
+.s-20 { min-height: 223px; }
+.s-15 { min-height: 149px; }
+
+@media (max-width: 768px) {
+  .s-50 { min-height: 372px; }
+}
+
+.iframe-container {
+  overflow: hidden;
+  border-radius: 12px;
+  
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
+
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.font-roboto {
+  font-family: 'Roboto', 'Averta', Arial, Helvetica, sans-serif;
+}
+
+.bg-404 {
+  font-size: 250px;
+  z-index: -1;
+  position: absolute;
+  top: 22%;
+  left: 0;
+  opacity: 0.1;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+
+  @include respond-from(lg) {
+    font-size: 450px;
+  }
+}
+
+.border-sm-0 {
+  @include respond-to(md) {
+    border: 0 !important;
+  }
+}
+
+input, select {
+  height: 52px !important;
+}

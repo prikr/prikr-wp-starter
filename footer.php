@@ -1,22 +1,25 @@
 <?php
-/*
- *  Author: Jasper van Doorn
- *  Footer.php
- */
-  
-if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+/**
+ * Project: mvr
+ * File: footer.php
+ * Author: Jasper van Doorn
+ * Copyright © Prikr 
+*/
+
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 ?>
   </main>
 
-  <?php get_template_part('content/content', 'cookies'); ?>
-
-  <?php get_template_part('content/content', 'footer'); ?>
-
   <footer>
-
+    <?php get_template_part('content/content', 'footer'); ?>
   </footer>
+  <?php get_template_part('content/content', 'cookies');
+  
 
-  <?php wp_footer(); ?>
+  wp_footer(); ?>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtfsjVSyWIHxCW2-kfZ55j-eWXdj78UG0"></script>
+
   </body>
 </html>

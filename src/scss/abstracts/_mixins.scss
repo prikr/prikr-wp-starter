@@ -1,17 +1,11 @@
 // Breakpoints
 $breakpoints: (
-        'xsmall' : 359px,
-        'mobile-small' : 400px,
-        'small': 540px,
-        'mobile' : 668px,
-        'phablet' : 768px,
-        'tablet-p' : 800px,
-        'tablet-costum': 860px,
-        'tablet' : 1023px,
-        'smallerscreen' : 1200px,
-        'smallscreen' : 1270px,
-        'netbook' : 1365px,
-        'desktop' : 1440px,
+   'xs': 0,
+   'sm': 576px,
+   'md': 768px,
+   'lg': 992px,
+   'xl': 1200px,
+   'xxl': 1400px
 );
 
 @mixin respond-to($breakpoint) {
