@@ -52,21 +52,15 @@ export function watcher() {
     done();
   }));
   gulp.watch([
-    "*.php",
-    "./**/*.php",
-    "./*/*.php",
-    "./**/**/*.php",
-    "./templates/*.php",
+    "./*.php",
     "./content/*.php",
     "./content/**/*.php",
-    "./modules/*.php",
-    "./modules/*/*.php",
-    "./modules/*/*/*.php",
     "./templates/*.php",
     "./templates/**/*.php",
-    "./templates/**/**/*.php",
-    "./woocommerce/*.php",
-    "./woocommerce/**/*.php"
+    "./functions/*.php",
+    "./functions/**/*.php",
+    "./includes/*.php",
+    "./includes/**/*.php",
   ], function (done) {
     browser.reload();
     done();

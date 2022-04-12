@@ -1,17 +1,17 @@
 {
-  "name": "prikr-wp-starter",
-  "description": "official prikr wordpress theme",
+  "name": "idesign",
+  "description": "official idesign custom theme",
   "author": {
     "name": "Jasper van Doorn",
     "email": "jasper@prikr.io",
     "url": "https://prikr.io"
   },
   "keywords": [
-    "prikr-wp-starter"
+    "idesign"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/prikr/prikr-wp-starter"
+    "url": "https://github.com/prikr/idesign"
   },
   "version": "1.0.0",
   "main": "index.js",
@@ -32,7 +32,6 @@
     "@animated-burgers/burger-squeeze": "^1.1.2",
     "@babel/plugin-transform-react-jsx": "^7.12.17",
     "@babel/plugin-transform-react-jsx-self": "^7.12.13",
-    "@fortawesome/fontawesome-free": "^5.15.2",
     "autoprefixer": "^10.2.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
@@ -40,28 +39,16 @@
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^5.0.0-beta1",
     "clean-webpack-plugin": "^3.0.0",
-    "critical": "^3.0.1",
     "crumbsjs": "^0.2.1",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^8.2.0",
-    "event-stream": "^4.0.1",
     "fs": "0.0.1-security",
-    "gsap": "^3.6.1",
-    "gulp-add-src": "^1.0.0",
     "gulp-clean-css": "^4.3.0",
-    "gulp-css-purge": "^3.0.9",
-    "gulp-extract-css": "0.0.7",
     "gulp-google-webfonts": "^4.0.0",
-    "gulp-penthouse": "^0.2.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "gulp-wait": "0.0.2",
-    "hamburgers": "^1.1.3",
     "html-webpack-plugin": "^5.2.0",
     "https-browserify": "^1.0.0",
-    "isotope-layout": "^3.0.6",
     "jquery": "^3.5.1",
-    "penthouse": "^2.3.2",
     "popper.js": "^1.16.0",
     "postcss": "^8.2.4",
     "postcss-cli": "^8.3.1",
@@ -77,12 +64,10 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "@popperjs/core": "^2.6.0",
-    "aos": "^2.3.4",
     "browser-sync": "^2.26.13",
+    "crittr": "^1.4.0",
     "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
-    "gulp-cache": "^1.1.3",
-    "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-debug": "^4.0.0",
     "gulp-header-comment": "^0.9.0",
@@ -91,14 +76,10 @@
     "gulp-postcss": "^9.0.0",
     "gulp-purgecss": "^3.1.3",
     "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.1.3",
     "gulp-sass": "^4.1.0",
-    "gulp-terser": "^1.4.1",
-    "gulp-uglify-es": "^2.0.0",
     "path": "^0.12.7",
     "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.15.0",
-    "webpack-dev-middleware": "^4.1.0",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-dev-middleware": "^4.1.0"
   }
 }

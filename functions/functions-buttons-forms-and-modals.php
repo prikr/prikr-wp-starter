@@ -9,14 +9,10 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-
-if (!defined('ABSPATH')) exit; // Exit if accessed directly
-
 /**
  * Remove P tags from forms
  */
 add_filter('wpcf7_autop_or_not', '__return_false');
-
 
 /**
  * Get the advanced form
@@ -189,19 +185,3 @@ function get_dynamic_modal($modal)
     'link'      =>  $modal['link']
   ));
 }
-
-
-
-// TODO:
-// check if contact form 7 is loaded on all pages:
-//   add_action('wp_enqueue_scripts', 'load_wpcf7_scripts');
-// function load_wpcf7_scripts() {
-//   if ( is_page('contact') ) {
-//     if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
-//       wpcf7_enqueue_scripts();
-//     }
-//     if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
-//       wpcf7_enqueue_styles();
-//     }
-//   }
-// }

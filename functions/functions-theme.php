@@ -181,14 +181,18 @@ function html5_video($atts, $content = null) {
 add_shortcode('video', 'html5_video');
 
 function prikr_head_tags() {
-  echo '<meta name="theme-color" content="#FFCC00">';
-  echo '<meta name="application-name" content="EKH"/>';
-  echo '<meta name="msapplication-TileColor" content="#FFCC00" />';
-  echo '<meta name="msapplication-TileImage" content="'. MY_THEME_DIR_URI . '/favicons/mstile-144x144.png" />';
-  echo '<meta name="msapplication-square70x70logo" content="'. MY_THEME_DIR_URI . '/favicons/mstile-70x70.png" />';
-  echo '<link rel="shortcut icon" href="'. MY_THEME_DIR_URI . '/favicons/favicon.ico" >';
-  echo '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'. MY_THEME_DIR_URI . '/favicons/apple-touch-icon-57x57.png" />';
-  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . '/favicons/favicon-196x196.png" sizes="196x196" />';
+
+  $env = new Environment;
+  $theme = $env->get_current_theme();
+
+  echo '<meta name="theme-color" content="' . $theme['color'] . '">';
+  echo '<meta name="application-name" content="' . ucfirst($theme['name']) . '"/>';
+  echo '<meta name="msapplication-TileColor" content="' . $theme['color'] . '" />';
+  echo '<meta name="msapplication-TileImage" content="'. MY_THEME_DIR_URI . 'favicons/' . $theme['name'] .  '/mstile-144x144.png" />';
+  echo '<meta name="msapplication-square70x70logo" content="'. MY_THEME_DIR_URI . 'favicons/' . $theme['name'] .  '/mstile-70x70.png" />';
+  echo '<link rel="shortcut icon" href="'. MY_THEME_DIR_URI . 'favicons/' . $theme['name'] .  '/favicon.ico" >';
+  echo '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'. MY_THEME_DIR_URI . 'favicons/' . $theme['name'] .  '/apple-touch-icon-57x57.png" />';
+  echo '<link rel="icon" type="image/png" href="'. MY_THEME_DIR_URI . 'favicons/' . $theme['name'] .  '/favicon-196x196.png" sizes="196x196" />';
 }
 add_action('wp_head', 'prikr_head_tags');
 

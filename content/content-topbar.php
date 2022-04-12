@@ -8,9 +8,7 @@
 */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
-
 ?>
-
 
 <section name="top" class="header__top d-none d-lg-block">
 

@@ -6,9 +6,7 @@
 @import "variables";
 
 // Node modules
-@import 'components/hamburger';
 @import "node_modules/swiper/swiper";
-@import 'node_modules/hamburgers/_sass/hamburgers/hamburgers';
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // Base
@@ -20,7 +18,6 @@
 @import "components/header";
 @import "components/navigation";
 @import "components/buttons";
-@import "components/pagebuilder";
 @import "components/modals";
 
 // Hard components
